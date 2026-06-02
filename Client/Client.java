@@ -81,24 +81,39 @@ public class Client {
                         System.out.println("Réponse invalide du service : " + resJson);
                     }
                     break;
-				case 2 : 
-				System.out.println("Date de la réservation (dd/MM/yyyy) : ");
-				String dateString = sc.nextLine();
-				LocalDate date;
-				try {
-					date = LocalDate.parse(dateString, format);
-				} catch (DateTimeParseException e) {
-					System.out.println("Date invalide.");
-					break;
-				}
-					System.out.println("Nom pour la réservation : ");
+				case 2:
+						System.out.print("Numéro du restaurant : ");
+                        int id_restau = sc.nextInt();
+                        sc.nextLine();
+                        System.out.print("Date de la réservation (dd/MM/yyyy) : ");
+                        String saisie = sc.nextLine();
+                        LocalDate date = null;
+                        
+                        try {
+                            date = LocalDate.parse(saisie, format);
+                        } catch (DateTimeParseException e) {
+                            System.out.println("Date invalide. Annulation de la réservation.\n");
+                            break;
+						}
 
-					System.out.println("Prénom pour la réservation : ");
+                        System.out.print("Nom pour la réservation : ");
+                        String nom = sc.nextLine();
 
-					System.out.println("Nombre de convives : ");
+                        System.out.print("Prénom pour la réservation : ");
+                        String prenom = sc.nextLine();
 
-					System.out.println("Téléphone : ");
+                        System.out.print("Nombre de convives : ");
+                        int convives = sc.nextInt();
+                        sc.nextLine();
 
+                        System.out.print("Téléphone : ");
+                        String tel = sc.nextLine();
+
+                        // Appel RMI
+                        Boolean reponseJson = reservation.reserverTable(id_restau, nom, prenom, convives, tel, date);
+						if(reponseJson){
+							System.out.println("Réservation enregistrée");
+						}
 
 					break;
 				default : 
