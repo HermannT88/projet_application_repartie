@@ -81,22 +81,6 @@ public class Client {
                         System.out.println("Réponse invalide du service : " + resJson);
                     }
                     break;
-<<<<<<< HEAD
-				case 2 : 
-				System.out.println("Date de la réservation (dd/MM/yyyy) : ");
-				String dateString = sc.nextLine();
-				LocalDate date;
-				try {
-					date = LocalDate.parse(dateString, format);
-				} catch (DateTimeParseException e) {
-					System.out.println("Date invalide.");
-					break;
-				}
-			System.out.println("ID du restaurant : ");
-			int idResto = sc.nextInt();
-			sc.nextLine();
-			System.out.println("Nom pour la réservation : ");
-=======
 				case 2:
 						System.out.print("Numéro du restaurant : ");
                         int id_restau = sc.nextInt();
@@ -126,14 +110,10 @@ public class Client {
                         String tel = sc.nextLine();
 
                         // Appel RMI
-                        Boolean reponseJson = reservation.reserverTable(id_restau, nom, prenom, convives, tel, date);
-						if(reponseJson){
-							System.out.println("Réservation enregistrée");
-						}
+                        String reponseJson = reservation.reserverTable(id_restau, nom, prenom, convives, tel, date);
 
 					break;
 				default : 
->>>>>>> origin/main
 					exit = true;
 					break;
 			}
