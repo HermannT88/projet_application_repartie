@@ -66,10 +66,11 @@ public class ServiceReservation implements ServiceInterface {
             Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
             connection.setAutoCommit(false);
 
-            String findTableSql = "SELECT id_table FROM table_restau t WHERE t.capacite >= ? AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND TRUNC(r.dates) = ?) AND ROWNUM = 1";
+            String findTableSql = " SELECT t.id_table FROM table_restau t WHERE t.capacite >= 2 AND NOT EXISTS ( SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates < TO_DATE(?, 'DD/MM/YYYY HH24:MI') AND r.dates_fin > TO_DATE(?, 'DD/MM/YYYY HH24:MI'));";
             try (PreparedStatement ps = connection.prepareStatement(findTableSql)) {
                 ps.setInt(1, nbClients);
                 ps.setDate(2, java.sql.Date.valueOf(date));
+                ps.setDate(3, java.sql.Date.valueOf(date));
                 ResultSet rs = ps.executeQuery();
                 if (rs.next()) {
                     int idTable = rs.getInt("id_table");
