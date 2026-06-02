@@ -47,15 +47,17 @@ prenom_client varchar2(40),
 nb_convives number(2),
 telephone varchar2(15),
 dates date,
+heure_debut date,
+heure_fin date,
 montant number(3),
 primary key (id_res),
 constraint fk_res_table foreign key (id_table) references table_restau(id_table)
 );
 
 -- Tuples de reservation
-insert into reservation values(100, 11, 'Dupont', 'Jean', 3, '0601020304', to_date('10/09/2026 19:30', 'dd/mm/yyyy hh24:mi'));
-insert into reservation values(101, 16, 'Martin', 'Alice', 4, '0708091011', to_date('10/09/2026 20:00', 'dd/mm/yyyy hh24:mi'));
-insert into reservation values(102, 13, 'Bernard', 'Luc', 2, '0611223344', to_date('11/09/2026 12:30', 'dd/mm/yyyy hh24:mi'));
+insert into reservation values(100, 11, 'Dupont', 'Jean', 3, '0601020304', to_date('10/09/2026', 'dd/mm/yyyy'), to_date('19:30', 'hh24:mi'), to_date('21:40') , 'hh24:mi');
+insert into reservation values(101, 16, 'Martin', 'Alice', 4, '0708091011', to_date('10/09/2026 20:00', 'dd/mm/yyyy hh24:mi'), to_date('11:30', 'hh24:mi'), to_date('14:40') , 'hh24:mi');
+insert into reservation values(102, 13, 'Bernard', 'Luc', 2, '0611223344', to_date('11/09/2026 12:30', 'dd/mm/yyyy hh24:mi'), to_date('18:45', 'hh24:mi'), to_date('20:40') , 'hh24:mi' );
 
 -- Table Plat
 -- DROP TABLE plat CASCADE CONSTRAINTS;
