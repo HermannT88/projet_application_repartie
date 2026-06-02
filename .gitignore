@@ -51,3 +51,8 @@ nbdist/
 Thumbs.db
 
 .env
+
+### Pour le TypeScript
+node_modules/
+package-lock.json
+js/
