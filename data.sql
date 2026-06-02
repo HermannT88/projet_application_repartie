@@ -47,6 +47,7 @@ prenom_client varchar2(40),
 nb_convives number(2),
 telephone varchar2(15),
 dates date,
+montant number(3),
 primary key (id_res),
 constraint fk_res_table foreign key (id_table) references table_restau(id_table)
 );
@@ -56,6 +57,24 @@ insert into reservation values(100, 11, 'Dupont', 'Jean', 3, '0601020304', to_da
 insert into reservation values(101, 16, 'Martin', 'Alice', 4, '0708091011', to_date('10/09/2026 20:00', 'dd/mm/yyyy hh24:mi'));
 insert into reservation values(102, 13, 'Bernard', 'Luc', 2, '0611223344', to_date('11/09/2026 12:30', 'dd/mm/yyyy hh24:mi'));
 
+-- Table Plat
+-- DROP TABLE plat CASCADE CONSTRAINTS;
+create table plat
+(
+id_plat number(4),
+id_res number(4),
+libelle_plat varchar2(40),
+prix_unitaire number(2),
+quantite_stockee number(4),
+primary key (id_plat),
+constraint fk_res_plat foreign key (id_res) references reservation(id_res)
+);
+
+insert into plat values(1, 100, 'Gigot d''agneau', 25, 2);
+insert into plat values(2, 100, 'Quiche Lorraine', 12, 1);
+insert into plat values(3, 101, 'Bouchée à la Reine', 18, 4);
+insert into plat values(4, 101, 'Macarons de Nancy', 8, 4);
+insert into plat values(5, 102, 'Pâté Lorrain', 14, 2);
 
 -- Séquence pour le numéro de réservation
 -- DROP SEQUENCE seq_restaurant;
