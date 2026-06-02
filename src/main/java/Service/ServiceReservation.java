@@ -6,18 +6,41 @@ import java.time.LocalDate;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * Implémentation du service RMI de réservation.
+ * Cette classe interroge la base de données Oracle de l'IUT pour
+ * récupérer les restaurants et effectuer des réservations de tables de manière sécurisée.
+ */
 public class ServiceReservation implements ServiceInterface {
 
+    /**
+     * Arguments de ligne de commande reçus au démarrage (contiennent les identifiants DB).
+     */
     private String[] args;
 
+    /**
+     * Constructeur par défaut initialisant les arguments à un tableau vide.
+     */
     public ServiceReservation() {
         this.args = new String[0];
     }
 
+    /**
+     * Constructeur initialisant le service avec les arguments contenant les identifiants de connexion Oracle.
+     *
+     * @param args Les arguments passés à la ligne de commande (nom d'utilisateur et mot de passe DB).
+     */
     public ServiceReservation(String[] args) {
         this.args = args != null ? args.clone() : new String[0];
     }
 
+    /**
+     * Récupère les données de tous les restaurants de la table RESTAURANT de la base Oracle.
+     * Charge dynamiquement le driver Oracle JDBC et effectue une requête SELECT.
+     *
+     * @return Chaîne JSON contenant la liste des restaurants ou un message d'erreur si la connexion échoue.
+     * @throws RemoteException En cas de problème de communication RMI.
+     */
     @Override
     public String recupererDonnees() throws RemoteException {
         String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
@@ -58,6 +81,20 @@ public class ServiceReservation implements ServiceInterface {
         }
     }
 
+    /**
+     * Effectue une réservation de table dans la base de données Oracle.
+     * Utilise une recherche avec verrouillage concurrent (SELECT FOR UPDATE SKIP LOCKED) 
+     * puis insère une ligne dans la table RESERVATION.
+     *
+     * @param idResto    L'identifiant du restaurant ciblé.
+     * @param nom        Le nom du client effectuant la réservation.
+     * @param prenom     Le prénom du client effectuant la réservation.
+     * @param nbClients  Le nombre de convives pour la réservation.
+     * @param telephonne Le numéro de téléphone de contact du client.
+     * @param date       La date prévue pour la réservation.
+     * @return Chaîne JSON indiquant si la réservation a réussi ou échoué.
+     * @throws RemoteException En cas de problème de communication RMI.
+     */
     @Override
     public String reserverTable(int idResto, String nom, String prenom, int nbClients, String telephonne, LocalDate date) throws RemoteException {
         String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";

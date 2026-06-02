@@ -15,8 +15,19 @@ import org.json.JSONObject;
 import Service.ServiceInterface;
 import Service.ServiceReservation;
 
+/**
+ * Classe client pour l'application RMI de réservation.
+ * Cette classe permet à l'utilisateur d'interagir en ligne de commande (CLI)
+ * avec le service distant pour récupérer les restaurants ou réserver une table.
+ */
 public class Client {
 
+    /**
+     * Affiche de manière lisible dans la console la liste des restaurants
+     * fournie sous forme d'un JSONArray.
+     *
+     * @param resJson Le tableau JSON contenant les informations des restaurants.
+     */
 	public void affichage(JSONArray resJson){
 		System.out.println("Restaurants :");
 
@@ -35,7 +46,14 @@ public class Client {
 		System.out.println("Fin de l'affichage des restaurants.");
 	}
 
-    //Methode main qui prendra 2 args, le host et le port de l'annuaire distant
+    /**
+     * Point d'entrée du programme client.
+     * Initialise la connexion à l'annuaire RMI et affiche un menu interactif.
+     *
+     * @param args Arguments en ligne de commande : args[0] (hôte du registre RMI) et args[1] (port du registre).
+     * @throws RemoteException En cas d'erreur réseau RMI.
+     * @throws NotBoundException Si le service RMI recherché n'est pas lié dans l'annuaire.
+     */
     public static void main(String[] args)throws RemoteException, NotBoundException {
 	// Scanner
 		Scanner sc = new Scanner(System.in);
@@ -126,6 +144,4 @@ public class Client {
 		System.out.println("Le service est introuvable/ne fonctionne pas");
 	}
     }
-
-    
 }
