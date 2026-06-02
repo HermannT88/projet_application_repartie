@@ -14,3 +14,10 @@
 * SAGET Logan
 
 
+javac -cp lib/json-20231013.jar:lib/ojdbc11.jar:. Service/*.java Client/Client.java
+
+rmiregistry 1099 2>/dev/null & disown
+
+java -cp .:lib/json-20231013.jar:lib/ojdbc11.jar Service.LancerService e97539u <dbPassword>
+
+java -cp .:lib/json-20231013.jar Client.Client 100.64.80.202 1099
