@@ -111,6 +111,7 @@ public class Client {
 
                         // Appel RMI
                         String reponseJson = reservation.reserverTable(id_restau, nom, prenom, convives, tel, date);
+												System.out.println(reponseJson);
 
 					break;
 				default : 

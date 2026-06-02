@@ -13,10 +13,10 @@ public class LancerService {
             ServiceReservation reserv = new ServiceReservation(args); // creation d un objet (new)
             ServiceInterface rd = (ServiceInterface) UnicastRemoteObject.exportObject((Remote) reserv, 0); // 0 pour que OS donne le
             // port automatiquement
-            Registry reg = LocateRegistry.getRegistry(1099); // 1099 port par defaut des annuaire (modifiable)
+            Registry reg = LocateRegistry.getRegistry("127.0.0.1", 1099); // 1099 port par defaut des annuaire (modifiable)
             reg.rebind("reservation", rd); // donner un nom dans l annuaire pour le service
         } catch (RemoteException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

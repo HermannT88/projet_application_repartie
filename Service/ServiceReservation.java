@@ -59,70 +59,70 @@ public class ServiceReservation implements ServiceInterface {
     }
 
     @Override
-    public String reserverTable(int idResto,String nom, String prenom, int nbClients, String telephonne, LocalDate date) throws RemoteException {
+    public String reserverTable(int idResto, String nom, String prenom, int nbClients, String telephonne, LocalDate date) throws RemoteException {
         String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
+        JSONObject response = new JSONObject();
+
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             try (Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "")) {
                 connection.setAutoCommit(false);
 
+                // 1. Rechercher une table disponible avec un verrouillage temporaire pour éviter les conflits
                 String findTableSql = "SELECT t.id_table FROM table_restau t "
                         + "WHERE t.id_restaurant = ? AND t.capacite >= ? "
-                        + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates < ? AND r.dates_fin > ?) "
+                        + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates = ?) "
                         + "FOR UPDATE SKIP LOCKED";
 
+                int idTable = -1;
                 try (PreparedStatement ps = connection.prepareStatement(findTableSql)) {
                     ps.setInt(1, idResto);
                     ps.setInt(2, nbClients);
                     ps.setDate(3, Date.valueOf(date));
-                    ps.setDate(4, Date.valueOf(date));
 
                     try (ResultSet rs = ps.executeQuery()) {
                         if (rs.next()) {
-                            int idTable = rs.getInt("id_table");
-                            rs.close();
-
-                            String insertSql = "INSERT INTO reservation (id_res, id_table, nom_client, prenom_client, nb_convives, telephone, dates, dates_fin, montant) "
-                                    + "VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
-                            try (PreparedStatement ins = connection.prepareStatement(insertSql)) {
-                                ins.setInt(1, idTable);
-                                ins.setString(2, nom);
-                                ins.setString(3, prenom);
-                                ins.setInt(4, nbClients);
-                                ins.setString(5, telephonne);
-                                ins.setDate(6, Date.valueOf(date));
-                                ins.setTimestamp(7, null);
-                                ins.setInt(8, 0);
-
-                                int updated = ins.executeUpdate();
-                                connection.commit();
-                                return updated == 1 ? "Réservation confirmée pour la table " + idTable : "Échec de la réservation.";
-                            }
+                            idTable = rs.getInt("id_table");
                         }
                     }
+                }
 
-                    String countSql = "SELECT COUNT(*) AS candidate_count FROM table_restau t "
-                            + "WHERE t.id_restaurant = ? AND t.capacite >= ? "
-                            + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates < ? AND r.dates_fin > ?)";
-                    try (PreparedStatement countStmt = connection.prepareStatement(countSql)) {
-                        countStmt.setInt(1, idResto);
-                        countStmt.setInt(2, nbClients);
-                        countStmt.setTimestamp(3, start);
-                        countStmt.setTimestamp(4, end);
-                        try (ResultSet countRs = countStmt.executeQuery()) {
-                            if (countRs.next() && countRs.getInt("candidate_count") > 0) {
-                                connection.commit();
-                                return "Toutes les tables disponibles sont momentanément verrouillées. Veuillez patienter et réessayer.";
-                            }
+                // 2. Si une table a été trouvée, procéder à l'insertion
+                if (idTable != -1) {
+                    String insertSql = "INSERT INTO reservation (id_res, id_table, nom_client, prenom_client, nb_convives, telephone, dates, dates_fin, montant) "
+                            + "VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?, NULL, 0)";
+                    
+                    try (PreparedStatement ins = connection.prepareStatement(insertSql)) {
+                        ins.setInt(1, idTable);
+                        ins.setString(2, nom);
+                        ins.setString(3, prenom);
+                        ins.setInt(4, nbClients);
+                        ins.setString(5, telephonne);
+                        ins.setDate(6, Date.valueOf(date));
+
+                        int updated = ins.executeUpdate();
+                        connection.commit();
+
+                        if (updated == 1) {
+                            response.put("status", true);
+                            response.put("message", "Réservation confirmée pour la table " + idTable);
+                        } else {
+                            response.put("status", false);
+                            response.put("message", "Échec de l'insertion de la réservation en base de données.");
                         }
                     }
-                    connection.commit();
-                    return "Aucune table disponible pour ce restaurant à cette date.";
+                } else {
+                    // Aucune table trouvée
+                    connection.rollback();
+                    response.put("status", false);
+                    response.put("message", "Aucune table disponible pour ce restaurant à cette date.");
                 }
             }
+            return response.toString();
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            return "Erreur de réservation : " + e.getMessage();
+            response.put("status", false);
+            response.put("message", "Erreur de réservation : " + e.getMessage());
+            return response.toString();
         }
     }
 }
