@@ -59,46 +59,70 @@ public class ServiceReservation implements ServiceInterface {
     }
 
     @Override
-    public Boolean reserverTable(String nom, String prenom, int nbClients, String telephonne, LocalDate date) throws RemoteException {
+    public String reserverTable(int idResto,String nom, String prenom, int nbClients, String telephonne, LocalDate date) throws RemoteException {
         String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
-            connection.setAutoCommit(false);
+            try (Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "")) {
+                connection.setAutoCommit(false);
 
-            String findTableSql = " SELECT t.id_table FROM table_restau t WHERE t.capacite >= 2 AND NOT EXISTS ( SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates < TO_DATE(?, 'DD/MM/YYYY HH24:MI') AND r.dates_fin > TO_DATE(?, 'DD/MM/YYYY HH24:MI'));";
-            try (PreparedStatement ps = connection.prepareStatement(findTableSql)) {
-                ps.setInt(1, nbClients);
-                ps.setDate(2, java.sql.Date.valueOf(date));
-                ps.setDate(3, java.sql.Date.valueOf(date));
-                ResultSet rs = ps.executeQuery();
-                if (rs.next()) {
-                    int idTable = rs.getInt("id_table");
-                    rs.close();
+                String findTableSql = "SELECT t.id_table FROM table_restau t "
+                        + "WHERE t.id_restaurant = ? AND t.capacite >= ? "
+                        + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates < ? AND r.dates_fin > ?) "
+                        + "FOR UPDATE SKIP LOCKED";
 
-                    String insertSql = "INSERT INTO reservation (id_res, id_table, nom_client, prenom_client, nb_convives, telephone, dates) VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?)";
-                    try (PreparedStatement ins = connection.prepareStatement(insertSql)) {
-                        ins.setInt(1, idTable);
-                        ins.setString(2, nom);
-                        ins.setString(3, prenom);
-                        ins.setInt(4, nbClients);
-                        ins.setString(5, telephonne);
-                        ins.setDate(6, java.sql.Date.valueOf(date));
+                try (PreparedStatement ps = connection.prepareStatement(findTableSql)) {
+                    ps.setInt(1, idResto);
+                    ps.setInt(2, nbClients);
+                    ps.setDate(3, Date.valueOf(date));
+                    ps.setDate(4, Date.valueOf(date));
 
-                        int updated = ins.executeUpdate();
-                        connection.commit();
-                        connection.close();
-                        return updated == 1;
+                    try (ResultSet rs = ps.executeQuery()) {
+                        if (rs.next()) {
+                            int idTable = rs.getInt("id_table");
+                            rs.close();
+
+                            String insertSql = "INSERT INTO reservation (id_res, id_table, nom_client, prenom_client, nb_convives, telephone, dates, dates_fin, montant) "
+                                    + "VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
+                            try (PreparedStatement ins = connection.prepareStatement(insertSql)) {
+                                ins.setInt(1, idTable);
+                                ins.setString(2, nom);
+                                ins.setString(3, prenom);
+                                ins.setInt(4, nbClients);
+                                ins.setString(5, telephonne);
+                                ins.setDate(6, Date.valueOf(date));
+                                ins.setTimestamp(7, null);
+                                ins.setInt(8, 0);
+
+                                int updated = ins.executeUpdate();
+                                connection.commit();
+                                return updated == 1 ? "Réservation confirmée pour la table " + idTable : "Échec de la réservation.";
+                            }
+                        }
                     }
-                } else {
-                    rs.close();
-                    connection.close();
-                    return false; // no table available
+
+                    String countSql = "SELECT COUNT(*) AS candidate_count FROM table_restau t "
+                            + "WHERE t.id_restaurant = ? AND t.capacite >= ? "
+                            + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates < ? AND r.dates_fin > ?)";
+                    try (PreparedStatement countStmt = connection.prepareStatement(countSql)) {
+                        countStmt.setInt(1, idResto);
+                        countStmt.setInt(2, nbClients);
+                        countStmt.setTimestamp(3, start);
+                        countStmt.setTimestamp(4, end);
+                        try (ResultSet countRs = countStmt.executeQuery()) {
+                            if (countRs.next() && countRs.getInt("candidate_count") > 0) {
+                                connection.commit();
+                                return "Toutes les tables disponibles sont momentanément verrouillées. Veuillez patienter et réessayer.";
+                            }
+                        }
+                    }
+                    connection.commit();
+                    return "Aucune table disponible pour ce restaurant à cette date.";
                 }
             }
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            return false;
+            return "Erreur de réservation : " + e.getMessage();
         }
     }
 }

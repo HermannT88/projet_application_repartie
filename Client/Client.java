@@ -91,17 +91,10 @@ public class Client {
 					System.out.println("Date invalide.");
 					break;
 				}
-					System.out.println("Nom pour la réservation : ");
-
-					System.out.println("Prénom pour la réservation : ");
-
-					System.out.println("Nombre de convives : ");
-
-					System.out.println("Téléphone : ");
-
-
-					break;
-				default : 
+			System.out.println("ID du restaurant : ");
+			int idResto = sc.nextInt();
+			sc.nextLine();
+			System.out.println("Nom pour la réservation : ");
 					exit = true;
 					break;
 			}
