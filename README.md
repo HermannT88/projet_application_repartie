@@ -21,3 +21,14 @@ rmiregistry 1099 2>/dev/null & disown
 java -cp .:lib/json-20231013.jar:lib/ojdbc11.jar Service.LancerService e97539u <dbPassword>
 
 java -cp .:lib/json-20231013.jar Client.Client 100.64.80.202 1099
+
+SELECT t.id_table
+FROM table_restau t
+WHERE t.capacite >= 2
+AND NOT EXISTS (
+    SELECT 1
+    FROM reservation r
+    WHERE r.id_table = t.id_table
+    AND r.dates < TO_DATE('10/09/2026 21:30', 'DD/MM/YYYY HH24:MI')
+    AND r.dates_fin > TO_DATE('10/09/2026 19:30', 'DD/MM/YYYY HH24:MI')
+);
