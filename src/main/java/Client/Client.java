@@ -1,4 +1,4 @@
-package src.main.java.Client;
+package Client;
 
 //On fait les imports nessessaire pour utiliser RMI
 import java.rmi.registry.Registry;
@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import src.main.java.Service.ServiceInterface;
+import Service.ServiceInterface;
 
 /**
  * Classe client pour l'application RMI de réservation.
