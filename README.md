@@ -16,6 +16,7 @@
 ## Compilation et Lancement (avec Maven)
 
 Le projet utilise désormais Maven pour la gestion des dépendances et de la compilation automatique.
+Il faut Maven installé !
 
 ### Étape 1 : Compilation
 
