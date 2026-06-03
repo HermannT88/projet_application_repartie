@@ -2,6 +2,9 @@ export const STATION_INFO_URL = 'https://api.cyclocity.fr/contracts/nancy/gbfs/v
 
 export const STATION_STATUS_URL = 'https://api.cyclocity.fr/contracts/nancy/gbfs/v2/station_status.json';
 
+// IP de la machine de l'IUT
+export const PROXY_URL ="";
+
 //=============================================
 // Interfaces pour cast les retours JSON
 //=============================================
@@ -65,4 +68,47 @@ export interface VelostanStatusResponse {
   ttl: number;
   version: string;
   data: VelostanStatusData;
+}
+
+// Interface d'un incident 
+export interface WazeIncident {
+  type: string;
+  description: string;
+  short_description: string;
+  starttime: string;
+  endtime: string;
+  location: WazeLocation;
+  updatetime: string;
+  creationTime: string;
+}
+
+// Localisation d'un incident
+export interface WazeLocation {
+    street: string;
+    polyline: string; // latitude et longitude
+    location_description: string;
+}
+
+// Provenance de l'information sur l'incident 
+export interface WazeSource {
+  name: string;
+  reference: string;
+}
+
+// Tableau de la réponse globale
+export interface WazeResponse {
+    incidents: WazeIncident[];
+}
+
+// Interface pour le restaurant
+export interface Restaurant {
+    id_restaurant: number;
+    nom_restaurant: string;
+    adresse_restaurant: string;
+    coord_GPS: string;
+}
+
+// Tableau de la réponse globale
+export interface RestaurantResponse {
+  restaurants: Restaurant[];
 }

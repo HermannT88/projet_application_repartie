@@ -3,9 +3,9 @@
     "esbuild": "0.17.18",
     "handlebars": "^4.7.8"
   },
-"scripts": {
+  "scripts": {
     "build": "esbuild ./ts/index.ts --bundle --sourcemap --target=es2022 --format=esm --outfile=js/index.js --external:leaflet"
-},  
+  },
   "devDependencies": {
     "@types/leaflet": "^1.9.21"
   }

@@ -60,6 +60,11 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 
 
 
+### Informations complémentaires : 
+Il faut installer la dépendance Leafet : 
+npm install --save-dev @types/leaflet
+
+
     HttpClient client = HttpClient.newBuilder()
         .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128))) // ici c'est le proxy de l'iut avec les infos correcte
         .build();

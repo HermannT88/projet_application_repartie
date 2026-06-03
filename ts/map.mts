@@ -4,7 +4,7 @@
 
 declare const L: typeof import('leaflet');
 
-import { Station, StationStatus } from "./config.mjs";
+import { Station, StationStatus, WazeIncident, Restaurant } from "./config.mjs";
 import { getStatus } from "./api_velib.mjs";
 
 
@@ -67,4 +67,39 @@ export async function addVelibStation(station: Station) {
     }
     marker.bindPopup(text);
 
+}
+
+// Ajout d'un incident sur la carte avec sa description
+export function addIncident(incident: WazeIncident) {
+    if (incident.location && incident.location.polyline) {
+        const coords = incident.location.polyline.split(" ");
+        const lat = parseFloat(coords[0]);
+        const lon = parseFloat(coords[1]);
+
+        var marker = L.marker([lat, lon]).addTo(map);
+
+        const type = incident.short_description || incident.type;
+        const rue = incident.location.street || incident.location.location_description;
+        const dateFin = new Date(incident.endtime).toLocaleDateString("fr-FR");
+
+        var text = `<b>${type}</b><br>${rue}<br><i>${incident.description}</i><br><small>Jusqu'au ${dateFin}</small>`;
+        
+        marker.bindPopup(text);
+    }
+}
+
+// Ajout un restaurant sur la cart avec sa description 
+export function addRestaurant(restaurant: Restaurant) {
+        const coords = restaurant.coord_GPS.split(", ");
+        const lat = parseFloat(coords[0]);
+        const lon = parseFloat(coords[1]);
+
+        var marker = L.marker([lat, lon]).addTo(map);
+
+        const nom = restaurant.nom_restaurant;
+        const adresse = restaurant.adresse_restaurant;
+
+        var text = `<b>${nom}</b><br>${adresse}<br>`;
+        
+        marker.bindPopup(text);
 }
