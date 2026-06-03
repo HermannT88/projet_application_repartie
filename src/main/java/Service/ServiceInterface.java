@@ -2,7 +2,7 @@ package Service;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Interface RMI définissant les services de réservation de restaurant disponibles à distance.
@@ -35,6 +35,6 @@ public interface ServiceInterface extends Remote {
      *         (avec le numéro de table attribué) ou l'échec de la réservation.
      * @throws RemoteException Si une erreur de communication réseau survient durant l'appel RMI.
      */
-    public String reserverTable(int id, String nom, String prenom, int nbClients, String telephonne, LocalDate date) throws RemoteException;
+    public String reserverTable(int id, String nom, String prenom, int nbClients, String telephonne, LocalDateTime date) throws RemoteException;
 
 }

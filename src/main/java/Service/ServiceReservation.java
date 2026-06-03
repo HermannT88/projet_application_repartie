@@ -1,8 +1,15 @@
 package Service;
 
 import java.rmi.RemoteException;
-import java.sql.*;
-import java.time.LocalDate;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -96,7 +103,7 @@ public class ServiceReservation implements ServiceInterface {
      * @throws RemoteException En cas de problème de communication RMI.
      */
     @Override
-    public String reserverTable(int idResto, String nom, String prenom, int nbClients, String telephonne, LocalDate date) throws RemoteException {
+    public String reserverTable(int idResto, String nom, String prenom, int nbClients, String telephonne, LocalDateTime date) throws RemoteException {
         String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
         JSONObject response = new JSONObject();
 
@@ -108,14 +115,15 @@ public class ServiceReservation implements ServiceInterface {
                 // 1. Rechercher une table disponible avec un verrouillage temporaire pour éviter les conflits
                 String findTableSql = "SELECT t.id_table FROM table_restau t "
                         + "WHERE t.id_restaurant = ? AND t.capacite >= ? "
-                        + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates = ?) "
+                        + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates <= ? AND (r.dates_fin IS NULL OR r.dates_fin >= ?) ) "
                         + "FOR UPDATE SKIP LOCKED";
 
                 int idTable = -1;
                 try (PreparedStatement ps = connection.prepareStatement(findTableSql)) {
                     ps.setInt(1, idResto);
                     ps.setInt(2, nbClients);
-                    ps.setDate(3, Date.valueOf(date));
+                    ps.setTimestamp(3, Timestamp.valueOf(date));
+                    ps.setTimestamp(4, Timestamp.valueOf(date));
 
                     try (ResultSet rs = ps.executeQuery()) {
                         if (rs.next()) {
@@ -135,7 +143,7 @@ public class ServiceReservation implements ServiceInterface {
                         ins.setString(3, prenom);
                         ins.setInt(4, nbClients);
                         ins.setString(5, telephonne);
-                        ins.setDate(6, Date.valueOf(date));
+                        ins.setTimestamp(6,Timestamp.valueOf(date));
 
                         int updated = ins.executeUpdate();
                         connection.commit();
