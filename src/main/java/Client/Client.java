@@ -1,17 +1,19 @@
 package Client;
 
 //On fait les imports nessessaire pour utiliser RMI
-import java.rmi.registry.Registry;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.RemoteException;
-import java.rmi.NotBoundException;
 import java.rmi.ConnectException;
-import java.util.Scanner;
-import java.time.LocalDate;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Scanner;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import Service.ServiceInterface;
 
 /**
@@ -75,7 +77,7 @@ public class Client {
             ServiceInterface reservation = (ServiceInterface) reg.lookup("reservation");
 
             // Choix utilisateur
-            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");;
             boolean exit = false;
             while (!exit) {
                 System.out.println("Que voulez-vous faire :");
@@ -105,12 +107,12 @@ public class Client {
                         System.out.print("Numéro du restaurant : ");
                         int id_restau = sc.nextInt();
                         sc.nextLine();
-                        System.out.print("Date de la réservation (dd/MM/yyyy) : ");
+                        System.out.print("Date de la réservation (dd/MM/yyyy HH:mm) : ");
                         String saisie = sc.nextLine();
-                        LocalDate date = null;
+                        LocalDateTime date = null;
 
                         try {
-                            date = LocalDate.parse(saisie, format);
+                            date = LocalDateTime.parse(saisie, format);
                         } catch (DateTimeParseException e) {
                             System.out.println("Date invalide. Annulation de la réservation.\n");
                             break;
