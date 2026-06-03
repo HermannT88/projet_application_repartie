@@ -1,0 +1,6383 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-06-03T07:55:45Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/48735769",
+        "amenity": "restaurant",
+        "building": "yes",
+        "contact:housenumber": "26",
+        "contact:street": "Rue de Saurupt",
+        "name": "Resto' Saurupt",
+        "opening_hours": "11:30-13:30,18:30-20:00",
+        "operator": "Crous Lorraine",
+        "phone": "+33 3 83 53 28 62",
+        "source": "survey",
+        "website": "https://www.crous-lorraine.fr/restaurant/saurupt/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1840054,
+          48.6805248
+        ]
+      },
+      "id": "way/48735769"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/89352365",
+        "access": "yes",
+        "amenity": "restaurant",
+        "building": "yes",
+        "building:levels": "2",
+        "check_date:opening_hours": "2021-09-07",
+        "contact:housenumber": "73",
+        "contact:street": "Rue de Laxou",
+        "email": "restauration@crous-lorraine.fr",
+        "internet_access": "no",
+        "microbrewery": "no",
+        "name": "Restaurant Universitaire de Médreville",
+        "opening_hours": "Mo-Su 11:30-14:00",
+        "operator": "Crous",
+        "phone": "+33 3 83918899",
+        "self_service": "yes",
+        "smoking": "no",
+        "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010",
+        "stars": "0",
+        "toilets": "yes",
+        "website": "https://www.crous-lorraine.fr/restaurant/medreville/",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1587093,
+          48.6844464
+        ]
+      },
+      "id": "way/89352365"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/114986699",
+        "amenity": "restaurant",
+        "building": "yes",
+        "building:name": "Maison Alsacienne Fruhinsholz",
+        "heritage": "3",
+        "heritage:operator": "mhs",
+        "mhs:inscription_date": "1993-06-29",
+        "name": "La Villa",
+        "ref:mhs": "PA00125526",
+        "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2011",
+        "source:heritage": "Ministère de la Culture - 07/2018",
+        "wikidata": "Q22968947",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.199708,
+          48.6974125
+        ]
+      },
+      "id": "way/114986699"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/115010890",
+        "amenity": "restaurant",
+        "building": "yes",
+        "name": "Restaurant Universitaire Stanislas-Meurthe",
+        "opening_hours": "11:30-13:30",
+        "operator": "CROUS",
+        "phone": "+33 3 83192143",
+        "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2011",
+        "website": "http://www.crous-nancy-metz.fr/crous/sites/crous/accueil/restauration/lesrestosu/nancy/restoustanislasmeurthe/d4115cac7f0000010166a97ecde32a93",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1972195,
+          48.6952695
+        ]
+      },
+      "id": "way/115010890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/543424175",
+        "amenity": "restaurant",
+        "name": "L'Alsace à Table",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1807088,
+          48.6940166
+        ]
+      },
+      "id": "node/543424175"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/647164421",
+        "amenity": "restaurant",
+        "contact:facebook": "Hungrysushi",
+        "contact:housenumber": "29",
+        "contact:instagram": "hungrysushi54",
+        "contact:phone": "+33 3 54 00 26 00",
+        "contact:street": "Rue de Mon Désert",
+        "cuisine": "japanese",
+        "delivery": "yes",
+        "name": "Hungry Sushi",
+        "opening_hours": "Mo-Sa 11:00-14:00,18:00-22:00; Su 18:00-22:00",
+        "ref:FR:SIRET": "89104758100022",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1772376,
+          48.6841479
+        ]
+      },
+      "id": "node/647164421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/737271706",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "L'Avant Première",
+        "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1956945,
+          48.6913546
+        ]
+      },
+      "id": "node/737271706"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/933114517",
+        "amenity": "restaurant",
+        "name": "Abracadabra",
+        "ref:FR:SIRET": "79400164400010",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1808556,
+          48.7024634
+        ]
+      },
+      "id": "node/933114517"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1370806406",
+        "amenity": "restaurant",
+        "name": "Restaurant Beauregard",
+        "opening_hours": "Mo-Th 07:30-16:00; Tu,Fr 07:30-20:00",
+        "phone": "+33 3 83 98 61 76",
+        "ref:FR:SIRET": "44475824700019",
+        "website": "https://restaurant-le-beauregard.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.139682,
+          48.69348
+        ]
+      },
+      "id": "node/1370806406"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1374547948",
+        "amenity": "restaurant",
+        "check_date": "2024-10-09",
+        "name": "Pizzeria Adriatica",
+        "ref:FR:SIRET": "34536449100018"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.171499,
+          48.6902854
+        ]
+      },
+      "id": "node/1374547948"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1374571412",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/profile.php?id=61581025494888",
+        "contact:phone": "+33 3 83 41 72 79",
+        "cuisine": "french",
+        "name": "Bouillon du terroir",
+        "opening_hours": "Tu-Fr 11:45-14:00,19:00-21:30; Sa 12:00-15:00,19:00-21:30; Su 12:00-15:00",
+        "ref:FR:SIRET": "85070588000027",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "website": "https://www.bouillonduterroir.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1749582,
+          48.6911257
+        ]
+      },
+      "id": "node/1374571412"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1374577681",
+        "amenity": "restaurant",
+        "contact:housenumber": "5",
+        "contact:phone": "+33 3 83232024",
+        "contact:street": "Place Simone Veil",
+        "level": "0",
+        "name": "Brasserie Simone",
+        "opening_hours": "Mo-Sa 10:00-22:00",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "98010765000015",
+        "smoking": "outside",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1754813,
+          48.6896447
+        ]
+      },
+      "id": "node/1374577681"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1374786764",
+        "amenity": "restaurant",
+        "facebook": "https://www.facebook.com/lechagnot",
+        "indoor_seating": "yes",
+        "name": "Le Chagnot",
+        "opening_hours": "Mo-Sa 07:30-22:00",
+        "outdoor_seating": "no",
+        "phone": "+33 3 83 32 16 25",
+        "ref:FR:SIRET": "32909515200016",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1824126,
+          48.6906559
+        ]
+      },
+      "id": "node/1374786764"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1451594042",
+        "amenity": "restaurant",
+        "contact:facebook": "Zhong-Pin-447785065277058",
+        "contact:phone": "+33 3 83 27 94 83",
+        "cuisine": "sushi",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "name": "Zhong Pin",
+        "opening_hours": "Mo-Su 11:00-14:00,18:00-22:00",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "43937086700020",
+        "source": "survey",
+        "takeaway": "yes",
+        "website": "https://www.zhong-pin.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1730019,
+          48.6839717
+        ]
+      },
+      "id": "node/1451594042"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1556273871",
+        "amenity": "restaurant",
+        "name": "La Flamme du chef",
+        "ref:FR:SIRET": "92124834000017",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.183921,
+          48.6900717
+        ]
+      },
+      "id": "node/1556273871"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1556273877",
+        "addr:housenumber": "1bis",
+        "amenity": "restaurant",
+        "name": "Le Coq en Fer",
+        "opening_hours": "Tu-Sa 12:00-14:00,19:30-22:00",
+        "ref:FR:SIRET": "78907858100012",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1847646,
+          48.6903992
+        ]
+      },
+      "id": "node/1556273877"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1556273907",
+        "addr:housenumber": "19",
+        "amenity": "restaurant",
+        "name": "La Julienne",
+        "opening_hours": "Tu,We 12:00-14:00; Th-Sa 12:00-14:00,19:00-22:30",
+        "phone": "+33 3 83 44 36 33",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1847178,
+          48.6909478
+        ]
+      },
+      "id": "node/1556273907"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1556273908",
+        "addr:housenumber": "13",
+        "amenity": "restaurant",
+        "name": "El Gusto",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1845888,
+          48.6911674
+        ]
+      },
+      "id": "node/1556273908"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1606992236",
+        "addr:housenumber": "23",
+        "amenity": "restaurant",
+        "cuisine": "french",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Papilles Alain",
+        "opening_hours": "We 19:00-21:30; Th 12:00-14:00,19:00-21:30; Fr 12:00-14:00,19:00-22:00; Sa 12:00-14:00,19:00-22:00; Su 12:30-14:00",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 35 51 94",
+        "smoking": "outside",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1810115,
+          48.6954256
+        ]
+      },
+      "id": "node/1606992236"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1606992282",
+        "addr:housenumber": "47",
+        "amenity": "restaurant",
+        "cuisine": "crepe",
+        "level": "0",
+        "name": "La Gavotte",
+        "opening_hours": "Mo-Su 11:30-14:30, 18:45-21:30",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 30 62 27",
+        "ref:FR:SIRET": "48523502200020",
+        "self_service": "no",
+        "smoking": "outside",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1803447,
+          48.6962576
+        ]
+      },
+      "id": "node/1606992282"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1606992286",
+        "addr:housenumber": "45",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "contact:instagram": "la_cave_du_pere_magott",
+        "contact:phone": "+33 6 16 74 31 11",
+        "contact:website": "https://www.lacaveduperemagott.fr",
+        "internet_access": "no",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "La cave du Père Magott",
+        "opening_hours": "Tu,Sa 19:00-21:00; We-Fr 12:00-13:00,19:00-21:00; Su 12:00-13:00",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 31 44 63",
+        "ref:FR:SIRET": "93395740900016",
+        "self_service": "no",
+        "smoking": "outside",
+        "source": "survey",
+        "stars": "0",
+        "takeaway": "no",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1803917,
+          48.6962154
+        ]
+      },
+      "id": "node/1606992286"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1606992299",
+        "addr:housenumber": "4",
+        "amenity": "restaurant",
+        "cuisine": "alsatian;regional",
+        "level": "0",
+        "name": "Flambock",
+        "opening_hours": "Mo-Su 18:30-23:00",
+        "smoking": "outside",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1817787,
+          48.6944069
+        ]
+      },
+      "id": "node/1606992299"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1606992320",
+        "addr:housenumber": "17",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83 32 52 62",
+        "contact:website": "https://www.drdh.fr/",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Butter",
+        "outdoor_seating": "yes",
+        "smoking": "outside",
+        "source": "survey",
+        "toilets": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1811209,
+          48.6952454
+        ]
+      },
+      "id": "node/1606992320"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1606992391",
+        "addr:housenumber": "18",
+        "amenity": "restaurant",
+        "contact:email": "kevluoni@gmail.com",
+        "contact:facebook": "https://www.facebook.com/people/Carte-Blanche-Nancy/100063717035252",
+        "contact:phone": "+33 6 26667004",
+        "contact:website": "https://www.carteblanchenancy.fr",
+        "cuisine": "french",
+        "indoor_seating": "yes",
+        "name": "Carte Blanche",
+        "opening_hours": "We-Su 11:45-14:30,18:45-22:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "91430587500017",
+        "source": "survey",
+        "website:menu": "https://www.carteblanchenancy.fr/wp-content/uploads/2025/04/Menu-Carte-Blanche-Restaurant.pdf"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1815305,
+          48.6947899
+        ]
+      },
+      "id": "node/1606992391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1627459963",
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Le Petit Bouillon Pharamond",
+        "outdoor_seating": "yes",
+        "smoking": "outside",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1752755,
+          48.6895807
+        ]
+      },
+      "id": "node/1627459963"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1635296789",
+        "addr:housenumber": "9",
+        "addr:street": "Place Stanislas",
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Jean Lamour",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83325353",
+        "ref:FR:SIRET": "39186587000029",
+        "source": "GrandNancy",
+        "website": "http://www.brasserie-jeanlamour.com/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1827025,
+          48.6938547
+        ]
+      },
+      "id": "node/1635296789"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1635296804",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "internet_access": "no",
+        "internet_access:fee": "no",
+        "name": "Les Oliviers",
+        "phone": "+33 3 83 30 53 30",
+        "ref:FR:SIRET": "42949181400019",
+        "smoking": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.177814,
+          48.695614
+        ]
+      },
+      "id": "node/1635296804"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1635313956",
+        "amenity": "restaurant",
+        "contact:email": "akoyasushi54@gmail.com",
+        "contact:phone": "+33 3 83329484",
+        "contact:website": "https://akoya-sushi.eatbu.com/",
+        "cuisine": "japanese",
+        "name": "Akoya Sushi",
+        "opening_hours": "Tu-Su 12:00-14:00,19:00-22:00",
+        "ref:FR:SIRET": "91327952700018",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1765845,
+          48.7011832
+        ]
+      },
+      "id": "node/1635313956"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1643016715",
+        "amenity": "restaurant",
+        "check_date": "2023-06-09",
+        "name": "Madame",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1781586,
+          48.7004691
+        ]
+      },
+      "id": "node/1643016715"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1643016720",
+        "amenity": "restaurant",
+        "check_date": "2024-12-08",
+        "cuisine": "greek",
+        "internet_access": "no",
+        "internet_access:fee": "no",
+        "name": "Le Pacha du Bosphore",
+        "ref:FR:SIRET": "33533104700035",
+        "smoking": "no",
+        "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2012"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1783256,
+          48.6983486
+        ]
+      },
+      "id": "node/1643016720"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1643027535",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "internet_access": "no",
+        "internet_access:fee": "no",
+        "name": "Brasserie de la Vieille Ville",
+        "smoking": "no",
+        "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2012",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1787848,
+          48.6978298
+        ]
+      },
+      "id": "node/1643027535"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1643037373",
+        "amenity": "restaurant",
+        "name": "Bistrot Gros",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 23 30 09",
+        "ref:FR:SIRET": "92762974100012",
+        "smoking": "no",
+        "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2012",
+        "website": "https://gros-nancy.com",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1778932,
+          48.6956716
+        ]
+      },
+      "id": "node/1643037373"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1748671499",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "name": "Angeluzzo",
+        "phone": "+33 3 83 19 74 95",
+        "smoking": "no",
+        "website": "https://www.angeluzzo.fr/restaurant-nancy-kinepolis.php",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1956748,
+          48.6919193
+        ]
+      },
+      "id": "node/1748671499"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1804209205",
+        "amenity": "restaurant",
+        "name": "BraiseMaster",
+        "ref:FR:SIRET": "93435766600015",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1889104,
+          48.6839456
+        ]
+      },
+      "id": "node/1804209205"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1827913977",
+        "addr:housenumber": "65",
+        "amenity": "restaurant",
+        "cuisine": "lebanese",
+        "delivery": "yes",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Mandaloun",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "49909309400013",
+        "smoking": "outside",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "no",
+        "website": "http://www.mandaloun-nancy.fr",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1797462,
+          48.6966852
+        ]
+      },
+      "id": "node/1827913977"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1904763059",
+        "addr:housenumber": "9",
+        "amenity": "restaurant",
+        "name": "Restaurant Le Blouge",
+        "ref:FR:SIRET": "90325204700019",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1712453,
+          48.6905908
+        ]
+      },
+      "id": "node/1904763059"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1946406463",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "changing_table:fee": "no",
+        "contact:email": "restaurant@latoqueblanche.fr",
+        "contact:housenumber": "1",
+        "contact:phone": "+33 3 83 30 17 20",
+        "contact:street": "Rue Monseigneur Trouillet",
+        "contact:website": "http://www.latoq.fr/",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "La Toq'",
+        "opening_hours": "Tu-Sa 12:00-13:30,19:30-21:30; Su 12:00-13:30",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "41285264200013",
+        "reservation": "recommended",
+        "self_service": "no",
+        "smoking": "no",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "yes",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1786761,
+          48.6962231
+        ]
+      },
+      "id": "node/1946406463"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1946672034",
+        "amenity": "restaurant",
+        "contact:housenumber": "17",
+        "contact:phone": "+33 3 83363636",
+        "contact:street": "Rue Gustave Simon",
+        "contact:website": "https://leliceur.com/",
+        "indoor_seating": "yes",
+        "name": "L’Éliceur",
+        "opening_hours": "Tu-Sa 12:00-14:00,19:30-22:00",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "83897572000015",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1800342,
+          48.6935466
+        ]
+      },
+      "id": "node/1946672034"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1946672037",
+        "addr:housenumber": "28",
+        "amenity": "restaurant",
+        "name": "Le Greniel à Sel",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1794808,
+          48.6935378
+        ]
+      },
+      "id": "node/1946672037"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1970494555",
+        "amenity": "restaurant",
+        "cuisine": "african",
+        "name": "Kech",
+        "old_name": "Tbilissi",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1954134,
+          48.6802559
+        ]
+      },
+      "id": "node/1970494555"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1970734415",
+        "amenity": "restaurant",
+        "check_date": "2023-07-18",
+        "contact:housenumber": "195",
+        "contact:street": "Rue du Maréchal Oudinot",
+        "currency:XLT": "FLOR",
+        "description": "Resto-bistro",
+        "email": "juliettelautel@orange.fr",
+        "name": "Esperluette",
+        "opening_hours": "Mo-Fr 12:00-14:00; Th 07:00-08:30,12:00-14:00",
+        "payment:cash:XLT-FLOR": "yes",
+        "payment:contactless:XLT-FLOR": "yes",
+        "phone": "+33 383 571 112",
+        "ref:FR:SIRET": "42190653800044",
+        "source": "survey",
+        "website": "https://restaurant-esperluette.fr",
+        "website:menu": "https://restaurant-esperluette.fr/carte-de-lesperluette-a-nancy/#carte",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1748366,
+          48.6717993
+        ]
+      },
+      "id": "node/1970734415"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1975655265",
+        "access": "customers",
+        "addr:housenumber": "12",
+        "amenity": "restaurant",
+        "name": "Ville de Nancy Restaurant Municipal",
+        "operator": "Ville de Nancy",
+        "ref:FR:SIRET": "21540395700826",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1850737,
+          48.6930046
+        ]
+      },
+      "id": "node/1975655265"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1986788056",
+        "addr:housenumber": "75bis",
+        "amenity": "restaurant",
+        "name": "Djerba",
+        "ref:FR:SIRET": "82273595700018",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1877191,
+          48.6878788
+        ]
+      },
+      "id": "node/1986788056"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1987567153",
+        "addr:housenumber": "50",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "check_date": "2026-03-15",
+        "contact:fax": "+33 3 83 35 18 48",
+        "contact:phone": "+33 3 83 35 24 57",
+        "contact:website": "https://www.brasserie-excelsior-nancy.fr/",
+        "cuisine": "french",
+        "delivery": "yes",
+        "internet_access": "no",
+        "level": "0",
+        "loc_name": "L’Excel’",
+        "name": "Brasserie Excelsior",
+        "opening_hours": "Mo-Su 00:00-00:30,08:00-24:00",
+        "outdoor_seating": "yes",
+        "payment:credit_cards": "yes",
+        "ref:FR:SIRET": "50167541700023",
+        "smoking": "outside",
+        "source": "local_knowledge",
+        "takeaway": "no",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "seated;urinal",
+        "toilets:wheelchair": "no",
+        "wheelchair": "limited",
+        "wikidata": "Q2923998",
+        "wikipedia": "fr:Brasserie Excelsior"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1758437,
+          48.6907751
+        ]
+      },
+      "id": "node/1987567153"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1990284850",
+        "addr:housenumber": "107",
+        "amenity": "restaurant",
+        "name": "La Fantasia",
+        "ref:FR:SIRET": "38349276600019",
+        "source": "survey",
+        "website": "https://www.lafantasianancy.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1885597,
+          48.6872645
+        ]
+      },
+      "id": "node/1990284850"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1990284866",
+        "addr:housenumber": "93",
+        "amenity": "restaurant",
+        "contact:website": "https://www.restaurant-lemediterraneen-nancy.fr/",
+        "name": "Le Méditerranéen",
+        "ref:FR:SIRET": "39099240200011",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1881922,
+          48.6875432
+        ]
+      },
+      "id": "node/1990284866"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1992530495",
+        "addr:housenumber": "46",
+        "amenity": "restaurant",
+        "contact:email": "contact@ledjurdjura.com",
+        "contact:phone": "+33 3 83366093",
+        "contact:website": "https://ledjurdjura.com",
+        "name": "Le Djurdjura",
+        "ref:FR:SIRET": "74987748600011",
+        "source": "survey",
+        "website:menu": "https://ledjurdjura.com/la-carte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1860193,
+          48.6884328
+        ]
+      },
+      "id": "node/1992530495"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2048203877",
+        "amenity": "restaurant",
+        "level": "0",
+        "name": "Le Georges",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1958163,
+          48.6955207
+        ]
+      },
+      "id": "node/2048203877"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2051500189",
+        "amenity": "restaurant",
+        "cuisine": "vietnamese",
+        "email": "vnsfsas@gmail.com",
+        "name": "Vietnam Street Food",
+        "opening_hours": "Mo-Su 11:30-23:00",
+        "phone": "+33 6 41 41 31 61",
+        "source": "survey",
+        "website": "https://vnsfsas.wixsite.com/vietnamstreetfood"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.185034,
+          48.6904748
+        ]
+      },
+      "id": "node/2051500189"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2081417256",
+        "amenity": "restaurant",
+        "contact:email": "hivernagenancy@gmail.com",
+        "contact:instagram": "lhivernagenancy",
+        "contact:phone": "+33 9 73 13 51 84",
+        "contact:tiktok": "lhivernage.nancy",
+        "contact:website": "https://lhivernagenancy.fr",
+        "contact:whatsapp": "+33 6 66 60 02 74",
+        "name": "L'Hivervage",
+        "old_name": "Les Frangins;L'Ambassade",
+        "ref:FR:SIRET": "90176248400011",
+        "source": "survey",
+        "website:menu": "https://lhivernagenancy.fr/carte",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1770651,
+          48.6762851
+        ]
+      },
+      "id": "node/2081417256"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2242722410",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2025-08-03",
+        "contact:email": "pizzasolemio54@gmail.com",
+        "contact:housenumber": "12",
+        "contact:instagram": "solemio_nancy",
+        "contact:phone": "+33 3 83 28 34 28",
+        "contact:street": "Place Paul Painlevé",
+        "contact:tripadvisor": "https://www.tripadvisor.fr/Restaurant_Review-g187162-d1323658-Reviews-Sole_Mio-Nancy_Meurthe_et_Moselle_Grand_Est.html",
+        "contact:twitter": "pizzasolemio54",
+        "contact:website": "http://www.pizza-solemio.fr",
+        "cuisine": "pizza",
+        "name": "Pizzeria Sole Mio",
+        "opening_hours": "Mo-Fr 11:30-14:00,18:00-22:00; Sa 18:00-22:00",
+        "ref:FR:SIRET": "45080348100016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1653036,
+          48.6823164
+        ]
+      },
+      "id": "node/2242722410"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2269936271",
+        "amenity": "restaurant",
+        "cuisine": "steak_house",
+        "name": "100 Patates",
+        "phone": "+33 3 83 47 44 64",
+        "website": "https://100-patates.com/restaurant/fiche/8-nancy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1945568,
+          48.6924569
+        ]
+      },
+      "id": "node/2269936271"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2303800665",
+        "addr:housenumber": "4",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83 35 46 25",
+        "contact:website": "https://lesnouveauxabattoirsnancy.eatbu.com",
+        "cuisine": "french",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Les Nouveaux Abattoirs",
+        "opening_hours": "Mo-Sa 12:00-14:00,19:30-22:00",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "48960105400013",
+        "source": "survey",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.197395,
+          48.6942969
+        ]
+      },
+      "id": "node/2303800665"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2338159403",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83304403",
+        "contact:website": "https://www.laprimatiale.fr/",
+        "name": "La Primatiale",
+        "ref:FR:SIRET": "82026371300027",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1853018,
+          48.6904768
+        ]
+      },
+      "id": "node/2338159403"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2338159404",
+        "amenity": "restaurant",
+        "contact:facebook": "holdingmat",
+        "contact:instagram": "lesbacchanales",
+        "contact:phone": "+33 3 83 17 84 24",
+        "contact:website": "https://www.lesbacchanales.fr",
+        "diet:vegetarian": "only",
+        "level": "0",
+        "name": "Les Bacchanales",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "90172754500021",
+        "source": "survey",
+        "website:menu": "https://www.lesbacchanales.fr/menus",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1853775,
+          48.6904971
+        ]
+      },
+      "id": "node/2338159404"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2338159406",
+        "amenity": "restaurant",
+        "contact:facebook": "holdingmat54",
+        "contact:phone": "+33 3 83 46 93 51",
+        "contact:tripadvisor": "https://www.tripadvisor.fr/Restaurant_Review-g187162-d21268455-Reviews-Mon_Petit_Bouchon-Nancy_Meurthe_et_Moselle_Grand_Est.html",
+        "contact:website": "http://www.monpetitbouchon.com",
+        "level": "0",
+        "name": "Mon Petit Bouchon",
+        "opening_hours": "Tu-Th 12:00-14:00, 19:00-22:00, Fr-Sa 12:00-14:00, 19:00-22:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "88514759500015",
+        "smoking": "no",
+        "source": "survey",
+        "toilets": "yes",
+        "website:menu": "https://drive.google.com/file/d/1ow-VNnXWYKJpE-nfQ8m26rmiSfR195mw/view?usp=sharing",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1854576,
+          48.6905185
+        ]
+      },
+      "id": "node/2338159406"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2383414107",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 57 75 94 47",
+        "contact:tripadvisor": "https://www.tripadvisor.fr/Restaurant_Review-g187162-d5800397-Reviews-Le_Medrevil-Nancy_Meurthe_et_Moselle_Grand_Est.html",
+        "level": "0",
+        "name": "Le Médrevil",
+        "opening_hours": "Mo-Fr 07:30-17:00",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "92796690300019",
+        "smoking": "outside",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1610798,
+          48.6857455
+        ]
+      },
+      "id": "node/2383414107"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2385419617",
+        "amenity": "restaurant",
+        "name": "Tradita",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1667432,
+          48.6714347
+        ]
+      },
+      "id": "node/2385419617"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2391343919",
+        "amenity": "restaurant",
+        "entrance": "yes",
+        "name": "Cafétéria",
+        "opening_hours": "08:00-18:00",
+        "operator": "CROUS",
+        "website": "http://www.crous-nancy-metz.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1664905,
+          48.6944496
+        ]
+      },
+      "id": "node/2391343919"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2391343920",
+        "amenity": "restaurant",
+        "entrance": "yes",
+        "name": "Factéria",
+        "opening_hours": "08:00-18:00",
+        "operator": "CROUS",
+        "website": "http://www.crous-nancy-metz.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1657463,
+          48.6953952
+        ]
+      },
+      "id": "node/2391343920"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2464293309",
+        "amenity": "restaurant",
+        "contact:facebook": "lamianji.ramen",
+        "contact:instagram": "lamianji_ramen",
+        "cuisine": "ramen",
+        "name": "La Mian Ji Ramen",
+        "opening_hours": "Mo-Sa 11:30-14:30,18:30-22:30; Su 18:30-22:30",
+        "phone": "+33 3 83 41 72 03",
+        "ref:FR:SIRET": "98463645600019",
+        "source": "survey",
+        "website": "https://lamianji-ramen.fr",
+        "website:menu": "https://lamianji-ramen.fr/#carte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1836468,
+          48.6893586
+        ]
+      },
+      "id": "node/2464293309"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2464293315",
+        "amenity": "restaurant",
+        "cuisine": "chinese",
+        "name": "Chuan Yue",
+        "opening_hours": "Mo-Sa 11:30-14:30,18:30-22:30; Su 18:30-22:30",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1836231,
+          48.6893891
+        ]
+      },
+      "id": "node/2464293315"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2466009728",
+        "amenity": "restaurant",
+        "contact:email": "restaurant.kounagi@gmail.com",
+        "contact:facebook": "restaurantkounagi.nancy",
+        "contact:instagram": "kounaginancy",
+        "contact:phone": "+33 9 77 06 99 74",
+        "contact:twitter": "KounagiFrance",
+        "contact:website": "https://www.kounagi.com",
+        "cuisine": "japanese",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "name": "Kounagi",
+        "opening_hours": "Mo-Fr 11:30-14:00,18:30-21:30; Su 18:30-21:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "91888169900022",
+        "source": "survey",
+        "website:menu": "http://www.kounagi.com/#menu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1878597,
+          48.6845275
+        ]
+      },
+      "id": "node/2466009728"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2470472675",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "email": "contact.nancy@ilristorante.fr",
+        "name": "Il Ristorante",
+        "phone": "+33 3 83 25 30 30",
+        "ref:FR:SIRET": "39072539800031",
+        "source": "survey",
+        "website": "https://www.ilristorante.fr/il-ristorante-le-restaurant-italien-de-nancy",
+        "website:menu": "https://www.ilristorante.fr/wp-content/uploads/2025/04/menu-metz-nancy-gamme-audace.pdf",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.198797,
+          48.6915302
+        ]
+      },
+      "id": "node/2470472675"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2472820993",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83 40 23 77",
+        "name": "La Marianne",
+        "opening_hours": "Tu-We 11:45-14:30; Th-Sa 11:45-14:30,19:30-21:30; Su 12:00-14:30",
+        "ref:FR:SIRET": "53866976300012",
+        "source": "survey",
+        "website": "https://www.restaurantlamarianne.fr/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1741648,
+          48.6793124
+        ]
+      },
+      "id": "node/2472820993"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2505301792",
+        "amenity": "restaurant",
+        "contact:email": "leberbere54@gmail.com",
+        "contact:housenumber": "3",
+        "contact:phone": "+33 3 83323274",
+        "contact:street": "Rue de Malzéville",
+        "contact:website": "https://www.restaurantleberbere-nancy.com",
+        "name": "Le Berbère",
+        "ref:FR:SIRET": "52767050900019",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1779247,
+          48.7010428
+        ]
+      },
+      "id": "node/2505301792"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2568833856",
+        "amenity": "restaurant",
+        "contact:email": "laptitepausecreolebis@gmail.com",
+        "contact:facebook": "laptitepausecreole",
+        "contact:instagram": "laptitepauscreole",
+        "contact:phone": "+33 6 51 72 07 56",
+        "contact:website": "https://laptitepausecreole.com/restaurant",
+        "cuisine": "creole",
+        "name": "La P'tite Pause Créole",
+        "ref:FR:SIRET": "93994062300035",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1813396,
+          48.7024792
+        ]
+      },
+      "id": "node/2568833856"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2568833857",
+        "amenity": "restaurant",
+        "name": "Mille et une Saveurs",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1808609,
+          48.7026332
+        ]
+      },
+      "id": "node/2568833857"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2609492575",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83551348",
+        "cuisine": "pizza",
+        "indoor_seating": "yes",
+        "name": "La Flambée",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "81222706400019",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1753775,
+          48.6744998
+        ]
+      },
+      "id": "node/2609492575"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2619503602",
+        "amenity": "restaurant",
+        "contact:housenumber": "175",
+        "contact:phone": "+33 9 52 88 43 06",
+        "contact:street": "Rue du Sergent Blandan",
+        "cuisine": "burger",
+        "indoor_seating": "yes",
+        "name": "O'Bon Grill",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1724653,
+          48.672446
+        ]
+      },
+      "id": "node/2619503602"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2623155768",
+        "amenity": "restaurant",
+        "contact:email": "aucoindelarue.nancy@gmail.com",
+        "contact:facebook": "https://www.facebook.com/people/Au-coin-de-la-rue/100063804872779",
+        "contact:instagram": "ucoindelarue.nancy",
+        "contact:phone": "+33 3 83 28 76 74",
+        "contact:website": "https://aucoindelaruenancy.fr",
+        "name": "Au Coin de la Rue",
+        "old_name": "El Toro Blanco",
+        "ref:FR:SIRET": "82803729100014",
+        "source": "survey",
+        "website:menu": "https://aucoindelaruenancy.fr/nos-cartes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1794206,
+          48.695537
+        ]
+      },
+      "id": "node/2623155768"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2623155771",
+        "amenity": "restaurant",
+        "name": "Mamma Mia",
+        "ref:FR:SIRET": "91881981400024"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1794719,
+          48.6952735
+        ]
+      },
+      "id": "node/2623155771"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2623465762",
+        "addr:housenumber": "33",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "L'Épicerie Chez Marguerite",
+        "phone": "+33 3 83 36 67 53",
+        "source": "survey",
+        "website": "http://www.lepicerie-nancy.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1807798,
+          48.6940359
+        ]
+      },
+      "id": "node/2623465762"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2623465763",
+        "addr:housenumber": "37",
+        "amenity": "restaurant",
+        "check_date": "2024-02-29",
+        "contact:email": "lescale.ncy@gmail.com",
+        "contact:facebook": "escalenancy",
+        "contact:phone": "+33 3 83 35 09 31",
+        "cuisine": "regional",
+        "name": "L'Escale",
+        "opening_hours": "Tu-Su 12:00-14:00,19:00-22:00; Sa 12:00-14:00,19:00-22:30",
+        "ref:FR:SIRET": "98753304900027",
+        "source": "survey",
+        "website": "https://www.restaurantlescale-nancy.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1806455,
+          48.6940022
+        ]
+      },
+      "id": "node/2623465763"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2623465764",
+        "amenity": "restaurant",
+        "contact:facebook": "Bouillonlafayette-421624745229508",
+        "contact:phone": "+33 9 86 09 78 19",
+        "cuisine": "regional",
+        "name": "Le Bouillon Lafayette",
+        "source": "survey",
+        "website": "https://www.bouillonlafayette.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1805765,
+          48.6939819
+        ]
+      },
+      "id": "node/2623465764"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2625835347",
+        "amenity": "restaurant",
+        "contact:facebook": "TTHistoire",
+        "contact:instagram": "tthistoire",
+        "contact:phone": "+33 3 56 58 13 43",
+        "contact:website": "https://www.tthistoirerestaurant.com",
+        "diet:vegetarian": "no",
+        "name": "TT histoire",
+        "opening_hours": "We-Sa 12:00-14:30,19:00-22:30; Su 12:00-14:30",
+        "ref:FR:SIRET": "88528240000013",
+        "website:menu": "https://www.tthistoirerestaurant.com/nos-menus.html"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1869667,
+          48.6924129
+        ]
+      },
+      "id": "node/2625835347"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2625894089",
+        "amenity": "restaurant",
+        "check_date": "2024-12-08",
+        "cuisine": "french",
+        "name": "Aux Délices du Palais",
+        "phone": "+33 3 83304419",
+        "ref:FR:SIRET": "39953418900028",
+        "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2014"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1796704,
+          48.6967368
+        ]
+      },
+      "id": "node/2625894089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2625894097",
+        "addr:housenumber": "141",
+        "amenity": "restaurant",
+        "contact:facebook": "BrendOliv",
+        "contact:instagram": "brend_oliv_nancy",
+        "contact:phone": "+33 3 83 22 37 46",
+        "contact:website": "https://www.brendoliv.com",
+        "name": "Brend'Oliv",
+        "ref:FR:SIRET": "80112951100029",
+        "smoking": "no",
+        "source": "survey",
+        "website:menu": "https://www.brendoliv.com/menus-carte",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1778748,
+          48.6986782
+        ]
+      },
+      "id": "node/2625894097"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2625894108",
+        "addr:housenumber": "97",
+        "amenity": "restaurant",
+        "check_date": "2024-12-08",
+        "cuisine": "regional",
+        "name": "Les Frères Marchand",
+        "source": "survey",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1789518,
+          48.6973916
+        ]
+      },
+      "id": "node/2625894108"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2627758708",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/people/Restaurant-Indien-The-Tiger/100060165439807",
+        "contact:instagram": "the_tiger_nancy",
+        "contact:phone": "+33 9 86 52 60 67",
+        "contact:tripadvisor": "https://www.tripadvisor.com/Restaurant_Review-g187162-d12687223-Reviews-The_Tiger-Nancy_Meurthe_et_Moselle_Grand_Est.html",
+        "contact:website": "https://thetigernancy.fr",
+        "cuisine": "indian",
+        "name": "Le Tiger",
+        "ref:FR:SIRET": "83051259600016",
+        "source": "survey",
+        "website:menu": "https://thetigernancy.fr/fr/menu/4638380769432043621",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1936902,
+          48.6894327
+        ]
+      },
+      "id": "node/2627758708"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2628255664",
+        "amenity": "restaurant",
+        "contact:housenumber": "32",
+        "contact:street": "Avenue du 20e Corps",
+        "cuisine": "indian",
+        "delivery": "yes",
+        "diet:vegetarian": "yes",
+        "name": "The Tiger",
+        "opening_hours": "Mo-Fr 12:00-14:00,18:30-22:30; Sa-Su 12:00-14:00,18:30-23:00",
+        "outdoor_seating": "yes",
+        "phone": "+33 986526067",
+        "ref:FR:SIRET": "83051259600024",
+        "source": "survey",
+        "takeaway": "yes",
+        "website": "https://thetigernancy.fr/fr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1910587,
+          48.6931987
+        ]
+      },
+      "id": "node/2628255664"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2657544149",
+        "amenity": "restaurant",
+        "contact:housenumber": "3",
+        "contact:street": "Rue Victor",
+        "cuisine": "japanese",
+        "name": "Sushi-Show",
+        "outdoor_seating": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1959848,
+          48.6920644
+        ]
+      },
+      "id": "node/2657544149"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2657544159",
+        "amenity": "restaurant",
+        "cuisine": "burger",
+        "name": "PopKfé",
+        "opening_hours": "12:00-15:00,18:30-00:00",
+        "outdoor_seating": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1962543,
+          48.6922075
+        ]
+      },
+      "id": "node/2657544159"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2698859476",
+        "amenity": "restaurant",
+        "contact:email": "contact@dolcepizzanancy.fr",
+        "contact:facebook": "https://www.facebook.com/people/Dolce-Pizza-Nancy/100086791626005",
+        "contact:housenumber": "228",
+        "contact:phone": "+33 7 62 34 17 34",
+        "contact:street": "Rue Jeanne d'Arc",
+        "contact:website": "https://www.dolcepizzanancy.fr",
+        "cuisine": "pizza",
+        "delivery": "yes",
+        "diet:halal": "yes",
+        "indoor_seating": "yes",
+        "name": "Dolce Pizza",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "91944826600032",
+        "source": "survey",
+        "takeaway": "yes",
+        "website:menu": "https://www.dolcepizzanancy.fr/#carte",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1773391,
+          48.6776784
+        ]
+      },
+      "id": "node/2698859476"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2709913353",
+        "amenity": "restaurant",
+        "contact:facebook": "Larrosoir-1509921649291560",
+        "contact:housenumber": "21",
+        "contact:instagram": "larrosoirnancy",
+        "contact:phone": "+33 3 83355967",
+        "contact:street": "Rue Héré",
+        "cuisine": "french;pizza",
+        "name": "L'Arrosoir",
+        "ref:FR:SIRET": "41985000300023",
+        "source": "survey",
+        "start_date": "2004",
+        "survey:date": "2019-09-14",
+        "website": "http://restaurant-arrosoir.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.182672,
+          48.6942042
+        ]
+      },
+      "id": "node/2709913353"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2725502484",
+        "addr:housenumber": "19",
+        "amenity": "restaurant",
+        "contact:email": "fraichart@gmail.com",
+        "contact:phone": "+33 6 28373303",
+        "level": "0",
+        "name": "Fraich’Art Bar Zinc",
+        "opening_hours": "Mo-Fr 09:00-17:00",
+        "ref:FR:SIRET": "88269898800012",
+        "shop": "seafood",
+        "source": "GrandNancy",
+        "source:date": "2013-06",
+        "website": "https://www.lebarzinc.com/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1724182,
+          48.6901534
+        ]
+      },
+      "id": "node/2725502484"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2732079779",
+        "amenity": "restaurant",
+        "contact:email": "contact@kimseng.fr",
+        "contact:phone": "+33 3 83 35 54 86",
+        "cuisine": "chinese",
+        "indoor_seating": "yes",
+        "name": "Kim Seng",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "33866634000017",
+        "source": "survey",
+        "website": "https://kimseng.fr/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1944329,
+          48.6855276
+        ]
+      },
+      "id": "node/2732079779"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2770859486",
+        "amenity": "restaurant",
+        "name": "Couscousserie des Petites Familles",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1794,
+          48.6957428
+        ]
+      },
+      "id": "node/2770859486"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2772127467",
+        "addr:housenumber": "139",
+        "amenity": "restaurant",
+        "contact:email": "levestiaire.nancy@gmail.com",
+        "contact:phone": "+33 3 83329141",
+        "contact:website": "https://levestiairerestaurantnancycom.wordpress.com/",
+        "indoor_seating": "yes",
+        "name": "Le Vestiaire",
+        "opening_hours": "Mo-Sa 11:30-13:30,18:30-22:00",
+        "outdoor_seating": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1779271,
+          48.6985983
+        ]
+      },
+      "id": "node/2772127467"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2772127474",
+        "amenity": "restaurant",
+        "contact:facebook": "BrasilBoteco",
+        "contact:housenumber": "4",
+        "contact:phone": "+33 9 86 51 15 87",
+        "contact:street": "Rue Braconnot",
+        "cuisine": "brazilian",
+        "name": "Boteco do Brasil",
+        "source": "survey",
+        "website": "https://botecodobrasil.fr/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.178448,
+          48.698674
+        ]
+      },
+      "id": "node/2772127474"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2772127480",
+        "amenity": "restaurant",
+        "contact:email": "contact@lepalaisgourmand-nancy.fr",
+        "contact:facebook": "LePalaisGourmandNancy",
+        "contact:phone": "+33 3 54 16 18 10",
+        "contact:website": "https://lepalaisgourmand-nancy.fr",
+        "name": "Le Palais Gourmand",
+        "ref:FR:SIRET": "85274732800015",
+        "source": "survey",
+        "website:menu": "https://lepalaisgourmand-nancy.fr/la-carte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1789986,
+          48.6986697
+        ]
+      },
+      "id": "node/2772127480"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2788671525",
+        "amenity": "restaurant",
+        "cuisine": "french;italian_pizza",
+        "name": "Brasserie Stanislas",
+        "opening_hours": "Tu-Su 12:00-14:00,19:00-22:30",
+        "phone": "+33 9 55 50 80 95",
+        "ref:FR:SIRET": "95336589700024",
+        "source": "survey",
+        "website": "https://www.brasseriestanislas.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1811527,
+          48.6929777
+        ]
+      },
+      "id": "node/2788671525"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2788671526",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/people/Epicea-Nancy/61571426802654",
+        "contact:housenumber": "34",
+        "contact:instagram": "epicea_nancy",
+        "contact:phone": "+33 3 65 67 00 45",
+        "contact:street": "Rue de la Salle",
+        "contact:website": "https://epicea-nancy.fr",
+        "cuisine": "fine_dining",
+        "diet:vegetarian": "yes",
+        "name": "Épicéa",
+        "opening_hours": "Tu,We 12:00-14:00; Th-Sa 12:00-14:00,19:30-21:30",
+        "ref:FR:SIRET": "93538909800010",
+        "reservation": "yes",
+        "source": "survey",
+        "website:booking": "https://epicea-nancy.fr/reservations",
+        "website:menu": "https://epicea-nancy.fr/la-carte",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1917071,
+          48.6861978
+        ]
+      },
+      "id": "node/2788671526"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2788671527",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/people/Le-Bouillon-Rousselet/61572299254116/",
+        "cuisine": "french",
+        "level": "0",
+        "name": "Le Bouillon Rousselet",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "93824480300020",
+        "source": "survey",
+        "takeaway": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1842948,
+          48.6917864
+        ]
+      },
+      "id": "node/2788671527"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2788671531",
+        "amenity": "restaurant",
+        "contact:facebook": "HanaSushiWok",
+        "contact:phone": "+33 3 83 46 80 35",
+        "contact:website": "https://www.hanasushiwok.fr",
+        "cuisine": "sushi",
+        "name": "Hana Sushi & Wok",
+        "ref:FR:SIRET": "94833586400013",
+        "source": "survey",
+        "takeaway": "yes",
+        "website:menu": "https://www.hanasushiwok.fr/MENUS",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1918582,
+          48.6863218
+        ]
+      },
+      "id": "node/2788671531"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2788996016",
+        "amenity": "restaurant",
+        "name": "La Tour de Pizz\"",
+        "ref:FR:SIRET": "53360565500018",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1916537,
+          48.6863484
+        ]
+      },
+      "id": "node/2788996016"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2796854144",
+        "addr:housenumber": "46",
+        "amenity": "restaurant",
+        "email": "contact@bastion-nancy.fr",
+        "name": "Restaurant Bastion",
+        "phone": "+33 3 83 47 21 49",
+        "ref:FR:SIRET": "93169477200019",
+        "smoking": "no",
+        "source": "survey",
+        "website": "https://www.bastion-nancy.fr",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1878591,
+          48.6989159
+        ]
+      },
+      "id": "node/2796854144"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2904080344",
+        "addr:housenumber": "123",
+        "addr:street": "Grande Rue",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83364316",
+        "cuisine": "french",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "name": "La Petite Cuillère",
+        "opening_hours": "Mo-Fr 12:00-14:00, 19:00-21:00; Sa 12:00-14:00, 19:00-22:00; Su 12:00-14:00",
+        "ref:FR:SIRET": "50209798300014",
+        "source": "survey",
+        "website": "https://www.lapetitecuillere.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1784922,
+          48.6980046
+        ]
+      },
+      "id": "node/2904080344"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2956988613",
+        "amenity": "restaurant",
+        "contact:facebook": "LesFourmisRougesNancy",
+        "contact:instagram": "lesfourmisrouges54",
+        "contact:phone": "+33 3 83 45 34 71",
+        "contact:website": "https://resto-les-fourmis-rouges.com",
+        "cuisine": "french",
+        "name": "Les Fourmis Rouges",
+        "ref:FR:SIRET": "52368220100026",
+        "source": "survey",
+        "website:menu": "https://resto-les-fourmis-rouges.com/menus"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1989108,
+          48.6930985
+        ]
+      },
+      "id": "node/2956988613"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3057806539",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "À La Bonne Gammelle",
+        "ref:FR:SIRET": "52226034800019",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1980181,
+          48.6892201
+        ]
+      },
+      "id": "node/3057806539"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3092680904",
+        "addr:housenumber": "8",
+        "amenity": "restaurant",
+        "name": "Les 3 marches",
+        "ref:FR:SIRET": "53838474400016",
+        "source": "GrandNancy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1718907,
+          48.6898242
+        ]
+      },
+      "id": "node/3092680904"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3122142069",
+        "amenity": "restaurant",
+        "contact:email": "levfour@gmail.com",
+        "contact:phone": "+33 3 83 32 49 48",
+        "cuisine": "french",
+        "delivery": "no",
+        "diet:vegetarian": "no",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "Le V'Four",
+        "opening_hours": "Tu-Su 12:00-14:00, Tu-Sa 19:30-22:00",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "97849980400026",
+        "reservation": "recommended",
+        "self_service": "no",
+        "smoking": "no",
+        "stars": "0",
+        "takeaway": "no",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "website": "https://www.levfour.fr/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1789188,
+          48.6967826
+        ]
+      },
+      "id": "node/3122142069"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3248265860",
+        "amenity": "restaurant",
+        "check_date": "2024-10-10",
+        "contact:housenumber": "61",
+        "contact:street": "Rue Pierre Semard",
+        "cuisine": "italian",
+        "indoor_seating": "yes",
+        "name": "Piopa",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 35 47 13",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1781722,
+          48.6893137
+        ]
+      },
+      "id": "node/3248265860"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3327632832",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83 38 39 18",
+        "name": "La Fournaise",
+        "source": "survey",
+        "website": "http://www.lafournaise974.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1941726,
+          48.6857385
+        ]
+      },
+      "id": "node/3327632832"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3729513325",
+        "addr:housenumber": "22",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/Lesplanches.nancy",
+        "contact:phone": "+33 6 66920966",
+        "cuisine": "deli;friture;burger;tapas;steak_house;sandwich;coffee_shop;grill",
+        "name": "Les Planches",
+        "opening_hours": "Mo-Su 18:00-02:00",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "50324747000019",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1810092,
+          48.6942385
+        ]
+      },
+      "id": "node/3729513325"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3729513326",
+        "addr:housenumber": "29",
+        "amenity": "restaurant",
+        "contact:instagram": "lagentilhommierenancy",
+        "contact:phone": "+33 3 83 32 26 44",
+        "contact:website": "https://www.lagentilhommierenancy.fr",
+        "cuisine": "french",
+        "level": "0",
+        "name": "La Gentilhommière",
+        "name:ko": "25유로 디너메뉴",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "98058949300017",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:disposal": "flush",
+        "toilets:handwashing": "yes",
+        "toilets:paper_supplied": "yes",
+        "toilets:position": "urinal;seated",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1809698,
+          48.6940841
+        ]
+      },
+      "id": "node/3729513326"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3729513327",
+        "addr:housenumber": "21",
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "name": "Thaï Hey",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1812366,
+          48.6941571
+        ]
+      },
+      "id": "node/3729513327"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3729513328",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "name": "La Piazzetta",
+        "ref:FR:SIRET": "43202148300024",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1807711,
+          48.6941812
+        ]
+      },
+      "id": "node/3729513328"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3729513329",
+        "amenity": "restaurant",
+        "contact:facebook": "lebistrotdegillesnancy",
+        "contact:housenumber": "31",
+        "contact:phone": "+33 3 83 35 43 73",
+        "contact:street": "Rue des Maréchaux",
+        "cuisine": "regional",
+        "name": "Le Bistrot de Gilles",
+        "ref:FR:SIRET": "43129269700015",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "customers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1808571,
+          48.694056
+        ]
+      },
+      "id": "node/3729513329"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3729513331",
+        "addr:housenumber": "41",
+        "amenity": "restaurant",
+        "contact:facebook": "filsamamannancy",
+        "contact:phone": "+33 3 83 30 59 03",
+        "contact:website": "https://www.lesfilsamaman.com/restaurants/nancy",
+        "name": "Les Fils à Maman",
+        "opening_hours": "Mo-Fr 12:00-14:00,19:00-22:00; Sa 11:30-14:00,19:00-22:00; Su 11:30-14:30",
+        "ref:FR:SIRET": "85269154200025",
+        "source": "survey",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1805035,
+          48.6939635
+        ]
+      },
+      "id": "node/3729513331"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3812823541",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83 40 00 00",
+        "cuisine": "sushi",
+        "name": "Sushi Kōbe",
+        "opening_hours": "Tu-Su 11:30-14:30,18:30-22:30",
+        "ref:FR:SIRET": "52955912200013",
+        "website": "http://www.sushikobe.fr/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1752215,
+          48.6803891
+        ]
+      },
+      "id": "node/3812823541"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3905700758",
+        "amenity": "restaurant",
+        "contact:email": "lemortissia.nancy@gmail.com",
+        "contact:facebook": "https://www.facebook.com/lemortissia",
+        "contact:phone": "+33 6 65063727",
+        "contact:website": "https://lemortissia.fr/",
+        "name": "Le Mortissia",
+        "opening_hours": "Mo 11:30-14:30; Tu 11:45-14:45,19:00-22:30; Th 11:45-14:30,19:00-21:30; Fr 11:45-14:45,19:00-22:45; Sa 11:45-14:45,18:30-23:00",
+        "ref:FR:SIRET": "85284297000018",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1823755,
+          48.6878267
+        ]
+      },
+      "id": "node/3905700758"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3905700761",
+        "amenity": "restaurant",
+        "contact:email": "labolee.nancy@gmail.com",
+        "contact:facebook": "https://www.facebook.com/pg/thierry.vincent.710/",
+        "contact:housenumber": "41;43",
+        "contact:phone": "+33 3 83 37 17 53",
+        "contact:street": "Rue des Ponts",
+        "contact:website": "https://www.creperie-labolee.com",
+        "cuisine": "crepe",
+        "mobile": "+33 6 08 43 89 14",
+        "name": "La Bolée",
+        "opening_hours": "Tu-Th 11:45-13:45,18:45-22:00; Fr,Sa 11:45-13:45,18:45-22:00",
+        "outdoor_seating": "yes",
+        "source": "survey",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1824604,
+          48.6877107
+        ]
+      },
+      "id": "node/3905700761"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3905700762",
+        "amenity": "restaurant",
+        "contact:email": "lebengale@yahoo.com",
+        "contact:phone": "+33 3 83 37 56 70",
+        "cuisine": "indian",
+        "name": "Le Bengale",
+        "ref:FR:SIRET": "48101537800013",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1826869,
+          48.6879449
+        ]
+      },
+      "id": "node/3905700762"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3905700763",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/karmarestaurantnancy/",
+        "contact:phone": "+33 9 82 55 10 44",
+        "contact:website": "https://karma54.fr/",
+        "cuisine": "nepalese",
+        "level": "0",
+        "name": "Karma",
+        "opening_hours": "Mo-Sa 11:30-14:30,18:30-22:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "88041433900015",
+        "source": "knowledge",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1825917,
+          48.6879143
+        ]
+      },
+      "id": "node/3905700763"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3905700764",
+        "amenity": "restaurant",
+        "name": "Le Gibraltar",
+        "ref:FR:SIRET": "79979227000016",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.182755,
+          48.6879667
+        ]
+      },
+      "id": "node/3905700764"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3906363738",
+        "amenity": "restaurant",
+        "cuisine": "chinese",
+        "level": "0",
+        "name": "Empire de Chine",
+        "opening_hours": "Tu-Su 11:30-14:00, Tu-Sa 19:00-21:30; Mo off",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "38300068400019",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1824737,
+          48.6887141
+        ]
+      },
+      "id": "node/3906363738"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3906363739",
+        "amenity": "restaurant",
+        "cuisine": "japanese",
+        "name": "Fujiyama",
+        "opening_hours": "Mo-Sa 11:00-14:30,18:00-22:30; Su off",
+        "ref:FR:SIRET": "88933426400013",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1831929,
+          48.6890546
+        ]
+      },
+      "id": "node/3906363739"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3906363742",
+        "amenity": "restaurant",
+        "cuisine": "thai",
+        "name": "KhaoThip Express",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1825303,
+          48.6885548
+        ]
+      },
+      "id": "node/3906363742"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3906363743",
+        "amenity": "restaurant",
+        "cuisine": "japanese",
+        "delivery": "yes",
+        "level": "0",
+        "name": "Line Sushi",
+        "outdoor_seating": "no",
+        "phone": "+33 3 83 21 92 67",
+        "ref:FR:SIRET": "83903504500013",
+        "source": "survey",
+        "takeaway": "yes",
+        "website": "https://linesushi.fr/nancy",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.182809,
+          48.6886024
+        ]
+      },
+      "id": "node/3906363743"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3906363747",
+        "addr:city": "Nancy",
+        "addr:housenumber": "6",
+        "addr:postcode": "54000",
+        "addr:street": "Rue des Quatre Églises",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/p/AZAKO-RAMEN-61553089135429",
+        "contact:instagram": "https://www.instagram.com/azako_ramen_nancy",
+        "cuisine": "ramen;japanese",
+        "diet:vegetarian": "yes",
+        "name": "Azako Ramen",
+        "opening_hours": "Mo-Fr 11:30-15:00,18:30-22:30; Sa 11:30-15:00,18:30-23:00; Su off",
+        "phone": "+33 3 83 94 28 16",
+        "ref:FR:SIRET": "95157273400014",
+        "source": "survey",
+        "website": "https://www.azako-ramen.fr",
+        "website:menu": "https://www.azako-ramen.fr/la-carte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1824756,
+          48.6886189
+        ]
+      },
+      "id": "node/3906363747"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3928326740",
+        "amenity": "restaurant",
+        "contact:facebook": "RestaurantRacineNancy",
+        "contact:housenumber": "9",
+        "email": "reservation@racine-nancy.com",
+        "level": "0",
+        "name": "Racine",
+        "opening_hours": "Tu-Sa 12:00-13:30,19:00-21:15; Su,Mo off",
+        "phone": "+33 9 86 33 24 20",
+        "ref:FR:SIRET": "87840058900015",
+        "source": "survey",
+        "website": "https://racine-nancy.com",
+        "website:menu": "https://racine-nancy.com/la-carte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.182087,
+          48.6930959
+        ]
+      },
+      "id": "node/3928326740"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3928336987",
+        "amenity": "restaurant",
+        "contact:housenumber": "7",
+        "contact:street": "Rue Gustave Simon",
+        "currency:XLT": "FLOR",
+        "email": "tablestan@free.fr",
+        "image": "http://tablestan.free.fr/logorose.jpg",
+        "name": "À la Table du Bon Roi Stanislas",
+        "opening_hours": "Mo,We 19:15-21:30; Tu,Th-Sa 12:15-13:30,19:15-21:30; Su 12:15-13:30",
+        "payment:cash:XLT-FLOR": "yes",
+        "phone": "+33 3 83353652",
+        "ref:FR:SIRET": "44396380600015",
+        "source": "survey",
+        "website": "http://latabledestan.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1809632,
+          48.6937541
+        ]
+      },
+      "id": "node/3928336987"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3928393962",
+        "addr:housenumber": "20",
+        "amenity": "restaurant",
+        "contact:email": "restosuzette@gmail.com",
+        "contact:facebook": "suzettenancy",
+        "contact:phone": "+33 3 83 30 19 57",
+        "name": "Suzette & Gino",
+        "ref:FR:SIRET": "52163310700011",
+        "source": "survey",
+        "survey:date": "2019-09-14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1829908,
+          48.6941488
+        ]
+      },
+      "id": "node/3928393962"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3928833687",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2022-09-18",
+        "contact:housenumber": "17",
+        "contact:phone": "+33 3 83 37 22 87",
+        "contact:website": "https://restaurant-la-puce-a-loreille.fr",
+        "cuisine": "cheese",
+        "name": "La Puce à l'Oreille",
+        "opening_hours:signed": "no",
+        "ref:FR:SIRET": "50491196700025"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1816664,
+          48.6929684
+        ]
+      },
+      "id": "node/3928833687"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3928833690",
+        "amenity": "restaurant",
+        "contact:email": "nancy@champetre-farmfood.com",
+        "contact:housenumber": "7",
+        "contact:phone": "+33 3 83471066",
+        "contact:website": "https://champetre-farmfood.com/",
+        "cuisine": "meat",
+        "level": "0",
+        "name": "Champêtre",
+        "opening_hours": "Mo-Th 12:00-14:00,19:00-21:30; Sa 12:00-14:00,19:00-22:00",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1821461,
+          48.6931141
+        ]
+      },
+      "id": "node/3928833690"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3930940963",
+        "addr:housenumber": "6",
+        "amenity": "restaurant",
+        "check_date": "2025-06-16",
+        "contact:email": "restauranthoneynancy@gmail.com",
+        "contact:facebook": "https://www.facebook.com/people/Honey-Nancy/100083034683688",
+        "description": "livraison via Ubereats, Deliveroo et JustEat",
+        "name": "Honey",
+        "opening_hours": "Mo,Tu 11:00-15:00; We-Fr 11:00-15:00,18:00-22:00; Sa 11:00-22:00",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "91403269300014",
+        "source": "GrandNancy",
+        "website:menu": "https://honey-nancy.fr/wp-content/uploads/2025/01/Menu-Honey-rentree-Janvier-2025.pdf"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1800554,
+          48.6907644
+        ]
+      },
+      "id": "node/3930940963"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3930943598",
+        "addr:housenumber": "28",
+        "amenity": "restaurant",
+        "cash_withdrawal": "no",
+        "changing_table": "no",
+        "delivery": "no",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "Transparence",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "82234895900013",
+        "reservation": "recommended",
+        "self_service": "no",
+        "smoking": "no",
+        "source": "GrandNancy",
+        "stars": "1",
+        "takeaway": "no",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "yes",
+        "website": "https://restaurant-transparence.fr/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1812186,
+          48.6930075
+        ]
+      },
+      "id": "node/3930943598"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3930943631",
+        "addr:housenumber": "5",
+        "amenity": "restaurant",
+        "contact:email": "brasserienancy@gmail.com",
+        "contact:facebook": "https://www.facebook.com/cafedesartsnancy/",
+        "contact:phone": "+33 9 77784471",
+        "indoor_seating": "yes",
+        "name": "Le Café des Arts",
+        "outdoor_seating": "yes",
+        "source": "GrandNancy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1824583,
+          48.6937784
+        ]
+      },
+      "id": "node/3930943631"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4243328301",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2025-07-28",
+        "contact:instagram": "evnancyrestaurant",
+        "contact:phone": "+33 6 65 96 61 14",
+        "contact:website": "https://www.restaurant-ev.fr",
+        "name": "EV",
+        "opening_hours:signed": "no",
+        "ref:FR:SIRET": "93456406300014",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1685207,
+          48.6777215
+        ]
+      },
+      "id": "node/4243328301"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4243415207",
+        "amenity": "restaurant",
+        "contact:housenumber": "34",
+        "contact:phone": "+33 3 83401776",
+        "contact:street": "Avenue du 20e Corps",
+        "cuisine": "thai",
+        "delivery": "yes",
+        "name": "Koboon",
+        "reservation": "yes",
+        "takeaway": "yes",
+        "website": "https://www.koboon-resto.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1912234,
+          48.6932792
+        ]
+      },
+      "id": "node/4243415207"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4259364429",
+        "amenity": "restaurant",
+        "name": "3 Cageots",
+        "ref:FR:SIRET": "80535097200016",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1826448,
+          48.6888622
+        ]
+      },
+      "id": "node/4259364429"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4309863418",
+        "addr:housenumber": "153",
+        "addr:street": "Rue Saint-Dizier",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "contact:housenumber": "153",
+        "contact:street": "Rue Saint-Dizier",
+        "currency:XLT": "FLOR",
+        "description": "Libanese",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "name": "M.Houmous",
+        "opening_hours": "Mo-Su 11:30-14:30, 18:30-22:30",
+        "organic": "only",
+        "payment:cash:XLT-FLOR": "yes",
+        "phone": "+33 356581718",
+        "ref:FR:SIRET": "85232157900025",
+        "source": "survey",
+        "survey:date": "2023-09-07",
+        "website": "https://www.monsieur-houmous.fr/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1857992,
+          48.6864568
+        ]
+      },
+      "id": "node/4309863418"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4319695812",
+        "amenity": "restaurant",
+        "brewery": "yes",
+        "changing_table": "no",
+        "cuisine": "regional",
+        "email": "contact@brasserieduparc.fr",
+        "facebook": "brasserieduparc54",
+        "indoor_seating": "no",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "Brasserie Restaurant du Parc Sainte-Marie",
+        "opening_hours": "Mo-Su 10:00-21:00",
+        "outdoor_seating": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+33 3 83 39 59 82",
+        "reservation": "recommended",
+        "self_service": "no",
+        "smoking": "outside",
+        "stars": "0",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "yes",
+        "website": "http://brasserieduparc.fr/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1720244,
+          48.6803748
+        ]
+      },
+      "id": "node/4319695812"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4329957591",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "level": "0",
+        "name": "Arteteca",
+        "source": "survey",
+        "website": "https://www.thefork.fr/restaurant/pizzeria-arteteca-r847683/menu",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1710531,
+          48.6868082
+        ]
+      },
+      "id": "node/4329957591"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4378671448",
+        "addr:housenumber": "134",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2021-08-20",
+        "contact:email": "meherkisha@gmail.com",
+        "contact:phone": "+33 7 69267566",
+        "cuisine": "indian",
+        "name": "Le Shalimar",
+        "opening_hours": "Mo-Su 11:30-14:30,18:00-22:30",
+        "ref:FR:SIRET": "47801855900060",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1853033,
+          48.6867689
+        ]
+      },
+      "id": "node/4378671448"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4394080365",
+        "amenity": "restaurant",
+        "cuisine": "chinese;vietnamese",
+        "name": "Chez Xuân",
+        "opening_hours": "Tu-Sa 11:30-13:30,19:00-22:00",
+        "phone": "+33 3 83 30 44 77",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1843835,
+          48.6864445
+        ]
+      },
+      "id": "node/4394080365"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4394080368",
+        "amenity": "restaurant",
+        "check_date": "2026-03-22",
+        "contact:facebook": "https://www.facebook.com/p/Le-Royal-Rajasthan-61578956956028",
+        "contact:instagram": "leroyalrajasthan",
+        "contact:phone": "+33 3 83 35 35 00",
+        "contact:website": "https://leroyalrajasthan.com",
+        "cuisine": "indian",
+        "name": "Le Royal Rajasthan",
+        "ref:FR:SIRET": "88424258700019",
+        "source": "survey",
+        "website:menu": "https://leroyalrajasthan.com/fr/services"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1842671,
+          48.6866017
+        ]
+      },
+      "id": "node/4394080368"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4394080375",
+        "amenity": "restaurant",
+        "contact:email": "fehdbm@icloud.com",
+        "contact:housenumber": "46",
+        "contact:phone": "+33 3 83271917",
+        "contact:street": "Rue des Quatre Églises",
+        "cuisine": "crepe",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "Crêpes Street",
+        "opening_hours": "Tu-Su 15:00-22:00; Mo off",
+        "outdoor_seating": "no",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1836392,
+          48.6871293
+        ]
+      },
+      "id": "node/4394080375"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4396365291",
+        "amenity": "restaurant",
+        "bar": "yes",
+        "contact:phone": "+33 3 83 35 17 17",
+        "contact:website": "https://restaurant-bouche-a-oreille.fr/",
+        "cuisine": "cheese",
+        "diet:vegetarian": "yes",
+        "level": "0",
+        "name": "Le Bouche à Oreilles",
+        "opening_hours": "Mo 19:00-22:00; Tu-Th 12:00-13:30,19:00-22:00; Fr 12:00-13:30,19:00-22:30; Sa 19:00-22:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "44244201800010",
+        "smoking": "outside",
+        "source": "survey",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1809904,
+          48.6907323
+        ]
+      },
+      "id": "node/4396365291"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4396365292",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2026-01-22",
+        "diet:vegetarian": "yes",
+        "name": "Le P'tit Bouche",
+        "opening_hours": "Mo,Tu 18:00-22:00; We,Th 18:00-23:00; Fr,Sa 18:00-24:00",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1809519,
+          48.6907847
+        ]
+      },
+      "id": "node/4396365292"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4396408241",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83321280",
+        "cuisine": "italian",
+        "indoor_seating": "yes",
+        "name": "Le San Lorenzo",
+        "opening_hours": "Tu-Sa 12:00-14:00,19:00-24:00",
+        "outdoor_seating": "yes",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1800699,
+          48.6923409
+        ]
+      },
+      "id": "node/4396408241"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4396408243",
+        "addr:housenumber": "2",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83 32 14 14",
+        "indoor_seating": "yes",
+        "name": "Triptik",
+        "outdoor_seating": "yes",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.179835,
+          48.6923125
+        ]
+      },
+      "id": "node/4396408243"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4406976766",
+        "amenity": "restaurant",
+        "check_date": "2024-10-10",
+        "name": "ô cozy",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1818195,
+          48.6885804
+        ]
+      },
+      "id": "node/4406976766"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428077231",
+        "amenity": "restaurant",
+        "name": "La Fabrique de Bières",
+        "opening_hours": "Mo-Fr 11:45-15:00, Th-Sa 19:00-01:00",
+        "phone": "+33 3 83 33 46 69",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1947376,
+          48.6954582
+        ]
+      },
+      "id": "node/4428077231"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428077237",
+        "addr:housenumber": "61",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "name": "Sole Mio",
+        "source": "survey",
+        "website": "https://pizza-solemio.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1956395,
+          48.6973939
+        ]
+      },
+      "id": "node/4428077237"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428225077",
+        "amenity": "restaurant",
+        "name": "Chez Henri",
+        "ref:FR:SIRET": "51464776700011",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1851452,
+          48.6902213
+        ]
+      },
+      "id": "node/4428225077"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4428245130",
+        "amenity": "restaurant",
+        "contact:facebook": "Tabarnak-142573153051268",
+        "contact:phone": "+33 7 77805079",
+        "cuisine": "canadian",
+        "level": "0",
+        "name": "Tabarnak",
+        "opening_hours": "Tu-Fr 12:00-14:00, Tu-Sa 19:00-22:00",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "43016412900040",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1789071,
+          48.6846104
+        ]
+      },
+      "id": "node/4428245130"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4431569174",
+        "amenity": "restaurant",
+        "check_date": "2025-06-16",
+        "contact:housenumber": "10",
+        "contact:phone": "+33 3 83321589",
+        "contact:street": "Rue de la Visitation",
+        "name": "Chez Bébert",
+        "source": "survey",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1801536,
+          48.69063
+        ]
+      },
+      "id": "node/4431569174"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4439056969",
+        "amenity": "restaurant",
+        "contact:housenumber": "18",
+        "contact:street": "Avenue du 20e Corps",
+        "cuisine": "french",
+        "currency:XLT": "FLOR",
+        "email": "didier.brignon@gmail.com",
+        "name": "L'Escapade",
+        "opening_hours": "Mo 12:00-14:00; Tu-Fr 12:00-14:00, 19:00-22:00; Sa 19:00-22:00",
+        "payment:cash:XLT-FLOR": "yes",
+        "payment:contactless:XLT-FLOR": "yes",
+        "phone": "+33 3 83354525",
+        "ref:FR:SIRET": "82166861300010",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1895363,
+          48.6925506
+        ]
+      },
+      "id": "node/4439056969"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4562384964",
+        "amenity": "restaurant",
+        "contact:email": "les7bourriches@gmail.com",
+        "contact:facebook": "https://www.facebook.com/les7bourriches/",
+        "contact:phone": "+33 9 83 50 79 98",
+        "cuisine": "seafood",
+        "description": "Bar à huitres",
+        "name": "Les 7 Bourriches",
+        "opening_hours": "Tu-Sa 12:00-14:00,19:00-22:00; Fr 12:00-14:15,19:00-22:00",
+        "ref:FR:SIRET": "82294920200011",
+        "source": "knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1817752,
+          48.6930015
+        ]
+      },
+      "id": "node/4562384964"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4807668586",
+        "amenity": "restaurant",
+        "contact:email": "restaurantlacourdesarts@gmail.com",
+        "contact:facebook": "https://www.facebook.com/people/Restaurant-La-Cour-des-Arts/61565623897236",
+        "contact:phone": "+33 3 83 37 30 11",
+        "contact:website": "https://la-cour-des-arts.eatbu.com",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "name": "La Cour des Arts",
+        "ref:FR:SIRET": "75019651100018",
+        "website:menu": "https://cdn.website.dish.co/media/d4/67/9376365/Menu-principal-restau.pdf",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1826329,
+          48.6916027
+        ]
+      },
+      "id": "node/4807668586"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4847205241",
+        "amenity": "restaurant",
+        "name": "La Maison dans le Parc",
+        "opening_hours": "We-Sa 12:00-13:30, 19:30-21:00, Su 12:00-14:00",
+        "phone": "+33 3 83 19 03 57",
+        "ref:FR:SIRET": "49318742100018",
+        "source": "survey",
+        "stars": "0",
+        "website": "https://lamaisondansleparc.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1851687,
+          48.6941849
+        ]
+      },
+      "id": "node/4847205241"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4847205242",
+        "amenity": "restaurant",
+        "contact:facebook": "RestaurantLeVivier",
+        "contact:phone": "+33 3 83 30 05 05",
+        "contact:website": "https://www.le-vivier-nancy.fr",
+        "name": "Le Vivier",
+        "ref:FR:SIRET": "32827683700031",
+        "source": "survey",
+        "website:menu": "https://www.le-vivier-nancy.fr/wp-content/uploads/2024/10/menu-restaurant-le-vivier-nancy.pdf"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1815193,
+          48.6942312
+        ]
+      },
+      "id": "node/4847205242"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4847205243",
+        "amenity": "restaurant",
+        "name": "Sisco",
+        "opening_hours": "Mo-Sa 12:00-14:00,18:00-02:00",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.181597,
+          48.6942573
+        ]
+      },
+      "id": "node/4847205243"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4893579032",
+        "amenity": "restaurant",
+        "check_date": "2024-10-10",
+        "name": "Le RDV",
+        "operator": "Accor",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1744805,
+          48.6906299
+        ]
+      },
+      "id": "node/4893579032"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4970069877",
+        "amenity": "restaurant",
+        "contact:email": "naykimhuor@yahoo.com",
+        "contact:phone": "+33 3 83271783",
+        "contact:website": "https://www.restaurant-natsu.fr",
+        "cuisine": "japanese",
+        "name": "Natsu",
+        "opening_hours": "Mo-Sa 11:30-14:30,18:30-22:00; Su 18:30-22:00",
+        "ref:FR:SIRET": "98402353100010",
+        "source": "survey",
+        "website": "https://www.restaurant-natsu.fr/menu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1868275,
+          48.6853514
+        ]
+      },
+      "id": "node/4970069877"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4991079770",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/It-Trattoria-Nancy-106885417698152/",
+        "contact:housenumber": "26",
+        "contact:phone": "+33 3 83270230",
+        "contact:street": "Place Charles III",
+        "cuisine": "italian",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "name": "IT Italian Trattoria",
+        "opening_hours": "Mo-Sa 08:00-23:00; Tu-Th 08:00-22:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "88371614400026",
+        "source": "survey",
+        "website": "https://it-trattoria.com/restaurant/nancy-henri-mengin"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1815918,
+          48.6894158
+        ]
+      },
+      "id": "node/4991079770"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4997952894",
+        "amenity": "restaurant",
+        "name": "Le Boufflers",
+        "opening_hours": "Mo-Sa 11:30-14:30,18:00-23:00; Su 18:00-23:00",
+        "phone": "+33 3 83 26 86 60",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1614614,
+          48.6891658
+        ]
+      },
+      "id": "node/4997952894"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5045385221",
+        "addr:housenumber": "19",
+        "amenity": "restaurant",
+        "contact:phone": "+33 6 23391036",
+        "cuisine": "french",
+        "name": "Le Dizneuf",
+        "opening_hours": "Mo-Sa 08:00-20:00",
+        "ref:FR:SIRET": "84122792900012",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1823196,
+          48.6888316
+        ]
+      },
+      "id": "node/5045385221"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5248940375",
+        "amenity": "restaurant",
+        "contact:housenumber": "94",
+        "contact:phone": "+33 9 83863407",
+        "contact:street": "Rue Saint-Dizier",
+        "cuisine": "japanese",
+        "description": "Restaurant de spécialité japonaise. Vous n'y trouverez pas de sushis ou autre mais principalement des ramens ou des takoyakis par exemple",
+        "name": "Ippoudo Ramen",
+        "opening_hours": "Mo-Sa 11:30-14:30,18:30-22:30; Su 18:30-22:30",
+        "ref:FR:SIRET": "79395856200019",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1842767,
+          48.6881714
+        ]
+      },
+      "id": "node/5248940375"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5257378122",
+        "amenity": "restaurant",
+        "contact:housenumber": "58",
+        "contact:phone": "+33 3 83 29 99 12",
+        "contact:street": "Rue de Metz",
+        "cuisine": "chinese",
+        "name": "Chez 86",
+        "opening_hours": "Mo-Fr 11:45-13:30,19:00-21:00; We off; Sa 19:00-21:00",
+        "ref:FR:SIRET": "53409022000011",
+        "source": "survey",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1715722,
+          48.7017526
+        ]
+      },
+      "id": "node/5257378122"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5275776153",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/p/La-Table-De-Bacchus-100069324176053",
+        "contact:instagram": "la_table_de_bacchus",
+        "name": "La Table de Bacchus",
+        "phone": "+33 3 83375577",
+        "ref:FR:SIRET": "48826255100010",
+        "website": "https://www.la-table-de-bacchus-restaurant-nancy.fr",
+        "website:menu": "https://www.la-table-de-bacchus-restaurant-nancy.fr/la-carte-la-table-de-bacchus-restaurant-resto-restau-nancy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1814486,
+          48.6942109
+        ]
+      },
+      "id": "node/5275776153"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5275776154",
+        "amenity": "restaurant",
+        "name": "Casa Zaza",
+        "opening_hours": "We-Sa 11:30-14:00; Tu-Sa 18:30-22:00",
+        "ref:FR:SIRET": "91432330800025",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1816382,
+          48.6944072
+        ]
+      },
+      "id": "node/5275776154"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5275776156",
+        "amenity": "restaurant",
+        "name": "Jack Tavern",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1812755,
+          48.6941848
+        ]
+      },
+      "id": "node/5275776156"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5275776157",
+        "amenity": "restaurant",
+        "contact:email": "contacts@lepotagerlorrain.fr",
+        "contact:facebook": "https://www.facebook.com/people/Le-Potager-Lorrain",
+        "contact:instagram": "lepotager_lorrain",
+        "contact:phone": "+33 6 51 76 54 50",
+        "contact:website": "https://lepotagerlorrain.fr",
+        "cuisine": "regional",
+        "level": "0",
+        "name": "Le Potager",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "80825888300012",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1811215,
+          48.6941282
+        ]
+      },
+      "id": "node/5275776157"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5275776158",
+        "addr:housenumber": "14",
+        "amenity": "restaurant",
+        "cuisine": "indian;pakistani",
+        "name": "Le Palais de Shalimar",
+        "phone": "+33 3 83304533",
+        "ref:FR:SIRET": "40503688000020"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1814119,
+          48.6943269
+        ]
+      },
+      "id": "node/5275776158"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5275776159",
+        "amenity": "restaurant",
+        "contact:housenumber": "16",
+        "contact:street": "Rue des Maréchaux",
+        "name": "Le Comptoir de Bacchus",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1813722,
+          48.6942953
+        ]
+      },
+      "id": "node/5275776159"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5396673991",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83 34 19 53",
+        "cuisine": "italian",
+        "indoor_seating": "yes",
+        "name": "Retrogusto",
+        "opening_hours": "Tu-Sa 12:00-13:30,19:00-22:00",
+        "outdoor_seating": "no",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1805358,
+          48.6927735
+        ]
+      },
+      "id": "node/5396673991"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5467309176",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2022-11-27",
+        "name": "(S)pace Artem",
+        "opening_hours:signed": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1693227,
+          48.6735688
+        ]
+      },
+      "id": "node/5467309176"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5534507807",
+        "amenity": "restaurant",
+        "contact:facebook": "RestaurantsAngeluzzo",
+        "contact:instagram": "restaurants_angeluzzo",
+        "cuisine": "italian;pizza",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Angelùzzo",
+        "opening_hours": "11:00-23:00; Fr,Sa 11:00-24:00",
+        "outdoor_seating": "no",
+        "phone": "+33 3 83 35 74 13",
+        "smoking": "no",
+        "source": "survey",
+        "website": "https://www.angeluzzo.fr/",
+        "website:menu": "https://www.angeluzzo.fr/dist/pdf/2024/10/ANGELUZZO_carte_FR.pdf",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1829071,
+          48.6903925
+        ]
+      },
+      "id": "node/5534507807"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600866789",
+        "amenity": "restaurant",
+        "contact:email": "cafe.cuba.nancy@gmail.com",
+        "contact:facebook": "https://www.facebook.com/cafe.cuba.nancy/",
+        "name": "Café Cuba",
+        "source": "survey",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1774797,
+          48.6926017
+        ]
+      },
+      "id": "node/5600866789"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600866796",
+        "amenity": "restaurant",
+        "name": "À la Maison",
+        "opening_hours": "Mo-Th 08:00-22:00; Fr 08:00-02:00",
+        "ref:FR:SIRET": "84506079700014",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1769615,
+          48.692435
+        ]
+      },
+      "id": "node/5600866796"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5600866797",
+        "addr:housenumber": "9",
+        "amenity": "restaurant",
+        "contact:email": "bacademie54@gmail.com",
+        "contact:facebook": "https://www.facebook.com/brasserielacademie/",
+        "contact:phone": "+33 3 54594587",
+        "contact:website": "https://lacademie-brewery.business.site/",
+        "indoor_seating": "yes",
+        "name": "Brasserie L'Académie",
+        "opening_hours": "Mo-Fr 11:00-24:00",
+        "outdoor_seating": "yes",
+        "smoking": "outside",
+        "source": "survey",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1773135,
+          48.6925412
+        ]
+      },
+      "id": "node/5600866797"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5610133029",
+        "addr:housenumber": "29",
+        "amenity": "restaurant",
+        "check_date": "2024-10-10",
+        "contact:phone": "+33 3 83 35 26 32",
+        "name": "Pont 29",
+        "ref:FR:SIRET": "39326169800020",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1820549,
+          48.6882602
+        ]
+      },
+      "id": "node/5610133029"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5826348049",
+        "amenity": "restaurant",
+        "check_date": "2026-02-19",
+        "check_date:diet:vegetarian": "2026-02-19",
+        "diet:vegetarian": "yes",
+        "name": "Mamie Branchée",
+        "opening_hours": "Mo-Fr 19:00-22:00; Sa 19:00-22:30; Su 11:30-15:00",
+        "ref:FR:SIRET": "82898574700017",
+        "smoking": "no",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1849359,
+          48.6926649
+        ]
+      },
+      "id": "node/5826348049"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5896114686",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/croc.n.rock/",
+        "contact:housenumber": "25",
+        "contact:street": "Avenue du 20e Corps",
+        "cuisine": "bistro",
+        "diet:vegetarian": "yes",
+        "disused:amenity": "fast_food",
+        "name": "Crock & Rock",
+        "opening_hours": "Tu-Sa 12:00-13:30,19:00-21:00",
+        "payment:apple_pay": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:debit_cards": "yes",
+        "payment:maestro": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "phone": "+33 3 83 54 40 56",
+        "shop": "vacant",
+        "toilets": "yes",
+        "website": "https://croc-rock.eatbu.com/?lang=fr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1905698,
+          48.6934983
+        ]
+      },
+      "id": "node/5896114686"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5967392802",
+        "amenity": "restaurant",
+        "changing_table": "no",
+        "check_date": "2026-01-30",
+        "check_date:diet:vegetarian": "2026-01-30",
+        "contact:email": "contact@vins-et-tartines.com",
+        "contact:phone": "+33 3 83351725",
+        "contact:website": "http://www.vins-et-tartines.com/",
+        "cuisine": "wine;tartines",
+        "diet:vegetarian": "no",
+        "level": "0",
+        "name": "Vins et Tartines",
+        "opening_hours": "Tu-Th 10:30-14:00,18:30-21:30; Fr-Sa 10:30-14:00,18:30-22:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "85259129600011",
+        "smoking": "outside",
+        "source": "survey",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:disposal": "flush",
+        "toilets:position": "seated",
+        "toilets:wheelchair": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1819096,
+          48.6884578
+        ]
+      },
+      "id": "node/5967392802"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5967392804",
+        "amenity": "restaurant",
+        "level": "0",
+        "name": "Les Pissenlits",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "85259130400013",
+        "reservation": "recommended",
+        "smoking": "no",
+        "source": "survey",
+        "website": "https://www.les-pissenlits.com/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1819912,
+          48.6883468
+        ]
+      },
+      "id": "node/5967392804"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6397855882",
+        "amenity": "restaurant",
+        "cuisine": "chinese",
+        "delivery": "yes",
+        "level": "0",
+        "name": "O'Noodle",
+        "opening_hours": "We-Mo 15:00-23:00; Tu off",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 41 39 12",
+        "ref:FR:SIRET": "84465611600010",
+        "smoking": "outside",
+        "source": "knowledge",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "no",
+        "website": "https://onoodle54000.com",
+        "website:menu": "https://onoodle54000.com/menu",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1819708,
+          48.6930604
+        ]
+      },
+      "id": "node/6397855882"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6454289387",
+        "amenity": "restaurant",
+        "name": "Iberico",
+        "ref:FR:SIRET": "81048831200010",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1864224,
+          48.6845542
+        ]
+      },
+      "id": "node/6454289387"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6454289404",
+        "amenity": "restaurant",
+        "contact:facebook": "LaMurailleDeChineNancy",
+        "contact:phone": "+33 3 83 36 69 88",
+        "cuisine": "chinese",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "La Muraille de Chine",
+        "name:zh": "長城",
+        "opening_hours": "Tu-Sa 12:00-13:30,19:00-21:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "40001264700014",
+        "toilets": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1758881,
+          48.691592
+        ]
+      },
+      "id": "node/6454289404"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6539873144",
+        "amenity": "restaurant",
+        "cuisine": "turkish",
+        "name": "Zeugma",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.184944,
+          48.6887476
+        ]
+      },
+      "id": "node/6539873144"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6560925456",
+        "amenity": "restaurant",
+        "cuisine": "vietnamese",
+        "name": "Stew Cook",
+        "ref:FR:SIRET": "90196352000019",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1874061,
+          48.6874487
+        ]
+      },
+      "id": "node/6560925456"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6567903260",
+        "amenity": "restaurant",
+        "contact:facebook": "restaurantlecaprinancy",
+        "contact:instagram": "caprinancy",
+        "cuisine": "pizza",
+        "name": "Le Capri",
+        "ref:FR:SIRET": "49379388900012",
+        "source": "survey",
+        "website": "https://www.pizzeria-lecapri.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1813693,
+          48.6930261
+        ]
+      },
+      "id": "node/6567903260"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6574800296",
+        "addr:housenumber": "23",
+        "amenity": "restaurant",
+        "contact:facebook": "PalaisdeJaipurNancy",
+        "contact:phone": "+33 3 83 35 41 42",
+        "cuisine": "indian",
+        "name": "Le Palais de Jaipur",
+        "opening_hours": "12:00-14:30,19:00-22:30",
+        "ref:FR:SIRET": "90921379500018",
+        "source": "survey",
+        "website": "https://www.palaisdejaipur.com/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.181191,
+          48.6941482
+        ]
+      },
+      "id": "node/6574800296"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6614627332",
+        "amenity": "restaurant",
+        "contact:housenumber": "31",
+        "contact:phone": "+33 3 54162024",
+        "contact:street": "Grande Rue",
+        "contact:website": "https://jacques-tav.fr/",
+        "name": "Jacques",
+        "ref:FR:SIRET": "50351338400035"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1808505,
+          48.695688
+        ]
+      },
+      "id": "node/6614627332"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6627197550",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "name": "La Romana",
+        "ref:FR:SIRET": "39488364900029",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1817183,
+          48.6945825
+        ]
+      },
+      "id": "node/6627197550"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6636704113",
+        "amenity": "restaurant",
+        "contact:housenumber": "1bis",
+        "contact:street": "Rue Lafayette",
+        "cuisine": "french",
+        "indoor_seating": "yes",
+        "name": "L'Amusette",
+        "opening_hours": "Mo-Tu 19:00-22:00; We-Th 12:00-14:00,19:00-22:00; Fr-Sa 12:00-14:00,19:00-23:00; Su off; PH off",
+        "outdoor_seating": "yes",
+        "phone": "+33 9 81 43 33 74",
+        "ref:FR:SIRET": "75328628500022",
+        "source": "survey",
+        "website": "https://lamusette.eatbu.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1797966,
+          48.6946153
+        ]
+      },
+      "id": "node/6636704113"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6636715207",
+        "amenity": "restaurant",
+        "check_date": "2024-09-25",
+        "name": "Les Batteurs d'Or",
+        "phone": "+33 3 83 36 72 87",
+        "ref:FR:SIRET": "88971409300016",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1800042,
+          48.6895924
+        ]
+      },
+      "id": "node/6636715207"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6654979924",
+        "amenity": "restaurant",
+        "contact:email": "info@lecapu.com",
+        "contact:housenumber": "31",
+        "contact:phone": "+33 3 83 35 26 98",
+        "contact:street": "Rue Gambetta",
+        "contact:website": "http://www.lecapu.com/",
+        "name": "Le Capu",
+        "ref:FR:SIRET": "39511604900028",
+        "source": "survey",
+        "stars": "L'assiette Michelin",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1806175,
+          48.692192
+        ]
+      },
+      "id": "node/6654979924"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6658472673",
+        "amenity": "restaurant",
+        "contact:email": "craffe54@yahoo.fr",
+        "contact:housenumber": "11",
+        "contact:phone": "+33 3 83 45 42 94",
+        "contact:street": "Rue Braconnot",
+        "cuisine": "pizza",
+        "name": "Nancy Food Pizzas - Au feu de bois",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1784776,
+          48.6987985
+        ]
+      },
+      "id": "node/6658472673"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6694616151",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2023-08-13",
+        "contact:facebook": "Monsieur.FUJI.Sushi",
+        "cuisine": "sushi",
+        "indoor_seating": "yes",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "Monsieur Fuji Sushi",
+        "opening_hours": "Mo 18:30-22:00; Tu-Sa 11:30-14:00,18:30-22:00",
+        "outdoor_seating": "no",
+        "phone": "+33 3 83 17 00 28",
+        "ref:FR:SIRET": "82188040800025",
+        "source": "survey",
+        "takeaway": "yes",
+        "website": "https://monsieurfujisushi.eatbu.com",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.182789,
+          48.6905479
+        ]
+      },
+      "id": "node/6694616151"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6723698152",
+        "addr:housenumber": "4",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "diet:vegetarian": "yes",
+        "name": "Ciao Bella",
+        "opening_hours": "Tu-Th 12:00-14:00,19:00-22:00; Fr,Sa 12:00-14:00,19:00-23:00",
+        "phone": "+33 3 86 33 39 78",
+        "ref:FR:SIRET": "53258979300019",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1846887,
+          48.690339
+        ]
+      },
+      "id": "node/6723698152"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6742057301",
+        "amenity": "restaurant",
+        "name": "Les Tournesols",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1962445,
+          48.6843506
+        ]
+      },
+      "id": "node/6742057301"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6795545784",
+        "addr:housenumber": "24",
+        "amenity": "restaurant",
+        "name": "Le Bistro Héré",
+        "phone": "+33 3 83 30 49 69",
+        "ref:FR:SIRET": "83966188100020",
+        "source": "survey",
+        "survey:date": "2019-09-14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1829243,
+          48.6942438
+        ]
+      },
+      "id": "node/6795545784"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7037145600",
+        "addr:housenumber": "6",
+        "amenity": "restaurant",
+        "name": "Da' Gruma",
+        "ref:FR:SIRET": "98810692800019",
+        "source": "survey;GrandNancy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1812945,
+          48.6921997
+        ]
+      },
+      "id": "node/7037145600"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7037145659",
+        "amenity": "restaurant",
+        "contact:housenumber": "144",
+        "contact:phone": "+33 6 98257826",
+        "contact:street": "Rue Saint-Dizier",
+        "cuisine": "thai",
+        "indoor_seating": "yes",
+        "level": "0",
+        "microbrewery": "no",
+        "name": "Yom Thaï Food",
+        "opening_hours": "Mo-Sa 11:30-15:00,18:00-22:00",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "82449712700020",
+        "smoking": "outside",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1860099,
+          48.685811
+        ]
+      },
+      "id": "node/7037145659"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7037145669",
+        "amenity": "restaurant",
+        "contact:housenumber": "80",
+        "contact:street": "Rue Saint-Dizier",
+        "cuisine": "regional;african",
+        "name": "L’Èbène",
+        "opening_hours": "Tu-Th 12:00-14:00,19:00-22:00; Fr-Sa 12:00-14:00,19:00-23:00; Su 19:00-22:00",
+        "phone": "+33 7 85 00 74 70",
+        "ref:FR:SIRET": "89852568800013",
+        "website": "https://www.lebenerestaurant.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1840212,
+          48.6885172
+        ]
+      },
+      "id": "node/7037145669"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7040812709",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2025-01-31",
+        "contact:email": "nancy.mondesert@lesdomainesquimontent.com",
+        "contact:phone": "+33 3 83445387",
+        "contact:website": "https://www.lesdomainesquimontent.com/les-produits-les-domaines-qui-montent-nancy",
+        "name": "Les Domaines Qui Montent",
+        "opening_hours": "Mo-Sa 10:00-20:00",
+        "ref:FR:SIRET": "91194478300016",
+        "shop": "wine",
+        "source": "knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1769458,
+          48.683947
+        ]
+      },
+      "id": "node/7040812709"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7067367510",
+        "amenity": "restaurant",
+        "cuisine": "caribbean",
+        "name": "Le Bakoua",
+        "ref:FR:SIRET": "39440636700018"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1827859,
+          48.6869917
+        ]
+      },
+      "id": "node/7067367510"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7067367520",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/khanresto/",
+        "contact:housenumber": "58",
+        "contact:phone": "+33 3 83274873",
+        "contact:street": "Rue des Ponts",
+        "contact:website": "https://www.restaurant-khan-54.fr/",
+        "cuisine": "indian;pakistani",
+        "name": "Khan",
+        "opening_hours": "Mo 18:30-23:00; Tu-Su 11:30-14:30,18:30-23:00",
+        "source": "knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1828671,
+          48.6869367
+        ]
+      },
+      "id": "node/7067367520"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7067367537",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "check_date": "2024-07-06",
+        "check_date:opening_hours": "2024-07-06",
+        "contact:email": "hello@nemobowl.fr",
+        "contact:housenumber": "2",
+        "contact:phone": "+33 3 83249430",
+        "contact:street": "Rue Dom Calmet",
+        "contact:website": "https://www.nemobowl.fr",
+        "cuisine": "coffee_shop;chicken;international;seafood",
+        "delivery": "yes",
+        "description": "Nemo bowl propose des poke bowl gourmands, healthy et généreux. Choissisez parmis nos recettes star ou créez votre bowl en 5 étapes.",
+        "diet:gluten_free": "yes",
+        "diet:healthy": "yes",
+        "diet:meat": "yes",
+        "diet:non-vegetarian": "yes",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "level": "0;1",
+        "name": "Nemo Poke Bowl",
+        "opening_hours": "Mo-Su 12:00-14:00,18:00-22:00",
+        "payment:credit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "ref:FR:SIRET": "89800798400021",
+        "reservation": "yes",
+        "smoking": "outside",
+        "takeaway": "yes",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1812953,
+          48.6917286
+        ]
+      },
+      "id": "node/7067367537"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7354588176",
+        "amenity": "restaurant",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.153215,
+          48.7031004
+        ]
+      },
+      "id": "node/7354588176"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7379192344",
+        "amenity": "restaurant",
+        "contact:housenumber": "52",
+        "contact:phone": "+33 3 83 32 65 47",
+        "contact:street": "Rue Saint Dizier",
+        "contact:website": "https://www.saveurs-parfums-italie.com/",
+        "name": "Saveurs et Parfums d'Italie",
+        "shop": "deli"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1826392,
+          48.6894546
+        ]
+      },
+      "id": "node/7379192344"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7406123826",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2023-08-13",
+        "contact:email": "reservations@limpromptu.com",
+        "contact:fax": "+33 3 83736676",
+        "contact:phone": "+33 3 83300256",
+        "contact:website": "https://www.limpromptu.com/",
+        "name": "L'impromptu",
+        "opening_hours": "Tu-Sa 09:00-16:00; Su 11:00-16:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.183238,
+          48.6892954
+        ]
+      },
+      "id": "node/7406123826"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7419821981",
+        "amenity": "restaurant",
+        "contact:email": "lostacos.54@hotmail.com",
+        "contact:housenumber": "8",
+        "contact:phone": "+33 3 83 36 42 47",
+        "contact:street": "Rue des Tiercelins",
+        "cuisine": "tacos",
+        "delivery": "yes",
+        "name": "Los Tacos",
+        "ref:FR:SIRET": "84855314500014",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1855823,
+          48.6896121
+        ]
+      },
+      "id": "node/7419821981"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7424890161",
+        "amenity": "restaurant",
+        "contact:email": "king.pizza0554@gmail.com",
+        "contact:phone": "+33 3 54161120",
+        "delivery": "yes",
+        "name": "King Pizza",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1418698,
+          48.6924674
+        ]
+      },
+      "id": "node/7424890161"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7425037585",
+        "amenity": "restaurant",
+        "contact:email": "ping_du_67@hotmail.fr",
+        "contact:housenumber": "90",
+        "contact:phone": "+33 3 83540666",
+        "contact:street": "Avenue du Maréchal de Lattre de Tassigny",
+        "name": "Le Palais de Chine",
+        "opening_hours": "Mo 18:00-22:00; Tu-Su 11:00-14:00,18:00-22:00",
+        "ref:FR:SIRET": "82415335700028"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.190395,
+          48.6830372
+        ]
+      },
+      "id": "node/7425037585"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7471812472",
+        "amenity": "restaurant",
+        "contact:facebook": "@chingu54nancy",
+        "contact:housenumber": "20 bis",
+        "contact:instagram": "chingu54000",
+        "contact:phone": "+33 3 83372010",
+        "contact:street": "Rue Gustave Simon",
+        "cuisine": "korean",
+        "indoor_seating": "yes",
+        "name": "Chingu",
+        "opening_hours": "Th-Mo 12:00-14:00,19:00-20:00; We 19:00-20:00",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "88213502300019",
+        "website": "https://chingu.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1807387,
+          48.6938481
+        ]
+      },
+      "id": "node/7471812472"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7529231618",
+        "amenity": "restaurant",
+        "contact:email": "bageletsalade@gmail.com",
+        "contact:housenumber": "232",
+        "contact:mobile": "+33 6 45 75 40 99",
+        "contact:street": "Avenue du Général Leclerc",
+        "name": "Bagel & Salsa",
+        "phone": "+33 3 87 57 52 54",
+        "source": "survey",
+        "website": "https://www.bageletsalsanancy.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1733491,
+          48.6731241
+        ]
+      },
+      "id": "node/7529231618"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7589230949",
+        "access": "private",
+        "addr:housenumber": "16",
+        "air_conditioning": "yes",
+        "amenity": "restaurant",
+        "check_date": "2023-01-11",
+        "contact:phone": "+33 3 83327060",
+        "diet:halal": "no",
+        "diet:kosher": "no",
+        "diet:vegan": "no",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "name": "Resto' Cours Léopold",
+        "opening_hours": "11:30-13:30,18:30-20:30",
+        "operator": "Crous Lorraine",
+        "outdoor_seating": "no",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "private": "students",
+        "smoking": "no",
+        "source": "knowledge",
+        "website": "https://www.crous-lorraine.fr/restaurant/cours-leopold/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1772029,
+          48.6950159
+        ]
+      },
+      "id": "node/7589230949"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7810305472",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "diet:gluten_free": "no",
+        "diet:vegan": "no",
+        "diet:vegetarian": "yes",
+        "email": "lechardonnancy@gmail.com",
+        "name": "Le Chardon",
+        "opening_hours": "Mo 12:00-14:30; Tu-Fr 12:00-14:30,19:00-21:30; Sa 12:00-14:30,19:00-22:00",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 32 73 97",
+        "ref:FR:SIRET": "88105383900018",
+        "reservation": "required",
+        "website": "https://restaurant-lechardon.fr/",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1865969,
+          48.6855063
+        ]
+      },
+      "id": "node/7810305472"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8143917485",
+        "amenity": "restaurant",
+        "contact:phone": "+33 3 83321101",
+        "contact:website": "http://www.restaurant-larsenal.fr/",
+        "indoor_seating": "yes",
+        "name": "L'Arsenal",
+        "outdoor_seating": "yes",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1776717,
+          48.6968892
+        ]
+      },
+      "id": "node/8143917485"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8174053298",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2025-04-22",
+        "contact:phone": "+33 3 83 27 25 95",
+        "contact:website": "http://pizza-ausoleildeprovence.fr/",
+        "cuisine": "pizza",
+        "level": "0",
+        "name": "Au Soleil de Provence",
+        "opening_hours": "Tu-Fr 11:30-13:30, Tu-Su 18:00-22:00",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "84199598800018",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1779713,
+          48.684422
+        ]
+      },
+      "id": "node/8174053298"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8187605359",
+        "addr:housenumber": "27",
+        "amenity": "restaurant",
+        "contact:email": "le27g@outlook.fr",
+        "contact:facebook": "https://fr-fr.facebook.com/Le27Gambetta/",
+        "contact:instagram": "Le27Gambetta (@le27gambetta)",
+        "contact:phone": "+33 3 83358133",
+        "contact:website": "https://desrestauetdeshommes.wixsite.com/le27nancy",
+        "name": "Le 27",
+        "opening_hours": "Mo-Sa 12:00-13:45,19:30-21:30",
+        "ref:FR:SIRET": "94809935300013",
+        "source": "survey",
+        "takeaway": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1807965,
+          48.6922505
+        ]
+      },
+      "id": "node/8187605359"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8241544030",
+        "addr:housenumber": "1 bis",
+        "addr:street": "Rue des Quatre Églises",
+        "amenity": "restaurant",
+        "contact:email": "khaothip.pro@gmail.com",
+        "contact:facebook": "Thai-Khao-Thip-Restaurant-176789976238858",
+        "cuisine": "thai",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "name": "Khao Thip",
+        "opening_hours": "Mo-Sa 11:30-14:30, 18:30-22:30",
+        "phone": "+333 83 47 11 72",
+        "ref:FR:SIRET": "83310799800019",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1826749,
+          48.6887846
+        ]
+      },
+      "id": "node/8241544030"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8415885525",
+        "addr:housenumber": "90",
+        "amenity": "restaurant",
+        "contact:email": "brasseriebont@gmail.com",
+        "contact:phone": "+33 6 10524317",
+        "contact:website": "https://brasserie-bont.eatbu.com/",
+        "name": "Bon’t",
+        "ref:FR:SIRET": "88109216700017",
+        "source": "GrandNancy"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1920556,
+          48.6889241
+        ]
+      },
+      "id": "node/8415885525"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8567985115",
+        "amenity": "restaurant",
+        "contact:housenumber": "8",
+        "contact:street": "Rue des Ponts",
+        "cuisine": "chinese",
+        "level": "0",
+        "name": "KungFu nouilles",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "81445608300025",
+        "self_service": "no",
+        "source": "survey",
+        "website": "https://kungfunouilles.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1809969,
+          48.6894843
+        ]
+      },
+      "id": "node/8567985115"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8567999219",
+        "amenity": "restaurant",
+        "check_date": "2024-10-10",
+        "contact:facebook": "https://www.facebook.com/aumerleblanc/",
+        "contact:phone": "+33 3 83327127",
+        "indoor_seating": "yes",
+        "name": "Au Merle Blanc",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "40229262700039",
+        "source": "survey",
+        "website": "https://www.aumerleblanc.fr/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.180947,
+          48.6895521
+        ]
+      },
+      "id": "node/8567999219"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8567999230",
+        "amenity": "restaurant",
+        "cuisine": "chinese",
+        "level": "0",
+        "name": "La Maison Chinoise",
+        "opening_hours": "Mo-Fr 11:30-14:00, Th-Sa 19:00-22:00",
+        "outdoor_seating": "no",
+        "ref:FR:SIRET": "84152402800013",
+        "wheelchair": "designated"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1785517,
+          48.6845451
+        ]
+      },
+      "id": "node/8567999230"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8574931558",
+        "amenity": "restaurant",
+        "level": "0",
+        "name": "Pho Etoile",
+        "ref:FR:SIRET": "99127995100016"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1814324,
+          48.692881
+        ]
+      },
+      "id": "node/8574931558"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8808806597",
+        "amenity": "restaurant",
+        "email": "tchiz54000@gmail.com",
+        "name": "L'Alpa",
+        "opening_hours": "Mo-Th 11:30-14:00,18:30-22:30; Fr 11:30-14:00,18:30-23:30; Sa 12:00-14:30,18:30-23:30; Su 12:00-15:00,18:30-22:30",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 47 29 45",
+        "reservation": "yes",
+        "takeaway": "yes",
+        "website": "https://www.tchiz-nancy.fr/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.2021765,
+          48.6911445
+        ]
+      },
+      "id": "node/8808806597"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8862034029",
+        "amenity": "restaurant",
+        "cuisine": "syrian",
+        "level": "0",
+        "name": "Céline food",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.193728,
+          48.6893584
+        ]
+      },
+      "id": "node/8862034029"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9023576915",
+        "amenity": "restaurant",
+        "name": "Up To You",
+        "ref:FR:SIRET": "89362095500011",
+        "short_name": "UT-Y",
+        "source": "knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1817557,
+          48.6945234
+        ]
+      },
+      "id": "node/9023576915"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9053464817",
+        "amenity": "restaurant",
+        "check_date": "2024-12-08",
+        "contact:email": "latraviata-restaurant@outlook.com",
+        "contact:facebook": "https://www.facebook.com/La-Traviata-Pizz-Cocktails-100601721852426/",
+        "contact:phone": "+33 3 83265411",
+        "contact:website": "https://desrestauetdeshommes.wixsite.com/website",
+        "cuisine": "italian",
+        "indoor_seating": "yes",
+        "name": "La Traviata",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "84122818200017"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1797136,
+          48.6967073
+        ]
+      },
+      "id": "node/9053464817"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9258765620",
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "outdoor_seating": "no",
+        "source": "survey 2012-12;bing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.174094,
+          48.688777
+        ]
+      },
+      "id": "node/9258765620"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9258765638",
+        "amenity": "restaurant",
+        "check_date": "2025-08-03",
+        "contact:email": "vinterroirs@gmail.com",
+        "contact:facebook": "https://www.facebook.com/Terroirs-Table-Cave-415914192250287/",
+        "contact:housenumber": "19",
+        "contact:phone": "+33 3 83440120",
+        "contact:street": "Rue du Sergent Blandan",
+        "contact:website": "https://terroirs-nancy.fr/",
+        "level": "0",
+        "name": "Terroirs",
+        "opening_hours": "Mo,Tu,Sa 10:00-19:30; We 10:00-19:00; Th-Fr 10:00-21:30; Su off",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "84208275200010",
+        "shop": "wine",
+        "smoking": "outside",
+        "source": "survey",
+        "toilets": "yes",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1662058,
+          48.6813869
+        ]
+      },
+      "id": "node/9258765638"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9258765640",
+        "amenity": "restaurant",
+        "contact:email": "restaurant.cadet54@gmail.com",
+        "contact:phone": "+33 3 83479523",
+        "contact:website": "https://restaurant-cadet.fr/",
+        "name": "Le Cadet",
+        "opening_hours": "Tu,We 12:00-13:00; Th-Sa 12:00-13:00,19:00-20:30",
+        "source": "knowledge",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1659939,
+          48.6820217
+        ]
+      },
+      "id": "node/9258765640"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9258765663",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2024-12-25",
+        "contact:facebook": "https://www.facebook.com/61559055453482",
+        "contact:housenumber": "41",
+        "contact:street": "Avenue du Maréchal Juin",
+        "name": "La Brasserie des Bains",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "51405939300033",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1696248,
+          48.6782373
+        ]
+      },
+      "id": "node/9258765663"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9258765694",
+        "amenity": "restaurant",
+        "brand": "Pizza Hut",
+        "brand:wikidata": "Q191615",
+        "brand:wikipedia": "fr:Pizza Hut",
+        "cuisine": "pizza",
+        "delivery": "yes",
+        "indoor_seating": "no",
+        "name": "Pizza Hut",
+        "opening_hours": "Mo-Fr 11:30-14:30,18:00-23:00; Sa,Su 11:30-23:00",
+        "outdoor_seating": "no",
+        "phone": "+33 3 52 79 02 80",
+        "ref:FR:SIRET": "88431904700012",
+        "source": "knowledge",
+        "takeaway": "only",
+        "website": "https://www.pizzahut.fr/huts/fr-1/43-nancy-centre-gare"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1715743,
+          48.686047
+        ]
+      },
+      "id": "node/9258765694"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9492727793",
+        "amenity": "restaurant",
+        "name": "Le Local",
+        "ref:FR:SIRET": "80467796100018",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1689457,
+          48.685958
+        ]
+      },
+      "id": "node/9492727793"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9492774961",
+        "amenity": "restaurant",
+        "contact:facebook": "layourte54",
+        "contact:housenumber": "28",
+        "contact:instagram": "layourte54",
+        "contact:phone": "+33 9 84 28 55 36",
+        "contact:street": "Rue de la Commanderie",
+        "cuisine": "siberian",
+        "delivery": "yes",
+        "name": "La Yourte",
+        "opening_hours": "Mo,Tu 11:45-14:00; We-Fr 11:45-14:00,19:00-22:00; Sa 19:00-22:00",
+        "ref:FR:SIRET": "87913406200014",
+        "source": "survey",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1707586,
+          48.6865396
+        ]
+      },
+      "id": "node/9492774961"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9822979164",
+        "amenity": "restaurant",
+        "cuisine": "chinese",
+        "name": "Kung Fu Nouilles",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1809785,
+          48.6895092
+        ]
+      },
+      "id": "node/9822979164"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9905852371",
+        "amenity": "restaurant",
+        "name": "Barbara Kitchen",
+        "outdoor_seating": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1798208,
+          48.6893234
+        ]
+      },
+      "id": "node/9905852371"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9905852373",
+        "addr:city": "Nancy",
+        "addr:housenumber": "1 bis",
+        "addr:postcode": "54000",
+        "addr:street": "Rue Notre-Dame",
+        "amenity": "restaurant",
+        "check_date": "2024-09-25",
+        "cuisine": "pizza;italian",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "name": "Piperno",
+        "opening_hours": "Mo-Th,Su 11:00-14:30,18:00-22:30; Fr-Sa 11:00-14:00,18:00-23:00",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 59 28 70 97",
+        "ref:FR:SIRET": "91880986400021",
+        "website": "https://piperno.fr/restaurants/4472-piperno-nancy",
+        "website:menu": "https://piperno.fr/carte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1804359,
+          48.6892573
+        ]
+      },
+      "id": "node/9905852373"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10130975303",
+        "amenity": "restaurant",
+        "contact:email": "restaurant@lejardindesthermes.net",
+        "contact:phone": "+33 3 83942865",
+        "name": "Le Jardin des Thermes",
+        "opening_hours": "Mo-Sa 12:00-13:30, Fr,Sa 19:30-21:30",
+        "ref:FR:SIRET": "43981034200014",
+        "source": "survey",
+        "website": "http://www.lejardindesthermes.net",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1697988,
+          48.6760186
+        ]
+      },
+      "id": "node/10130975303"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10919970779",
+        "amenity": "restaurant",
+        "contact:city": "Nancy",
+        "contact:housenumber": "7",
+        "contact:phone": "+33 7 57 68 44 64",
+        "contact:postcode": "54000",
+        "contact:street": "Rue du Manège",
+        "cuisine": "french",
+        "name": "Antoinette Restaurant Nancy",
+        "opening_hours": "Tu-Th 11:30-13:30, 18:00-21:00; Fr 11:30-13:30, 18:00-21:30; Sa 12:00-21:30",
+        "website": "https://antoinette.sharies.co"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1881767,
+          48.6914161
+        ]
+      },
+      "id": "node/10919970779"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11045381528",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/Atelier-35-122491084503241/",
+        "contact:housenumber": "35",
+        "contact:phone": "+33 3 83 30 00 07",
+        "contact:street": "Rue des Ponts",
+        "name": "L'Atelier 35",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "42447894900029",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1821784,
+          48.6880922
+        ]
+      },
+      "id": "node/11045381528"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11045381529",
+        "amenity": "restaurant",
+        "contact:housenumber": "31",
+        "contact:street": "Rue des Ponts",
+        "cuisine": "thai",
+        "name": "Yom Thaï Food"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1821157,
+          48.6881775
+        ]
+      },
+      "id": "node/11045381529"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11045381530",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/people/Le-Coup-de-Fourchette/100084295967568/",
+        "name": "Le Coup de Fourchette",
+        "opening_hours": "Tu-Sa 12:00-14:00; Tu-Th 19:00-22:00; Fr-Sa 19:00-22:30",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "84870992900014",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1821527,
+          48.6881272
+        ]
+      },
+      "id": "node/11045381530"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11240630379",
+        "amenity": "restaurant",
+        "cuisine": "regional",
+        "name": "Vaudémont",
+        "phone": "+33 3 54952965",
+        "source": "survey",
+        "website": "http://www.brasserie-vaudemont.com/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1821125,
+          48.6944446
+        ]
+      },
+      "id": "node/11240630379"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11246957905",
+        "amenity": "restaurant",
+        "cuisine": "meat",
+        "name": "B comme bœuf",
+        "opening_hours": "Th-Sa 11:00-14:00",
+        "ref:FR:SIRET": "95348471400019"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1831208,
+          48.6892571
+        ]
+      },
+      "id": "node/11246957905"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11255358029",
+        "amenity": "restaurant",
+        "check_date": "2024-12-25",
+        "check_date:opening_hours": "2024-12-25",
+        "level": "0",
+        "name": "La Verdine",
+        "opening_hours": "Mo-Fr 12:00-14:00, Fr 19:00-22:00",
+        "ref:FR:SIRET": "91142459600011",
+        "smoking": "no",
+        "source": "survey",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:wheelchair": "no",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1648958,
+          48.6819854
+        ]
+      },
+      "id": "node/11255358029"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11635488969",
+        "addr:housenumber": "45-47",
+        "addr:postcode": "54000",
+        "addr:street": "Boulevard Lobau",
+        "amenity": "restaurant",
+        "name": "Le village Afrotaste",
+        "phone": "+33 7 45 01 83 54"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1943737,
+          48.6891666
+        ]
+      },
+      "id": "node/11635488969"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11730390969",
+        "amenity": "restaurant",
+        "contact:housenumber": "79",
+        "contact:street": "Grande Rue",
+        "currency:XLT": "FLOR",
+        "description": "Restaurant de Risotto où l’on ne travaille que des produits frais et de qualités.",
+        "email": "tl542795@gmail.com",
+        "name": "L’Arborio",
+        "payment:cash:XLT-FLOR": "yes",
+        "phone": "+33 665 551 515"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1794531,
+          48.6968744
+        ]
+      },
+      "id": "node/11730390969"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11762314797",
+        "amenity": "restaurant",
+        "contact:email": "contact@agapes-traiteur.fr",
+        "contact:facebook": "https://www.facebook.com/RestaurantArdoise/",
+        "contact:housenumber": "21",
+        "contact:phone": "+33 3 83287542",
+        "contact:street": "Rue Gustave Simon",
+        "contact:website": "https://www.restaurant-ardoise.fr/",
+        "name": "L'Ardoise",
+        "source": "survey",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1807861,
+          48.6938711
+        ]
+      },
+      "id": "node/11762314797"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11762314798",
+        "amenity": "restaurant",
+        "contact:email": "reservations@osakastreetfood.fr",
+        "contact:linkedin": "https://www.linkedin.com/company/osaka-street-food",
+        "contact:phone": "+33 9 88 03 45 00",
+        "contact:tiktok": "osakastreetfood",
+        "contact:website": "https://osakastreetfood.fr",
+        "contact:youtube": "OSAKAStreetFood54",
+        "cuisine": "japanese",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "name": "Osaka Street Food",
+        "name:ja": "大阪",
+        "opening_hours": "Tu-Sa 12:00-14:00,19:00-22:00",
+        "ref:FR:SIRET": "84417384900028",
+        "smoking": "outside",
+        "source": "knowledge",
+        "website:menu": "https://osakastreetfood.fr/carte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1809602,
+          48.6939141
+        ]
+      },
+      "id": "node/11762314798"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11762314801",
+        "amenity": "restaurant",
+        "contact:email": "papajoe54@orange.fr",
+        "contact:facebook": "papajoenancy",
+        "contact:instagram": "papajoe.nancy",
+        "contact:phone": "+33 3 83 27 79 59",
+        "contact:website": "https://papajoenancy.fr",
+        "name": "Papa Joe",
+        "ref:FR:SIRET": "79893790000016",
+        "source": "survey",
+        "website:menu": "https://papajoenancy.fr/carte",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.181485,
+          48.6940446
+        ]
+      },
+      "id": "node/11762314801"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11762314803",
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "La Cerise sur le Gâteau",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "48200636800013",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1817521,
+          48.6942492
+        ]
+      },
+      "id": "node/11762314803"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11775608757",
+        "amenity": "restaurant",
+        "indoor_seating": "yes",
+        "name": "Le Mont Liban",
+        "opening_hours": "Tu-Sa 11:30-13:30,18:30-21:00",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "92801649200011",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1842475,
+          48.6914452
+        ]
+      },
+      "id": "node/11775608757"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11775629865",
+        "addr:housenumber": "85",
+        "amenity": "restaurant",
+        "contact:email": "trattoria.tsg@gmail.com",
+        "contact:facebook": "https://m.facebook.com/trattoriasangiorgionancy/",
+        "contact:phone": "+33 3 83474843",
+        "cuisine": "italian",
+        "diet:vegetarian": "yes",
+        "indoor_seating": "yes",
+        "name": "Trattoria San Giorgio",
+        "opening_hours": "Mo-Sa 12:00-14:00,19:00-22:00",
+        "outdoor_seating": "yes",
+        "ref:FR:SIRET": "84793901400019",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.186887,
+          48.692296
+        ]
+      },
+      "id": "node/11775629865"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11775629867",
+        "amenity": "restaurant",
+        "contact:housenumber": "79",
+        "contact:street": "Rue Saint-Georges",
+        "cuisine": "french",
+        "email": "brasserie.bsg@gmail.com",
+        "indoor_seating": "yes",
+        "name": "Brasserie Saint-Georges",
+        "opening_hours": "Mo-Sa 11:00-02:00",
+        "outdoor_seating": "yes",
+        "payment:cash": "yes",
+        "payment:contactless": "yes",
+        "payment:mastercard": "yes",
+        "payment:meal_voucher": "yes",
+        "payment:visa": "yes",
+        "phone": "+33 355 683 474",
+        "short_name": "BSG",
+        "source": "survey",
+        "website": "https://brasserie-saint-georges-nancy.eatbu.com",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1864714,
+          48.6921629
+        ]
+      },
+      "id": "node/11775629867"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11778599490",
+        "amenity": "restaurant",
+        "contact:housenumber": "25",
+        "contact:street": "Route de Mirecourt",
+        "currency:XLT": "FLOR",
+        "email": "contact@auberge-francine.fr",
+        "name": "L’Auberge Francine",
+        "payment:cash:XLT-FLOR": "yes",
+        "phone": "+33 383 505 242",
+        "ref:FR:SIRET": "95377208400018",
+        "website": "https://www.auberge-francine.fr",
+        "website:menu": "https://www.auberge-francine.fr/la-carte"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1940608,
+          48.6726803
+        ]
+      },
+      "id": "node/11778599490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11942233777",
+        "addr:housenumber": "4",
+        "amenity": "restaurant",
+        "contact:facebook": "https://www.facebook.com/p/Les-Jardins-dEsther-100093712490179",
+        "contact:instagram": "lesjardinsdesther_",
+        "cuisine": "mediterranean;french",
+        "email": "estherbistrotgourmand@gmail.com",
+        "name": "Les Jardins d'Esther",
+        "outdoor_seating": "yes",
+        "phone": "+33 3 83 44 04 67",
+        "ref:FR:SIRET": "90162721600020",
+        "source": "survey",
+        "website": "https://www.lesjardinsdesther.com",
+        "website:menu": "https://www.lesjardinsdesther.com/menu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1743055,
+          48.6982103
+        ]
+      },
+      "id": "node/11942233777"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11962451169",
+        "amenity": "restaurant",
+        "contact:housenumber": "30",
+        "contact:street": "Boulevard d'Austrasie",
+        "cuisine": "italian",
+        "email": "nancy@nonnofamiglia.fr",
+        "name": "Nonna",
+        "phone": "+33 9 75 44 48 10",
+        "ref:FR:SIRET": "91320344400025",
+        "website": "https://nonnofamiglia.fr/nonna",
+        "website:menu": "https://nonnofamiglia.fr/s/CARTE-NONNA-juillet-2025.pdf"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1984759,
+          48.6933618
+        ]
+      },
+      "id": "node/11962451169"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12022536373",
+        "amenity": "restaurant",
+        "contact:email": "lemajeur.restaurant@gmail.com",
+        "contact:housenumber": "13",
+        "contact:street": "Rue du Grand-Rabbin-Haguenauer",
+        "currency:XLT": "FLOR",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "yes",
+        "level": "0",
+        "name": "Le Majeur",
+        "opening_hours": "Mo 12:00-14:00; Fr 12:00-14:00,19:00-21:00; Sa 10:00-14:00,19:00-21:00; Su 10:00-15:00",
+        "outdoor_seating": "yes",
+        "payment:cash:XLT-FLOR": "yes",
+        "payment:contactless:XLT-FLOR": "yes",
+        "phone": "+33 9 51 13 53 94",
+        "ref:FR:SIRET": "83820863500014",
+        "source": "survey",
+        "toilets": "yes",
+        "website": "https://www.lemajeurnancy.fr/",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1802162,
+          48.687469
+        ]
+      },
+      "id": "node/12022536373"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12199305135",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "name": "French Trattoria",
+        "phone": "+33 9 73 88 08 36",
+        "ref:FR:SIRET": "95087281200017",
+        "website": "https://french-trattoria.fr"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1727994,
+          48.6964341
+        ]
+      },
+      "id": "node/12199305135"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12238849286",
+        "amenity": "restaurant",
+        "contact:email": "contact@lecomptoirstmichel.com",
+        "contact:housenumber": "2",
+        "contact:phone": "+33 3 55 40 03 99",
+        "contact:street": "Rue Saint-Michel",
+        "currency:XLT": "FLOR",
+        "diet:vegetarian": "no",
+        "internet_access": "wlan",
+        "name": "Le Comptoir Saint Michel",
+        "opening_hours": "Tu-Sa 11:45-14:15,19:00-23:30; Su 11:45-14:15",
+        "payment:cash:XLT-FLOR": "yes",
+        "payment:contactless:XLT-FLOR": "yes",
+        "ref:FR:SIRET": "83095819500026",
+        "website": "https://www.lecomptoirstmichel.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1791839,
+          48.6969222
+        ]
+      },
+      "id": "node/12238849286"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12378615207",
+        "amenity": "restaurant",
+        "contact:email": "contact@cafefauve.fr",
+        "contact:facebook": "ptitfauvenancy",
+        "contact:housenumber": "26",
+        "contact:instagram": "ptitfauvenancy",
+        "contact:phone": "+33 3 72 61 26 00",
+        "contact:street": "Rue Saint-Léon",
+        "contact:website": "https://cafefauve.fr/",
+        "description": "Restaurant et snacking local et fait maison, proposant des ateliers, livraisons et privatisations.",
+        "name": "P'tit Fauve",
+        "opening_hours": "Mo-Fr 09:00-16:00",
+        "operator:type": "cooperative",
+        "organic": "yes",
+        "ref:FR:SIRET": "81275529600033",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1725217,
+          48.6890605
+        ]
+      },
+      "id": "node/12378615207"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12515219767",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2025-01-31",
+        "contact:phone": "+33 3 72 14 54 35",
+        "contact:website": "https://gilios-pizza.eatbu.com",
+        "cuisine": "pizza",
+        "name": "Gilio's Pizza",
+        "opening_hours:signed": "no",
+        "ref:FR:SIRET": "80932464300018",
+        "takeaway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1742383,
+          48.6825311
+        ]
+      },
+      "id": "node/12515219767"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12589832348",
+        "amenity": "restaurant",
+        "cuisine": "pizza",
+        "name": "L'Etna",
+        "opening_hours": "Mo 12:00-14:00; Tu-Fr 12:00-14:00,19:00-22:00; Sa 19:00-22:00",
+        "phone": "+33 3 83 28 23 04",
+        "ref:FR:SIRET": "98126763600018",
+        "website": "http://etna-nancy.com/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1699424,
+          48.6862192
+        ]
+      },
+      "id": "node/12589832348"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12804025302",
+        "amenity": "restaurant",
+        "check_date:opening_hours": "2026-04-11",
+        "indoor_seating": "yes",
+        "name": "Le petit Badiem",
+        "opening_hours:signed": "no",
+        "outdoor_seating": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1817241,
+          48.6941028
+        ]
+      },
+      "id": "node/12804025302"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12997940205",
+        "amenity": "restaurant",
+        "name": "Maddak",
+        "opening_hours": "Mo 19:00-22:00; Tu-Th 12:00-14:00,19:00-22:00; Sa 12:00-14:30,19:00-23:00; Su 18:00-22:00",
+        "ref:FR:SIRET": "89087522200014"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1790839,
+          48.6989718
+        ]
+      },
+      "id": "node/12997940205"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13238571086",
+        "amenity": "restaurant",
+        "level": "0",
+        "name": "Polmard",
+        "outdoor_seating": "no",
+        "phone": "+33 3 83 37 05 03",
+        "ref:FR:SIRET": "92204531500012",
+        "source": "survey",
+        "toilets": "yes",
+        "website": "https://www.polmard-nancy.com/",
+        "wheelchair": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1791592,
+          48.6923761
+        ]
+      },
+      "id": "node/13238571086"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13803905882",
+        "amenity": "restaurant",
+        "contact:housenumber": "180",
+        "contact:street": "Rue Jeanne d'Arc",
+        "cuisine": "persian",
+        "name": "Iran Banoo",
+        "opening_hours": "Tu 18:00-22:00; We-Su 12:00-15:00,18:00-22:00",
+        "phone": "+33 9 84 74 95 47"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1758096,
+          48.6798669
+        ]
+      },
+      "id": "node/13803905882"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13838104367",
+        "amenity": "restaurant",
+        "cuisine": "italian",
+        "name": "Ciao Tutti",
+        "phone": "+33383403109",
+        "website": "https://ciao-tutti-nancy.eatbu.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1980034,
+          48.6817835
+        ]
+      },
+      "id": "node/13838104367"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13861344745",
+        "amenity": "restaurant",
+        "contact:housenumber": "107",
+        "contact:phone": "+33 3 57 75 90 99",
+        "contact:street": "Avenue de Strasbourg",
+        "cuisine": "tunisian",
+        "name": "La Goulette",
+        "opening_hours": "11:00-23:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.1953864,
+          48.6802977
+        ]
+      },
+      "id": "node/13861344745"
+    }
+  ]
+}

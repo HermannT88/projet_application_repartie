@@ -1,5 +1,10 @@
 package Service;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,14 +19,15 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Implémentation du service RMI de réservation.
- * Cette classe interroge la base de données Oracle de l'IUT pour
- * récupérer les restaurants et effectuer des réservations de tables de manière sécurisée.
+ * Implémentation du service RMI de réservation. Cette classe interroge la base
+ * de données Oracle de l'IUT pour récupérer les restaurants et effectuer des
+ * réservations de tables de manière sécurisée.
  */
 public class ServiceReservation implements ServiceInterface {
 
     /**
-     * Arguments de ligne de commande reçus au démarrage (contiennent les identifiants DB).
+     * Arguments de ligne de commande reçus au démarrage (contiennent les
+     * identifiants DB).
      */
     private String[] args;
 
@@ -33,19 +39,23 @@ public class ServiceReservation implements ServiceInterface {
     }
 
     /**
-     * Constructeur initialisant le service avec les arguments contenant les identifiants de connexion Oracle.
+     * Constructeur initialisant le service avec les arguments contenant les
+     * identifiants de connexion Oracle.
      *
-     * @param args Les arguments passés à la ligne de commande (nom d'utilisateur et mot de passe DB).
+     * @param args Les arguments passés à la ligne de commande (nom
+     * d'utilisateur et mot de passe DB).
      */
     public ServiceReservation(String[] args) {
         this.args = args != null ? args.clone() : new String[0];
     }
 
     /**
-     * Récupère les données de tous les restaurants de la table RESTAURANT de la base Oracle.
-     * Charge dynamiquement le driver Oracle JDBC et effectue une requête SELECT.
+     * Récupère les données de tous les restaurants de la table RESTAURANT de la
+     * base Oracle. Charge dynamiquement le driver Oracle JDBC et effectue une
+     * requête SELECT.
      *
-     * @return Chaîne JSON contenant la liste des restaurants ou un message d'erreur si la connexion échoue.
+     * @return Chaîne JSON contenant la liste des restaurants ou un message
+     * d'erreur si la connexion échoue.
      * @throws RemoteException En cas de problème de communication RMI.
      */
     @Override
@@ -89,16 +99,16 @@ public class ServiceReservation implements ServiceInterface {
     }
 
     /**
-     * Effectue une réservation de table dans la base de données Oracle.
-     * Utilise une recherche avec verrouillage concurrent (SELECT FOR UPDATE SKIP LOCKED) 
-     * puis insère une ligne dans la table RESERVATION.
+     * Effectue une réservation de table dans la base de données Oracle. Utilise
+     * une recherche avec verrouillage concurrent (SELECT FOR UPDATE SKIP
+     * LOCKED) puis insère une ligne dans la table RESERVATION.
      *
-     * @param idResto    L'identifiant du restaurant ciblé.
-     * @param nom        Le nom du client effectuant la réservation.
-     * @param prenom     Le prénom du client effectuant la réservation.
-     * @param nbClients  Le nombre de convives pour la réservation.
+     * @param idResto L'identifiant du restaurant ciblé.
+     * @param nom Le nom du client effectuant la réservation.
+     * @param prenom Le prénom du client effectuant la réservation.
+     * @param nbClients Le nombre de convives pour la réservation.
      * @param telephonne Le numéro de téléphone de contact du client.
-     * @param date       La date prévue pour la réservation.
+     * @param date La date prévue pour la réservation.
      * @return Chaîne JSON indiquant si la réservation a réussi ou échoué.
      * @throws RemoteException En cas de problème de communication RMI.
      */
@@ -136,14 +146,14 @@ public class ServiceReservation implements ServiceInterface {
                 if (idTable != -1) {
                     String insertSql = "INSERT INTO reservation (id_res, id_table, nom_client, prenom_client, nb_convives, telephone, dates, dates_fin, montant) "
                             + "VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?, NULL, 0)";
-                    
+
                     try (PreparedStatement ins = connection.prepareStatement(insertSql)) {
                         ins.setInt(1, idTable);
                         ins.setString(2, nom);
                         ins.setString(3, prenom);
                         ins.setInt(4, nbClients);
                         ins.setString(5, telephonne);
-                        ins.setTimestamp(6,Timestamp.valueOf(date));
+                        ins.setTimestamp(6, Timestamp.valueOf(date));
 
                         int updated = ins.executeUpdate();
                         connection.commit();
@@ -170,5 +180,29 @@ public class ServiceReservation implements ServiceInterface {
             return response.toString();
         }
     }
-}
 
+    private JSONObject recupererRestaurant() throws IOException, InterruptedException {
+
+        // Création du client
+        HttpClient client = HttpClient.newHttpClient();
+
+        // Préparation de la requête pour récupérer le json des données sur les restaurants
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("file:export.geojson"))
+                .GET()
+                .build();
+
+        HttpResponse<String> response
+                = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        if (response.statusCode() != 200) {
+            throw new RuntimeException("Erreur HTTP: " + response.statusCode());
+        }
+
+        return new JSONObject(response.body());
+    }
+
+    private void construireBd(){
+        
+    }
+}
