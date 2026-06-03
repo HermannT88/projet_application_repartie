@@ -100,7 +100,6 @@ public class Client {
                         } else {
                             System.out.println("Réponse invalide du service : " + resJson);
                         }
-                        sc.close();
                         break;
                     case 2:
                         System.out.print("Numéro du restaurant : ");
@@ -133,11 +132,9 @@ public class Client {
                         // Appel RMI
                         String reponseJson = reservation.reserverTable(id_restau, nom, prenom, convives, tel, date);
                         System.out.println(reponseJson);
-                        sc.close();
                         break;
                     default:
                         exit = true;
-                        sc.close();
                         break;
                 }
             }
