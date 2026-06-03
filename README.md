@@ -59,14 +59,6 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 >   - `1099` : Le port de l'annuaire RMI (1099 par défaut).
 
 
+java -cp projet_application_repartie.jar Service.LancerService
 
-    HttpClient client = HttpClient.newBuilder()
-        .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128))) // ici c'est le proxy de l'iut avec les infos correcte
-        .build();
-
-    HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json")) //ici c'est là où on vas aller chercher les données
-        .GET()
-        .build();
-
-    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+java -cp projet_application_repartie.jar Client.Client
