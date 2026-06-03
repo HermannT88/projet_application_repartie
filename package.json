@@ -4,8 +4,8 @@
     "handlebars": "^4.7.8"
   },
 "scripts": {
-    "build": "esbuild ./ts/map.ts --bundle --sourcemap --target=es2015 --outfile=js/map.js"
-  },
+    "build": "esbuild ./ts/index.ts --bundle --sourcemap --target=es2022 --format=esm --outfile=js/index.js --external:leaflet"
+},  
   "devDependencies": {
     "@types/leaflet": "^1.9.21"
   }
