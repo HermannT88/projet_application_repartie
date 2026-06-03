@@ -196,7 +196,7 @@ public class ServiceReservation implements ServiceInterface {
         // Lecture du fichier GeoJSON depuis le système de fichiers
         String contenu = java.nio.file.Files.readString(java.nio.file.Path.of("export.geojson"));
 
-        // Parse du GeoJSON complet
+        // Parse du geoJSON complet
         JSONObject geojson = new JSONObject(contenu);
 
         // Récupération du tableau "features" qui contient tous les restaurants
@@ -212,10 +212,17 @@ public class ServiceReservation implements ServiceInterface {
             JSONArray coordinates = geometry.getJSONArray("coordinates");
 
             JSONObject restaurant = new JSONObject();
-            restaurant.put("id", feature.optString("id", ""));
+
+            // On utilise optString poru récupèrer les éléments voulu 
+
+            restaurant.put("id", i + 1);
             restaurant.put("nom", properties.optString("name", "Sans nom"));
             restaurant.put("longitude", coordinates.getDouble(0));
             restaurant.put("latitude", coordinates.getDouble(1));
+
+            // Parfois c'est adr et parfois c'est contact
+            restaurant.put("numero", properties.optString("addr:housenumber", properties.optString("contact:housenumber", "")));
+            restaurant.put("rue", properties.optString("addr:street", properties.optString("contact:street", "")));
 
             // Ajout des propriétés optionnelles si présentes
             if (properties.has("opening_hours")) {
@@ -340,9 +347,7 @@ public class ServiceReservation implements ServiceInterface {
         )
     """);
 
-        st.executeUpdate("""
-        CREATE SEQUENCE seq_restaurant START WITH 200 INCREMENT BY 1
-    """);
+        st.executeUpdate(" CREATE SEQUENCE seq_restaurant START WITH 200 INCREMENT BY 1");
 
         st.close();
     }
@@ -365,12 +370,12 @@ public class ServiceReservation implements ServiceInterface {
             double lat = r.optDouble("latitude");
             String coord = lat + "," + lon;
 
-            String numero = r.optString("contact:housenumber", "");
-            String rue = r.optString("contact:street", "");
+            String numero = r.optString("numero", "");
+            String rue = r.optString("rue", "");
 
             String adresse;
 
-            if (numero == "" && rue == "") {
+            if (numero.equals("") || rue.equals("")) {
                 adresse = "Adresse inconnue";
             } else {
                 adresse = numero + " " + rue;
@@ -383,6 +388,38 @@ public class ServiceReservation implements ServiceInterface {
 
             // Pour executer toutes les requetes jdbc en meme temps
             ps.addBatch();
+        }
+
+        ps.executeBatch();
+        ps.close();
+
+        this.genererTables(connection, restaurants);
+    }
+
+    private void genererTables(Connection connection, JSONArray restaurants) throws SQLException {
+
+        String sql = "INSERT INTO table_restau (id_table, id_restaurant, capacite) VALUES (?, ?, ?)";
+        PreparedStatement ps = connection.prepareStatement(sql);
+
+        int idTable = 1;
+        int[] capacitesPossibles = {2, 4, 6};
+
+        for (int i = 0; i < restaurants.length(); i++) {
+
+            JSONObject r = restaurants.getJSONObject(i);
+            int idRestaurant = r.getInt("id");
+
+            int nbTables = 2 + (int) (Math.random() * 10);
+            for (int j = 0; j < nbTables; j++) {
+
+                int capacite = capacitesPossibles[(int) (Math.random() * capacitesPossibles.length)];
+
+                ps.setInt(1, idTable++);
+                ps.setInt(2, idRestaurant);
+                ps.setInt(3, capacite);
+
+                ps.addBatch();
+            }
         }
 
         ps.executeBatch();
