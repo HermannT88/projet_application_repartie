@@ -1,4 +1,4 @@
-package Service;
+package src.main.java.Service;
 
 import java.rmi.RemoteException;
 import java.sql.*;
