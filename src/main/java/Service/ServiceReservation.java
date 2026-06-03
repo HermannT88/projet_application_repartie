@@ -1,10 +1,6 @@
 package Service;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -181,25 +177,50 @@ public class ServiceReservation implements ServiceInterface {
         }
     }
 
-    private JSONObject recupererRestaurant() throws IOException, InterruptedException {
+    private JSONArray recupererRestaurant() throws IOException {
 
-        // Création du client
-        HttpClient client = HttpClient.newHttpClient();
+        // Lecture du fichier GeoJSON depuis le système de fichiers
+        String contenu = java.nio.file.Files.readString(java.nio.file.Path.of("export.geojson"));
 
-        // Préparation de la requête pour récupérer le json des données sur les restaurants
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("file:export.geojson"))
-                .GET()
-                .build();
+        // Parse du GeoJSON complet
+        JSONObject geojson = new JSONObject(contenu);
 
-        HttpResponse<String> response
-                = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Récupération du tableau "features" qui contient tous les restaurants
+        JSONArray features = geojson.getJSONArray("features");
 
-        if (response.statusCode() != 200) {
-            throw new RuntimeException("Erreur HTTP: " + response.statusCode());
+        // Construction d'un tableau avec les infos de chaque restaurant
+        JSONArray restaurants = new JSONArray();
+
+        for (int i = 0; i < features.length(); i++) {
+            JSONObject feature = features.getJSONObject(i);
+            JSONObject properties = feature.getJSONObject("properties");
+            JSONObject geometry = feature.getJSONObject("geometry");
+            JSONArray coordinates = geometry.getJSONArray("coordinates");
+
+            JSONObject restaurant = new JSONObject();
+            restaurant.put("id", feature.optString("id", ""));
+            restaurant.put("nom", properties.optString("name", "Sans nom"));
+            restaurant.put("longitude", coordinates.getDouble(0));
+            restaurant.put("latitude", coordinates.getDouble(1));
+
+            // Ajout des propriétés optionnelles si présentes
+            if (properties.has("cuisine")) {
+                restaurant.put("cuisine", properties.getString("cuisine"));
+            }
+            if (properties.has("phone") || properties.has("contact:phone")) {
+                restaurant.put("telephone", properties.optString("phone", properties.optString("contact:phone", "")));
+            }
+            if (properties.has("opening_hours")) {
+                restaurant.put("horaires", properties.getString("opening_hours"));
+            }
+            if (properties.has("website") || properties.has("contact:website")) {
+                restaurant.put("website", properties.optString("website", properties.optString("contact:website", "")));
+            }
+
+            restaurants.put(restaurant);
         }
 
-        return new JSONObject(response.body());
+        return restaurants;
     }
 
     private void construireBd(){
