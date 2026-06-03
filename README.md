@@ -72,28 +72,22 @@ wget -P lib https://repo1.maven.org/maven2/org/json/json/20231013/json-20231013.
 wget -P lib https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/23.2.0.0/ojdbc11-23.2.0.0.jar
 ```
 
-### Variable classpath (à définir une seule fois)
-
-```bash
-CP="target/classes:lib/json-20231013.jar:lib/ojdbc11-23.2.0.0.jar"
-```
-
 ### 1. Compiler
 
 ```bash
-javac -cp "$CP" -d target/classes src/main/java/Service/*.java src/main/java/Client/*.java
+javac -cp "lib/*" -d target/classes src/main/java/Service/*.java src/main/java/Client/*.java
 ```
 
 ### 2. Lancer les services RMI (terminal 1)
 
 ```bash
-java -Djava.rmi.server.hostname=127.0.0.1 -cp "$CP" Service.LancerService <user_db> <mdp_db>
+java -Djava.rmi.server.hostname=127.0.0.1 -cp "target/classes:lib/*" Service.LancerService <user_db> <mdp_db>
 ```
 
 ### 3. Lancer le proxy HTTP (terminal 2)
 
 ```bash
-java -cp "$CP" Service.ProxyHttp 127.0.0.1 8080
+java -cp "target/classes:lib/*" Service.ProxyHttp 127.0.0.1 8080
 ```
 
 ### 4. Builder et servir le front (terminal 3)
