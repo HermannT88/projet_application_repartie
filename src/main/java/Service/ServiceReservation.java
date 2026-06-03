@@ -30,8 +30,16 @@ public class ServiceReservation implements ServiceInterface {
     /**
      * Constructeur par défaut initialisant les arguments à un tableau vide.
      */
-    public ServiceReservation() {
-        this.args = new String[0];
+    public ServiceReservation() throws IOException {
+
+        try {
+            this.args = new String[0];
+            JSONArray restaurants = this.recupererRestaurant();
+            this.construireBd(restaurants);
+        } catch (SQLException | ClassNotFoundException | IOException e) {
+            System.err.println("Connexion impossible");
+        }
+
     }
 
     /**
@@ -43,6 +51,12 @@ public class ServiceReservation implements ServiceInterface {
      */
     public ServiceReservation(String[] args) {
         this.args = args != null ? args.clone() : new String[0];
+        try {
+            JSONArray restaurants = this.recupererRestaurant();
+            this.construireBd(restaurants);
+        } catch (SQLException | ClassNotFoundException | IOException e) {
+            System.err.println("Connexion impossible");
+        }
     }
 
     /**
@@ -204,12 +218,6 @@ public class ServiceReservation implements ServiceInterface {
             restaurant.put("latitude", coordinates.getDouble(1));
 
             // Ajout des propriétés optionnelles si présentes
-            if (properties.has("cuisine")) {
-                restaurant.put("cuisine", properties.getString("cuisine"));
-            }
-            if (properties.has("phone") || properties.has("contact:phone")) {
-                restaurant.put("telephone", properties.optString("phone", properties.optString("contact:phone", "")));
-            }
             if (properties.has("opening_hours")) {
                 restaurant.put("horaires", properties.getString("opening_hours"));
             }
@@ -223,7 +231,161 @@ public class ServiceReservation implements ServiceInterface {
         return restaurants;
     }
 
-    private void construireBd(){
-        
+    private void construireBd(JSONArray restaurants) throws SQLException, ClassNotFoundException {
+        String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
+
+        // Connexion à la bd
+        Class.forName("oracle.jdbc.driver.OracleDriver");
+        System.out.println("Driver loaded");
+        Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
+        System.out.println("Database connected");
+
+        try {
+            resetRestaurantDatabase(connection);
+            createBD(connection);
+            insererRestaurants(connection, restaurants);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void resetRestaurantDatabase(Connection connection) throws SQLException {
+
+        try (Statement st = connection.createStatement()) {
+            st.executeUpdate("DROP TABLE plat CASCADE CONSTRAINTS");
+        } catch (SQLException e) {
+            System.out.println("plat n'existe pas");
+        }
+
+        try (Statement st = connection.createStatement()) {
+            st.executeUpdate("DROP TABLE reservation CASCADE CONSTRAINTS");
+        } catch (SQLException e) {
+            System.out.println("reservation n'existe pas");
+        }
+
+        try (Statement st = connection.createStatement()) {
+            st.executeUpdate("DROP TABLE table_restau CASCADE CONSTRAINTS");
+        } catch (SQLException e) {
+            System.out.println("table_restau n'existe pas");
+        }
+
+        try (Statement st = connection.createStatement()) {
+            st.executeUpdate("DROP TABLE restaurant CASCADE CONSTRAINTS");
+        } catch (SQLException e) {
+            System.out.println("restaurant n'existe pas");
+        }
+
+        try (Statement st = connection.createStatement()) {
+            st.executeUpdate("DROP SEQUENCE seq_restaurant");
+        } catch (SQLException e) {
+            System.out.println("Sequence inexistante, ignorée");
+        }
+    }
+
+    private void createBD(Connection connection) throws SQLException {
+
+        Statement st = connection.createStatement();
+
+        st.executeUpdate("""
+        CREATE TABLE restaurant (
+            id_restaurant NUMBER(4),
+            nom_restaurant VARCHAR2(50),
+            adresse_restaurant VARCHAR2(80),
+            coord_gps VARCHAR2(50),
+            PRIMARY KEY(id_restaurant)
+        )
+    """);
+
+        st.executeUpdate("""
+        CREATE TABLE table_restau (
+            id_table NUMBER(4),
+            id_restaurant NUMBER(4),
+            capacite NUMBER(2),
+            PRIMARY KEY(id_table),
+            CONSTRAINT fk_table_restau
+            FOREIGN KEY (id_restaurant)
+            REFERENCES restaurant(id_restaurant)
+        )
+    """);
+
+        st.executeUpdate("""
+        CREATE TABLE reservation (
+            id_res NUMBER(4),
+            id_table NUMBER(4),
+            nom_client VARCHAR2(40),
+            prenom_client VARCHAR2(40),
+            nb_convives NUMBER(2),
+            telephone VARCHAR2(15),
+            dates DATE,
+            dates_fin DATE,
+            montant NUMBER(3),
+            PRIMARY KEY(id_res),
+            CONSTRAINT fk_res_table FOREIGN KEY (id_table)
+            REFERENCES table_restau(id_table)
+        )
+    """);
+
+        st.executeUpdate("""
+        CREATE TABLE plat (
+            id_plat NUMBER(4),
+            id_res NUMBER(4),
+            libelle_plat VARCHAR2(40),
+            prix_unitaire NUMBER(2),
+            quantite_stockee NUMBER(4),
+            PRIMARY KEY(id_plat),
+            CONSTRAINT fk_res_plat FOREIGN KEY (id_res)
+            REFERENCES reservation(id_res)
+        )
+    """);
+
+        st.executeUpdate("""
+        CREATE SEQUENCE seq_restaurant START WITH 200 INCREMENT BY 1
+    """);
+
+        st.close();
+    }
+
+    private void insererRestaurants(Connection connection, JSONArray restaurants) throws SQLException {
+
+        String sql = "INSERT INTO restaurant (id_restaurant, nom_restaurant, adresse_restaurant, coord_gps) VALUES (?, ?, ?, ?) ";
+
+        PreparedStatement ps = connection.prepareStatement(sql);
+
+        int id = 1;
+
+        for (int i = 0; i < restaurants.length(); i++) {
+
+            JSONObject r = restaurants.getJSONObject(i);
+
+            // Récupération des données de l'arrayJson
+            String nom = r.optString("nom", "Sans nom");
+            double lon = r.optDouble("longitude");
+            double lat = r.optDouble("latitude");
+            String coord = lat + "," + lon;
+
+            String numero = r.optString("contact:housenumber", "");
+            String rue = r.optString("contact:street", "");
+
+            String adresse;
+
+            if (numero == "" && rue == "") {
+                adresse = "Adresse inconnue";
+            } else {
+                adresse = numero + " " + rue;
+            }
+
+            ps.setInt(1, id++);
+            ps.setString(2, nom);
+            ps.setString(3, adresse);
+            ps.setString(4, coord);
+
+            // Pour executer toutes les requetes jdbc en meme temps
+            ps.addBatch();
+        }
+
+        ps.executeBatch();
+        ps.close();
     }
 }
