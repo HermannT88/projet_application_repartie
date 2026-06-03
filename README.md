@@ -17,6 +17,9 @@
 
 Le projet utilise désormais Maven pour la gestion des dépendances et de la compilation automatique.
 Il faut Maven installé !
+```Powershell
+winget install Apache.Maven
+```
 
 ### Étape 1 : Compilation
 
