@@ -35,7 +35,7 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 
 - **Sur Windows / Linux (PowerShell/Bash) :**
   ```bash
-  mvn exec:java -Dexec.mainClass="Service.LancerService" -Dexec.args="<dbUsername> <dbPassword>" -Djava.rmi.server.hostname=127.0.0.1
+  mvn exec:java "-Dexec.mainClass=Service.LancerService" "-Dexec.args= Identifiant MotDePasse" "-Djava.rmi.server.hostname=127.0.0.1"
   ```
 
 > **Explication des arguments :**
