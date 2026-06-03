@@ -4,9 +4,9 @@ class NavBar extends HTMLElement {
         <nav class="main-nav">
             <ul>
                 <li><a href="/index.html">Accueil</a></li>
-                <li><a href="/html/velib.html">Carte Vélib</a></li> 
-                <li><a href="/html/carte-restaurant.html">Carte Restaurant</a></li>
-                <li><a href="/html/carte-incidents.html">Carte Incidents</a></li>
+                <li><a href="/html/velib.html">Carte des Vélib</a></li> 
+                <li><a href="/html/carte-restaurant.html">Carte des restaurants</a></li>
+                <li><a href="/html/carte-incidents.html">Carte des incidents</a></li>
             </ul>
         </nav>
         `;
