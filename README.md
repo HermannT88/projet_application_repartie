@@ -65,12 +65,17 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 
 ```bash
 npm install --save-dev @types/leaflet
+
+# Télécharger les JARs dans lib/
+mkdir -p lib
+wget -P lib https://repo1.maven.org/maven2/org/json/json/20231013/json-20231013.jar
+wget -P lib https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/23.2.0.0/ojdbc11-23.2.0.0.jar
 ```
 
 ### Variable classpath (à définir une seule fois)
 
 ```bash
-CP="target/classes:$HOME/.m2/repository/org/json/json/20231013/json-20231013.jar:$HOME/.m2/repository/com/oracle/database/jdbc/ojdbc11/23.2.0.0/ojdbc11-23.2.0.0.jar"
+CP="target/classes:lib/json-20231013.jar:lib/ojdbc11-23.2.0.0.jar"
 ```
 
 ### 1. Compiler
