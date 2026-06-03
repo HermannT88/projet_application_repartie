@@ -96,3 +96,4 @@ java -cp "target/classes:lib/*" Service.ProxyHttp 127.0.0.1 8080
 npm run build
 npx -y serve .
 ```
+curl -x http://www-cache:3128 -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
