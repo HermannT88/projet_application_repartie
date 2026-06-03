@@ -48,7 +48,7 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 
 - **Sur Windows / Linux (PowerShell/Bash) :**
   ```bash
-  mvn exec:java -Dexec.mainClass="Client.Client" -Dexec.args="127.0.0.1 1099"
+  mvn exec:java "-Dexec.mainClass=Client.Client" "-Dexec.args=127.0.0.1 1099"
   ```
 
 > **Explication des arguments :**
