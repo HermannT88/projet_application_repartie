@@ -24,6 +24,7 @@ public class LancerService {
     public static void main(String args[]) throws RemoteException,
             ServerNotActiveException {
         try {
+            //Partie Service Reservation
             ServiceReservation reserv = new ServiceReservation(args); // creation d un objet (new)
             ServiceInterface rd = (ServiceInterface) UnicastRemoteObject.exportObject((Remote) reserv, 0);
             Registry reg;
@@ -38,6 +39,12 @@ public class LancerService {
             }
             reg.rebind("reservation", rd); // donner un nom dans l annuaire pour le service
             System.out.println("Serveur de réservation prêt et en cours d'exécution...");
+
+            //Partie Service Reservation
+            ServiceWaze waze = new ServiceWaze();
+            ServiceWazeInterface rd2 = (ServiceWazeInterface) UnicastRemoteObject.exportObject((Remote) waze, 0);
+            reg.rebind("waze", rd2);
+            System.out.println("Serveur de waze prêt et en cours d'exécution...");
             
             // Bloque le thread principal pour empêcher l'arrêt du processus (notamment avec Maven exec:java)
             Thread.currentThread().join();

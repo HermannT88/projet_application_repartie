@@ -1,8 +1,6 @@
 package Service;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.ProxySelector;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -31,10 +29,14 @@ public class ServiceWaze implements ServiceWazeInterface {
   @Override
   public String recupererDonnees() throws RemoteException {
     // 1. Configurer le client AVEC le proxy de l'IUT
-    HttpClient client = HttpClient.newBuilder()
+    HttpClient client = HttpClient.newHttpClient();
+    
+    //ou si c'est une machine de l'IUT
+    /**
+     * HttpClient client = HttpClient.newBuilder()
         .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
         .build();
-
+     */
     // 2. Préparer la requête vers l'URL des données
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json"))
@@ -48,7 +50,7 @@ public class ServiceWaze implements ServiceWazeInterface {
 
       if (response.statusCode() == 200) {
         responseJSON.put("status", true);
-        responseJSON.put("message", response);
+        responseJSON.put("message", response.body());
         return responseJSON.toString();
       } else {
         responseJSON.put("status", false);
@@ -56,7 +58,15 @@ public class ServiceWaze implements ServiceWazeInterface {
         return responseJSON.toString();
       }
     } catch (IOException | InterruptedException e) {
-      // Gérer l'erreur réseau (pas de connexion, proxy invalide, etc.)
+      // 1. On avertit l'utilisateur avec un message clair
+      System.err.println("Erreur : Impossible de récupérer les données des restaurants.");
+
+      System.err.println("Détail technique : " + e.getMessage());
+
+      if (e instanceof InterruptedException) {
+        Thread.currentThread().interrupt(); // Restaure le statut d'interruption
+      }
     }
+    return null;
   }
 }
