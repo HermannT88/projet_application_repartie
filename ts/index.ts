@@ -2,6 +2,7 @@ import { getStationsInfo } from "./api_velib.mjs";
 import { addVelibStation, addIncident, addRestaurant } from "./map.mjs";
 import { getAccidents } from "./api_accidents.mjs";
 import { getRestaurants } from "./api_restaurants.mjs";
+import './component/NavBar';
 
 // On récupère la reponse de l'api
 const response = await getStationsInfo();
