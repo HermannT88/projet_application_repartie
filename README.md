@@ -48,7 +48,7 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 
 - **Sur Windows / Linux (PowerShell/Bash) :**
   ```bash
-  mvn exec:java -Dexec.mainClass="Client.Client" -Dexec.args="127.0.0.1 1099"
+  mvn exec:java "-Dexec.mainClass=Client.Client" "-Dexec.args=127.0.0.1 1099"
   ```
 
 > **Explication des arguments :**
@@ -57,3 +57,16 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 > - `-Dexec.args="127.0.0.1 1099"` : Arguments passés au programme client.
 >   - `127.0.0.1` : L'adresse IP du serveur hébergeant l'annuaire RMI (ici, le serveur local).
 >   - `1099` : Le port de l'annuaire RMI (1099 par défaut).
+
+
+
+    HttpClient client = HttpClient.newBuilder()
+        .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128))) // ici c'est le proxy de l'iut avec les infos correcte
+        .build();
+
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json")) //ici c'est là où on vas aller chercher les données
+        .GET()
+        .build();
+
+    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

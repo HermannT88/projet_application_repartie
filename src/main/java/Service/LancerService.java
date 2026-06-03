@@ -25,8 +25,7 @@ public class LancerService {
             ServerNotActiveException {
         try {
             ServiceReservation reserv = new ServiceReservation(args); // creation d un objet (new)
-            ServiceInterface rd = (ServiceInterface) UnicastRemoteObject.exportObject((Remote) reserv, 0); // 0 pour que OS donne le
-            // port automatiquement
+            ServiceInterface rd = (ServiceInterface) UnicastRemoteObject.exportObject((Remote) reserv, 0);
             Registry reg;
             try {
                 // Tente de créer l'annuaire RMI localement sur le port 1099
