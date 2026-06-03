@@ -17,6 +17,7 @@
 
 Le projet utilise désormais Maven pour la gestion des dépendances et de la compilation automatique.
 Il faut Maven installé !
+
 ```Powershell
 winget install Apache.Maven
 ```
@@ -58,20 +59,29 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 >   - `127.0.0.1` : L'adresse IP du serveur hébergeant l'annuaire RMI (ici, le serveur local).
 >   - `1099` : Le port de l'annuaire RMI (1099 par défaut).
 
+### Informations complémentaires :
 
-
-### Informations complémentaires : 
-Il faut installer la dépendance Leafet : 
+Il faut installer la dépendance Leafet :
 npm install --save-dev @types/leaflet
 
+1. Compiler le Java (sans Maven)
+   Tu as besoin des JARs de dépendances (org.json et ojdbc11). Maven les a téléchargés dans ton répertoire .m2. La compilation manuelle :
 
-    HttpClient client = HttpClient.newBuilder()
-        .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128))) // ici c'est le proxy de l'iut avec les infos correcte
-        .build();
+$json_jar = "$env:USERPROFILE\.m2\repository\org\json\json\20231013\json-20231013.jar"
+$ojdbc_jar = "$env:USERPROFILE\.m2\repository\com\oracle\database\jdbc\ojdbc11\23.2.0.0\ojdbc11-23.2.0.0.jar"
+javac -cp "$json_jar;$ojdbc*jar" -d target/classes src/main/java/Service/*.java src/main/java/Client/\_.java
 
-    HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json")) //ici c'est là où on vas aller chercher les données
-        .GET()
-        .build();
+2. Lancer les Services RMI (LancerService)
+   $json_jar = "$env:USERPROFILE\.m2\repository\org\json\json\20231013\json-20231013.jar"
+   $ojdbc_jar = "$env:USERPROFILE\.m2\repository\com\oracle\database\jdbc\ojdbc11\23.2.0.0\ojdbc11-23.2.0.0.jar"
+   java -Djava.rmi.server.hostname=127.0.0.1 -cp "target/classes;$json_jar;$ojdbc_jar" Service.LancerService Identifiant MotDePasse
+   Remplace Identifiant et MotDePasse par tes identifiants de base de données Oracle.
 
-    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+3. Lancer le Proxy HTTP
+   Dans un second terminal :
+
+$json_jar = "$env:USERPROFILE\.m2\repository\org\json\json\20231013\json-20231013.jar"
+$ojdbc_jar = "$env:USERPROFILE\.m2\repository\com\oracle\database\jdbc\ojdbc11\23.2.0.0\ojdbc11-23.2.0.0.jar"
+java -cp "target/classes;$json_jar;$ojdbc_jar" Service.ProxyHttp 127.0.0.1 8080
+
+npx -y serve .
