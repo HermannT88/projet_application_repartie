@@ -17,6 +17,7 @@
 
 Le projet utilise désormais Maven pour la gestion des dépendances et de la compilation automatique.
 Il faut Maven installé !
+
 ```Powershell
 winget install Apache.Maven
 ```
@@ -58,20 +59,41 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 >   - `127.0.0.1` : L'adresse IP du serveur hébergeant l'annuaire RMI (ici, le serveur local).
 >   - `1099` : Le port de l'annuaire RMI (1099 par défaut).
 
+## Compilation et Lancement (sans Maven — Linux)
 
+### Prérequis
 
-### Informations complémentaires : 
-Il faut installer la dépendance Leafet : 
+```bash
 npm install --save-dev @types/leaflet
 
+# Télécharger les JARs dans lib/
+mkdir -p lib
+wget -P lib https://repo1.maven.org/maven2/org/json/json/20231013/json-20231013.jar
+wget -P lib https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/23.2.0.0/ojdbc11-23.2.0.0.jar
+```
 
-    HttpClient client = HttpClient.newBuilder()
-        .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128))) // ici c'est le proxy de l'iut avec les infos correcte
-        .build();
+### 1. Compiler
 
-    HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json")) //ici c'est là où on vas aller chercher les données
-        .GET()
-        .build();
+```bash
+javac -cp "lib/*" -d target/classes src/main/java/Service/*.java src/main/java/Client/*.java
+```
 
-    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+### 2. Lancer les services RMI (terminal 1)
+
+```bash
+java -Djava.rmi.server.hostname=127.0.0.1 -cp "target/classes:lib/*" Service.LancerService <user_db> <mdp_db>
+```
+
+### 3. Lancer le proxy HTTP (terminal 2)
+
+```bash
+java -cp "target/classes:lib/*" Service.ProxyHttp 127.0.0.1 8080
+```
+
+### 4. Builder et servir le front (terminal 3)
+
+```bash
+npm run build
+npx -y serve .
+```
+curl -x http://www-cache:3128 -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
