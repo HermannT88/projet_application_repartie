@@ -1,4 +1,53 @@
 #map {
     height: 600px;
-    width: 800px;
+    width: 100%;
+}
+
+/* =========================================
+   STYLE DE LA BARRE DE NAVIGATION
+========================================= */
+
+.main-nav {
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 0 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+    height: 70px;
+    margin-bottom: 5px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 1.05rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+}
+
+.main-nav a:hover {
+    background-color: #2f3e5f;
+    color: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background-color: #f3f4f6;
+}
+
+main {
+    margin: 20px;
 }

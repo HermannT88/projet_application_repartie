@@ -17,6 +17,7 @@
 
 Le projet utilise désormais Maven pour la gestion des dépendances et de la compilation automatique.
 Il faut Maven installé !
+
 ```Powershell
 winget install Apache.Maven
 ```
@@ -58,7 +59,40 @@ Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisati
 >   - `127.0.0.1` : L'adresse IP du serveur hébergeant l'annuaire RMI (ici, le serveur local).
 >   - `1099` : Le port de l'annuaire RMI (1099 par défaut).
 
+## Compilation et Lancement (sans Maven — Linux)
 
-java -cp projet_application_repartie.jar Service.LancerService
+### Prérequis
 
-java -cp projet_application_repartie.jar Client.Client
+```bash
+npm install --save-dev @types/leaflet
+
+# Télécharger les JARs dans lib/
+mkdir -p lib
+wget -P lib https://repo1.maven.org/maven2/org/json/json/20231013/json-20231013.jar
+wget -P lib https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/23.2.0.0/ojdbc11-23.2.0.0.jar
+```
+
+### 1. Compiler
+
+```bash
+javac -cp "lib/*" -d target/classes src/main/java/Service/*.java src/main/java/Client/*.java
+```
+
+### 2. Lancer les services RMI (terminal 1)
+
+```bash
+java -Djava.rmi.server.hostname=127.0.0.1 -cp "target/classes:lib/*" Service.LancerService <user_db> <mdp_db>
+```
+
+### 3. Lancer le proxy HTTP (terminal 2)
+
+```bash
+java -cp "target/classes:lib/*" Service.ProxyHttp 127.0.0.1 8080
+```
+
+### 4. Builder et servir le front (terminal 3)
+
+```bash
+npm run build
+npx -y serve .
+```

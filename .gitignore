@@ -29,7 +29,7 @@ build/
 *.iml
 *.ipr
 out/
-
+*.jar
 ### Eclipse
 .classpath
 .project
