@@ -96,3 +96,16 @@ java -cp "target/classes:lib/*" Service.ProxyHttp 127.0.0.1 8080
 npm run build
 npx -y serve .
 ```
+
+Pour le serveur web, il faut : 
+- lancer le serveur : 
+```bash
+  mvn exec:java "-Dexec.mainClass=Service.LancerService" "-Dexec.args= Identifiant MotDePasse" "-Djava.rmi.server.hostname=127.0.0.1"
+  ```
+
+- lancer le proxy HTTP : 
+```bash
+mvn exec:java "-Dexec.mainClass=Service.ProxyHttp" "-Dexec.args=127.0.0.1 8080"
+```
+
+- ouvrir le navigateur web sur localhost:8080 ou sur le port 5000 avec l'extension Live
