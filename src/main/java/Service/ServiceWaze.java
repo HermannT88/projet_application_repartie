@@ -32,17 +32,18 @@ public class ServiceWaze implements ServiceWazeInterface {
     HttpClient client = HttpClient.newHttpClient();
     
     //ou si c'est une machine de l'IUT
-    /**
+
      * HttpClient client = HttpClient.newBuilder()
         .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
         .build();
-     */
+
+        /*
     // 2. Préparer la requête vers l'URL des données
     HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json"))
         .GET()
         .build();
-
+ */
     // 3. Envoyer la requête et gérer les erreurs
     try {
       HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
