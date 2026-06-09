@@ -6,7 +6,8 @@ declare const L: typeof import('leaflet');
 
 import { Station, StationStatus, WazeIncident, Restaurant } from "./config.mjs";
 import { getStatus } from "./api_velib.mjs";
-
+import Handlebars from "handlebars";
+let template = document.getElementById("reservationModal");
 
 
 //=============================================
@@ -69,7 +70,7 @@ export function addIncident(incident: WazeIncident) {
         const dateFin = new Date(incident.endtime).toLocaleDateString("fr-FR");
 
         var text = `<b>${type}</b><br>${rue}<br><i>${incident.description}</i><br><small>Jusqu'au ${dateFin}</small>`;
-        
+
         marker.bindPopup(text);
     }
 }
@@ -77,18 +78,106 @@ export function addIncident(incident: WazeIncident) {
 // Ajout un restaurant sur la cart avec sa description 
 export function addRestaurant(restaurant: Restaurant) {
 
-        const m = getMap();
+    const m = getMap();
 
-        const coords = restaurant.coord_GPS.split(",");
-        const lat = parseFloat(coords[0]);
-        const lon = parseFloat(coords[1]);
+    const coords = restaurant.coord_GPS.split(",");
+    const lat = parseFloat(coords[0]);
+    const lon = parseFloat(coords[1]);
 
-        var marker = L.marker([lat, lon]).addTo(m);
+    var marker = L.marker([lat, lon]).addTo(m);
 
-        const nom = restaurant.nom_restaurant;
-        const adresse = restaurant.adresse_restaurant;
+    const nom = restaurant.nom_restaurant;
+    const adresse = restaurant.adresse_restaurant;
+    const popupContent = document.createElement("div");
 
-        var text = `<b>${nom}</b><br>${adresse}<br>`;
-        
-        marker.bindPopup(text);
+    // Création de la pop up rapide 
+
+    popupContent.innerHTML = `
+    <b>${restaurant.nom_restaurant}</b><br>
+    ${restaurant.adresse_restaurant}<br><br>
+  `;
+
+  const btn = document.createElement("button");
+  btn.textContent = "Réserver";
+  btn.style.cssText = `
+    margin-top:6px;
+    padding:5px 10px;
+    background:#e74c3c;
+    color:white;
+    border:none;
+    border-radius:4px;
+    cursor:pointer;
+  `;
+
+  btn.addEventListener("click", () => openReservation(restaurant.id_restaurant,restaurant.nom_restaurant));
+  popupContent.appendChild(btn);
+  marker.bindPopup(popupContent);
+
+}
+
+
+
+//=============================================
+// Gestion de la réservation
+//=============================================
+
+
+
+// Pop up de réservation de restaurant
+
+let currentRestaurantId: number | null = null;
+
+// Initialisation de la pop up
+
+export function initReservationModal() {
+
+  const confirmBtn = document.getElementById("confirmRes")!;
+  const cancelBtn = document.getElementById("cancelRes")!;
+
+  confirmBtn.addEventListener("click", submitReservation);
+  cancelBtn.addEventListener("click", closeReservation);
+
+}
+
+// ouverture de celle-ci
+
+export function openReservation(id: number, nomResto: string) {
+
+    initReservationModal();
+
+    currentRestaurantId = id;
+
+    const modal = document.getElementById("reservationModal");
+
+    // Equivalent de handlebars
+
+    const title = modal?.querySelector("h2");
+    if (title){ 
+        title.textContent = nomResto
+    };
+
+    modal?.classList.remove("hidden");
+}
+
+export function closeReservation() {
+  const modal = document.getElementById("reservationModal") as HTMLElement;
+  modal.classList.toggle("hidden");
+}
+
+// Envoyer le contenu du formulaire
+
+function submitReservation() {
+  const name = (document.getElementById("resName") as HTMLInputElement).value;
+  const people = (document.getElementById("resPeople") as HTMLInputElement).value;
+  const date = (document.getElementById("resDate") as HTMLInputElement).value;
+
+  console.log("Réservation :", {
+    restaurantId: currentRestaurantId,
+    name,
+    people,
+    date
+  });
+
+  alert("Réservation envoyée !");
+  closeReservation();
 }

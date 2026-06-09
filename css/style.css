@@ -51,3 +51,113 @@ body {
 main {
     margin: 20px;
 }
+
+.reservation-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    animation: fadeIn 0.2s ease-out;
+
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+.reservation-box {
+    background: rgba(25, 25, 25, 0.92);
+    color: white;
+
+    padding: 5%;
+    border-radius: 3%;
+
+    width: 35%;
+    min-width: 260px;
+    max-width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    box-shadow: 0 2vh 6vh rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    animation: popIn 0.2s ease-out;
+}
+
+
+.reservation-box input {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+.reservation-box input:focus {
+    border-color: #e74c3c;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.reservation-box button {
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+
+#confirmRes {
+    background: #e74c3c;
+    color: white;
+}
+
+#confirmRes:hover {
+    background: #ff5a4f;
+    transform: scale(1.02);
+}
+
+#cancelRes {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+}
+
+#cancelRes:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.02);
+}
+
+/* animations */
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+.hidden {
+    display: none;
+}
