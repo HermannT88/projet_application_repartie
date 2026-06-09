@@ -1,17 +1,29 @@
-import { PROXY_URL } from "./config.mjs";
+//import { PROXY_URL } from "./config.mjs";
+const DIRECT_URL = "http://localhost:8080";
+const PROXY_IUT_URL = "http://IP_DE_LA_MACHINE_IUT:8080";
+
 
 export async function getAccidents(){
-    try {
-        const response = await fetch(PROXY_URL + "/incidents");
-        const data = await response.json();
-        if (data.status) {
-            const waze = JSON.parse(data.message);
-            return { incidents: waze.incidents };
+    const baseUrls = [DIRECT_URL, PROXY_IUT_URL];
+
+    for (const baseUrl of baseUrls) {
+        try {
+            const response = await fetch(baseUrl + "/incidents");
+            
+            if (response.ok) {
+                const data = await response.json();
+                if (data.status) {
+                    const waze = JSON.parse(data.message);
+                    return { incidents: waze.incidents };
+                }
+            }
+        } catch (error) {
+            console.warn(`Échec avec ${baseUrl}, tentative avec l'URL suivante...`);
         }
-    } catch (error) {
-        console.error("Erreur lors de la récupération des incidents via le proxy :", error);
-        return null;
     }
+
+    console.error("Erreur : Impossible de récupérer les incidents (ni en direct, ni via proxy).");
+    return null;
 }
 
 
