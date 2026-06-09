@@ -1,6 +1,31 @@
-export const STATION_INFO_URL = 'https://api.cyclocity.fr/contracts/nancy/gbfs/v2/station_information.json';
+export const API_BASE = 'https://api.cyclocity.fr/contracts/';
 
-export const STATION_STATUS_URL = 'https://api.cyclocity.fr/contracts/nancy/gbfs/v2/station_status.json';
+export const STATION_INFO_URL_END = '/gbfs/v2/station_information.json';
+
+export const STATION_STATUS_URL_END = '/gbfs/v2/station_status.json';
+
+export enum VILLES {
+  // France
+  AMIENS = 'amiens',
+  BESANCON = 'besancon',
+  LYON = 'lyon',
+  MULHOUSE = 'mulhouse',
+  NANCY = 'nancy',
+  NANTES = 'nantes',
+  ROUEN = 'rouen',
+  TOULOUSE = 'toulouse',
+
+  // International
+  BRUXELLES = 'bruxelles',
+  NAMUR = 'namur',
+  DUBLIN = 'dublin',
+  LJUBLJANA = 'ljubljana',
+  LUXEMBOURG = 'luxembourg',
+  SANTANDER = 'santander',
+  SEVILLE = 'seville',
+  VALENCE = 'valence',
+  TOYAMA = 'toyama'
+}
 
 // IP de la machine de l'IUT
 export const PROXY_URL = "http://IP_MACHINE_PROXY:8080";

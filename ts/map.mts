@@ -4,7 +4,7 @@
 
 declare const L: typeof import('leaflet');
 
-import { Station, StationStatus, WazeIncident, Restaurant } from "./config.mjs";
+import { Station, StationStatus, WazeIncident, Restaurant, VILLES } from "./config.mjs";
 import { getStatus } from "./api_velib.mjs";
 
 
@@ -31,12 +31,12 @@ function getMap(): L.Map {
 //=============================================
 
 // Ajout d'une station de vélib sur la carte avec sa description
-export async function addVelibStation(station: Station) {
+export async function addVelibStation(station: Station, ville: VILLES) {
 
     const m = getMap();
     var marker = L.marker([station.lat, station.lon]).addTo(m);
 
-    var status = await getStatus(station);
+    var status = await getStatus(station, ville);
 
     if (status) {
         var text = "<b>" + station.name + "</b>"
