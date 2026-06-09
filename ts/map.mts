@@ -79,7 +79,7 @@ export function addRestaurant(restaurant: Restaurant) {
 
         const m = getMap();
 
-        const coords = restaurant.coord_GPS.split(", ");
+        const coords = restaurant.coord_GPS.split(",");
         const lat = parseFloat(coords[0]);
         const lon = parseFloat(coords[1]);
 
