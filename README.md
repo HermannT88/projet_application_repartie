@@ -98,7 +98,7 @@ npx -y serve .
 ```
 
 Pour le serveur web, il faut : 
-- lancer le serveur : 
+- lancer le service : 
 ```bash
   mvn exec:java "-Dexec.mainClass=Service.LancerService" "-Dexec.args= Identifiant MotDePasse" "-Djava.rmi.server.hostname=127.0.0.1"
   ```
