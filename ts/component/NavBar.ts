@@ -7,6 +7,7 @@ class NavBar extends HTMLElement {
                 <li><a href="/html/velib.html">Carte des Vélib</a></li> 
                 <li><a href="/html/carte-restaurant.html">Carte des restaurants</a></li>
                 <li><a href="/html/carte-incidents.html">Carte des incidents</a></li>
+                <li><a href="/html/archi.html">Architecture du projet</a></li>
             </ul>
         </nav>
         `;
