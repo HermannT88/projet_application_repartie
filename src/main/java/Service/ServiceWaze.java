@@ -1,6 +1,8 @@
 package Service;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.ProxySelector;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -29,19 +31,24 @@ public class ServiceWaze implements ServiceWazeInterface {
   @Override
   public String recupererDonnees() throws RemoteException {
     // 1. Configurer le client AVEC le proxy de l'IUT
-    HttpClient client = HttpClient.newHttpClient();
     
+    // HttpClient client = HttpClient.newHttpClient();
+
     //ou si c'est une machine de l'IUT
-    /**
-     * HttpClient client = HttpClient.newBuilder()
-        .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
-        .build();
-     */
+  
+       HttpClient client = HttpClient.newBuilder()
+          .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
+          .build();
+  
     // 2. Préparer la requête vers l'URL des données
-    HttpRequest request = HttpRequest.newBuilder()
+
+  
+
+        HttpRequest request = HttpRequest.newBuilder()
         .uri(URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json"))
         .GET()
         .build();
+    
 
     // 3. Envoyer la requête et gérer les erreurs
     try {

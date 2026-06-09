@@ -7,6 +7,7 @@
     "build": "esbuild ./ts/index.ts ./ts/velomap.ts ./ts/restaurantmap.ts ./ts/incidentmap.ts --bundle --sourcemap --target=es2022 --format=esm --outdir=js --external:leaflet"
 },
   "devDependencies": {
-    "@types/leaflet": "^1.9.21"
+    "@types/leaflet": "^1.9.21",
+    "esbuild": "^0.28.0"
   }
 }
