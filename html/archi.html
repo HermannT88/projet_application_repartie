@@ -15,7 +15,53 @@
 
     <nav-bar></nav-bar>
     <main>
-        <h2>Architecture du projet</h2>
+        <h1>Architecture du projet</h1>
+        <h3>1. Schéma de l'architecture globale</h3>
+        <h3>2. Rôle et fonctionnement des composants</h3>
+        <h5> A. Le Client Web (Front-end)</h5>
+        <p>
+            Le client est développé en HTML/CSS et TypeScript et est packagé avec un outil de build (esbuild). Il affiche une carte interactive grâce à la bibliothèque Leaflet.<br><br>
+
+            Données ouvertes accessibles (Vélib) : Le navigateur fait un fetch direct vers l'API OpenData des vélos. Ces données ont des en-têtes CORS permissifs, le navigateur autorise donc la requête.<br><br>
+
+            Données "bloquées" et privées : Pour récupérer les incidents de circulation Waze et la liste des restaurants, le navigateur interroge notre propre Proxy HTTP via des requêtes fetch.
+        </p>
+
+        <h5>B. Le Proxy HTTP (Passerelle)</h5>
+        <p>
+            Développé en Java avec la classe HttpServer, il écoute sur le port 8080. Il joue le rôle de traducteur et de point d'entrée unique pour le front-end.<br><br>
+
+            Fonctionnement : Lorsqu'il reçoit une requête HTTP (ex: /restaurants), le proxy se connecte à l'annuaire RMI (sur le port 1099), récupère l'objet distant approprié, appelle sa méthode Java, et transforme la chaîne JSON récupérée en réponse HTTP.<br><br>
+
+            Gestion du CORS : Il ajoute les en-têtes Access-Control-Allow-Origin: * pour que le navigateur accepte ses réponses sans bloquer la requête.
+        </p>
+
+        <h5>C. Le Serveur RMI (Back-end)</h5>
+        <p>
+            Ce composant, lancé par la classe LancerService, initialise un annuaire RMI (Registry) sur le port 1099 et y inscrit nos différents services distribués :<br><br>
+
+            Le Service de Réservation (ServiceReservation) : Il intègre le driver JDBC Oracle (ojdbc11.jar). Il se connecte à la base de données infodb de Charlemagne pour exécuter des requêtes SQL (SELECT pour la liste, INSERT + gestion des verrous de concurrence FOR UPDATE SKIP LOCKED pour sécuriser les réservations de tables). Il formate ensuite les résultats en objets JSON.<br><br>
+
+            Le Service Waze (ServiceWaze) : Il utilise la classe native Java HttpClient pour faire une requête HTTP côté serveur vers l'API du Grand Nancy.
+        </p>
+
+        <h5>D. Les Sources de Données externes</h5>
+        <p>
+            Base de données Oracle : Hébergée sur les serveurs de l'IUT, elle contient les informations privées de l'application.<br><br>
+
+            API Open Data : Fournissent les incidents en temps réel et la disponibilité des vélos.
+        </p>
+
+        <h3>3. Le problème des données bloquées (CORS)</h3>
+        <p>
+        Lors de nos tests côté client, la récupération des données d'incidents Waze directement depuis le navigateur échouait à cause d'une erreur de sécurité soulevée dans la console (F12).<br><br>
+
+        Le problème : L'API du Grand Nancy ne renvoie pas l'en-tête Access-Control-Allow-Origin. Par mesure de sécurité, le navigateur web bloque donc la lecture de la réponse.<br>
+        La solution : Nous avons déporté cette requête côté serveur (dans notre ServiceWaze via le Proxy HTTP). Un programme Java n'est pas soumis à la politique Same-Origin et peut lire la réponse HTTP sans problème, avant de la renvoyer proprement au client.<br><br>
+
+        Est-ce responsable de contourner ainsi la politique de sécurité du navigateur ?<br>
+        Oui, c'est même une architecture standard appelée BFF (Backend For Frontend). La politique CORS existe pour empêcher un site web malveillant de faire des requêtes en cachette depuis le navigateur de l'utilisateur. En faisant la requête depuis notre serveur Java, nous assumons l'identité de l'appelant. Nous ne contournons pas la sécurité d'un utilisateur, nous agissons simplement en tant que client "serveur" légitime de l'API publique.
+        </p>
     </main>
 
 </body>
