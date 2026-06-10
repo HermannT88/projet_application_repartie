@@ -22,10 +22,24 @@
 
     <nav-bar></nav-bar>
 
-    <main>
-        <div id="map"></div>
-    </main>
-
+<main>
+    <div style="padding: 1rem 0 0.5rem; display: flex; align-items: center; gap: 1rem;">
+        <label for="ville-select" style="font-weight: 600; font-family: system-ui, sans-serif;">
+            Ville :
+        </label>
+        <select id="ville-select" style="padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid #d1d5db; font-size: 1rem; font-family: system-ui, sans-serif; background: white; cursor: pointer;">
+            <option value="nancy">Nancy</option>
+            <option value="lyon">Lyon</option>
+            <option value="toulouse">Toulouse</option>
+            <option value="nantes">Nantes</option>
+            <option value="rouen">Rouen</option>
+            <option value="besancon">Besançon</option>
+            <option value="amiens">Amiens</option>
+            <option value="mulhouse">Mulhouse</option>
+        </select>
+    </div>
+    <div id="map"></div>
+</main>
 </body>
 
 </html>
