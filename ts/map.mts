@@ -8,6 +8,7 @@ import { Station, StationStatus, WazeIncident, Restaurant, VILLES } from "./conf
 import { getStatus } from "./api_velib.mjs";
 import Handlebars from "handlebars";
 import { getReservations, getRestaurants, reserverTable } from "./api_restaurants.mjs";
+import { initSidebarActions } from ".";
 let template = document.getElementById("reservationModal");
 
 
@@ -205,44 +206,48 @@ async function afficherReservation(idResto?: number) {
     }
 }
 
-export async function initSidebar() {
+// Initialisation de la sidebar pour voir les réservations
 
-    // On crée une dropdown pour choisir les restaurants
+export async function initSidebar() {
     const dropdown = document.getElementById("restoSelect") as HTMLSelectElement;
 
-    // Remplir la dropdown avec les restaurants
+    // Remplir la dropdown
     const data = await getRestaurants();
     data.restaurants.forEach(resto => {
         const option = document.createElement("option");
-        // On va afficher les restaurants mais on voudra leur id
+        // ON met en option value l'id du resto et on affiche le nom du restaurant
         option.value = String(resto.id_restaurant);
         option.textContent = resto.nom_restaurant;
         dropdown.appendChild(option);
     });
 
-    // Charger les réservations quand on change de restaurant
+    // Charger toutes les réservations au départ
+    await afficherReservations(-1);
+
+    // Recharger quand on change de restaurant
     dropdown.addEventListener("change", async () => {
-        const idResto = parseInt(dropdown.value);
-        if (isNaN(idResto)){
-            return;
-        }
-
-        const result = await getReservations(idResto);
-        const liste = document.getElementById("listeReservation")!;
-        liste.innerHTML = "";
-
-        if (result.status && result.message.length > 0) {
-            result.message.forEach((res: any) => {
-                const li = document.createElement("li");
-                li.innerHTML = `<b>${res.nom_client} ${res.prenom_client}</b><br>
-                                Table ${res.id_table} — ${res.nb_convives} pers.<br>
-                                ${res.debut} → ${res.fin}`;
-                liste.appendChild(li);
-            });
-        } else {
-            liste.innerHTML = "<li>Aucune réservation.</li>";
-        }
+        await afficherReservations(parseInt(dropdown.value));
     });
+}
+
+async function afficherReservations(idResto: number) {
+    const liste = document.getElementById("listeReservation")!;
+    liste.innerHTML = "<li>Chargement...</li>";
+
+    const result = await getReservations(idResto);
+    liste.innerHTML = "";
+
+    if (result.status && result.message.length > 0) {
+        result.message.forEach((res: any) => {
+            const li = document.createElement("li");
+            li.innerHTML = `<b>${res.nom_client}</b><br>
+                            Table ${res.id_table} — ${res.nb_convives} pers.<br>
+                            ${res.debut} → ${res.fin}`;
+            liste.appendChild(li);
+        });
+    } else {
+        liste.innerHTML = "<li>Aucune réservation.</li>";
+    }
 }
 
 // Méthode pour vider la carte
@@ -257,4 +262,12 @@ export function clearMap() {
 export function centerMap(lat: number, lon: number) {
     const m = getMap();
     m.setView([lat, lon], 12);
+
 }
+
+// Méthode pour ouvrir la sidebar
+
+document.addEventListener("DOMContentLoaded", () => {
+    initSidebarActions();
+    initSidebar();
+});
