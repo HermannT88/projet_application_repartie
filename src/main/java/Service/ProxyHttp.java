@@ -23,14 +23,15 @@ public class ProxyHttp {
     public static void main(String[] args) {
  
         // Lecture des paramètres en ligne de commande
-        if (args.length < 2) {
-            System.err.println("Usage : java Service.ProxyHttp <hote_rmi> <port_http>");
-            System.err.println("Exemple : java Service.ProxyHttp 192.168.1.42 8080");
+        if (args.length < 3) {
+            System.err.println("Usage : java Service.ProxyHttp <hote_rmi_reservation> <hote_rmi_waze> <port_http>");
+            System.err.println("Exemple : java Service.ProxyHttp 192.168.1.42 192.168.1.43 8080");
             System.exit(1);
         }
  
-        String rmiHost  = args[0];
-        int httpPort = Integer.parseInt(args[1]);
+        String rmiHostRes  = args[0];
+        String rmiHostWaze = args[1];
+        int httpPort = Integer.parseInt(args[2]);
  
         try {
             // Démarrage du serveur HTTP
@@ -40,7 +41,7 @@ public class ProxyHttp {
             server.createContext("/restaurants", (HttpExchange exchange) -> {
                 String json;
                 try {
-                    Registry reg = LocateRegistry.getRegistry(rmiHost, 1099);
+                    Registry reg = LocateRegistry.getRegistry(rmiHostRes, 1099);
                     ServiceInterface svc = (ServiceInterface) reg.lookup("reservation");
                     json = svc.recupererDonnees();
                 } catch (Exception e) {
@@ -54,7 +55,7 @@ public class ProxyHttp {
             server.createContext("/incidents", (HttpExchange exchange) -> {
                 String json;
                 try {
-                    Registry reg = LocateRegistry.getRegistry(rmiHost, 1099);
+                    Registry reg = LocateRegistry.getRegistry(rmiHostWaze, 1099);
                     ServiceWazeInterface waze = (ServiceWazeInterface) reg.lookup("waze");
                     json = waze.recupererDonnees();
                 } catch (Exception e) {
@@ -69,8 +70,8 @@ public class ProxyHttp {
             server.start();
  
             System.out.println("Proxy HTTP démarré sur le port " + httpPort);
-            System.out.println("  -> Restaurants  (RMI « reservation » sur " + rmiHost + ":1099)");
-            System.out.println("  -> Incidents    (RMI « waze »        sur " + rmiHost + ":1099)");
+            System.out.println("  -> Restaurants  (RMI « reservation » sur " + rmiHostRes + ":1099)");
+            System.out.println("  -> Incidents    (RMI « waze »        sur " + rmiHostWaze + ":1099)");
  
             // Bloque le thread principal
             Thread.currentThread().join();

@@ -1,111 +1,107 @@
 # SAE Projet Application Répartie - Juin 2026
 
-## Lien GitHub : https://github.com/HermannT88/projet_application_repartie
-
-## Lien Webetu : https://webetu.iutnc.univ-lorraine.fr/www/e97539u/
+## Liens
+- **GitHub :** https://github.com/HermannT88/projet_application_repartie
+- **Webetu :** https://webetu.iutnc.univ-lorraine.fr/www/e97539u/
 
 ### Groupe : RA-IL 1
-
-### Composition du groupe :
-
+**Composition du groupe :**
 - CERDA DE ALMEIDA VILLACA Alexis
 - FOUSSE Emelyne
 - HERMANN Taïno
 - SAGET Logan
 
-## Compilation et Lancement (avec Maven)
+---
 
-Le projet utilise désormais Maven pour la gestion des dépendances et de la compilation automatique.
-Il faut Maven installé !
+## Architecture du Projet
+Le projet est composé de deux services RMI indépendants (`reservation` et `waze`), d'un Proxy HTTP faisant le pont avec l'interface web, et d'une application frontend. Les services peuvent être lancés sur la même machine ou sur des ordinateurs différents.
 
-```Powershell
-winget install Apache.Maven
-```
+## Prérequis
+- **Maven** (pour la gestion des dépendances et la compilation Java).
+- **Node.js** et **npm** (pour le build et le lancement du front-end).
 
-### Étape 1 : Compilation
+*(Sous Windows, vous pouvez installer Maven avec `winget install Apache.Maven`)*
 
-Pour nettoyer et compiler le projet, exécutez la commande suivante à la racine du projet :
+---
+
+## Compilation
+
+Pour nettoyer et compiler le projet, exécutez la commande suivante à la racine :
 
 ```bash
 mvn clean compile
 ```
 
-### Étape 2 : Lancer le Serveur (LancerService)
+---
 
-Pour éviter les conflits liés au VPN Cisco de l'IUT, nous forçons l'utilisation de l'adresse IP de rebouclage locale `127.0.0.1` à l'aide de l'option `-Djava.rmi.server.hostname=127.0.0.1` :
+## Lancement (Configuration sur le MÊME PC)
 
-- **Sur Windows / Linux (PowerShell/Bash) :**
-  ```bash
-  mvn exec:java "-Dexec.mainClass=Service.LancerService" "-Dexec.args= Identifiant MotDePasse" "-Djava.rmi.server.hostname=127.0.0.1"
-  ```
+Si vous souhaitez tout lancer sur votre machine personnelle, utilisez l'adresse IP locale `127.0.0.1`. Ouvrez un terminal par commande :
 
-> **Explication des arguments :**
->
-> - `-Dexec.mainClass="Service.LancerService"` : Indique la classe principale à exécuter (le serveur).
-> - `-Dexec.args="<dbUsername> <dbPassword>"` : Arguments passés au programme.
-> - `-Djava.rmi.server.hostname=127.0.0.1` : Force le serveur RMI à utiliser l'IP locale.
+1. **Service Réservation :**
+   ```bash
+   mvn exec:java "-Dexec.mainClass=Service.LancerServiceReservation" "-Dexec.args=VotreIdentifiant VotreMotDePasse" "-Djava.rmi.server.hostname=127.0.0.1"
+   ```
+2. **Service Waze :**
+   ```bash
+   mvn exec:java "-Dexec.mainClass=Service.LancerServiceWaze" "-Djava.rmi.server.hostname=127.0.0.1"
+   ```
+3. **Proxy HTTP :** (On lui donne `127.0.0.1` pour Réservation et `127.0.0.1` pour Waze)
+   ```bash
+   mvn exec:java "-Dexec.mainClass=Service.ProxyHttp" "-Dexec.args=127.0.0.1 127.0.0.1 8080"
+   ```
 
-### Étape 3 : Lancer le Client
+---
 
-- **Sur Windows / Linux (PowerShell/Bash) :**
-  ```bash
-  mvn exec:java "-Dexec.mainClass=Client.Client" "-Dexec.args=127.0.0.1 1099"
-  ```
+## Lancement (Configuration Multi-PC)
+*(Si vous lancez tout sur la même machine, utilisez simplement `127.0.0.1` à la place de l'IP).*
 
-> **Explication des arguments :**
->
-> - `-Dexec.mainClass="Client.Client"` : Indique la classe principale à exécuter (le client).
-> - `-Dexec.args="127.0.0.1 1099"` : Arguments passés au programme client.
->   - `127.0.0.1` : L'adresse IP du serveur hébergeant l'annuaire RMI (ici, le serveur local).
->   - `1099` : Le port de l'annuaire RMI (1099 par défaut).
+### 1. Lancer le Service Réservation (Sur PC 1)
+Identifiez l'adresse IP du PC 1 (ex: `192.168.1.10`).
 
-## Compilation et Lancement (sans Maven — Linux)
+```bash
+mvn exec:java "-Dexec.mainClass=Service.LancerServiceReservation" "-Dexec.args=VotreIdentifiant VotreMotDePasse" "-Djava.rmi.server.hostname=192.168.1.10"
+```
+*(Remplacez `192.168.1.10` par l'IP de la machine hébergeant ce service)*
 
-### Prérequis
+### 2. Lancer le Service Waze (Sur PC 2)
+Identifiez l'adresse IP du PC 2 (ex: `192.168.1.20`).
+
+```bash
+mvn exec:java "-Dexec.mainClass=Service.LancerServiceWaze" "-Djava.rmi.server.hostname=192.168.1.20"
+```
+*(Remplacez `192.168.1.20` par l'IP de la machine hébergeant ce service)*
+
+### 3. Lancer le Proxy HTTP (Sur n'importe quel PC)
+Le proxy HTTP a besoin de l'adresse IP des deux services pour fonctionner. L'usage est : `<ip_reservation> <ip_waze> <port_http>`.
+
+```bash
+mvn exec:java "-Dexec.mainClass=Service.ProxyHttp" "-Dexec.args=192.168.1.10 192.168.1.20 8080"
+```
+
+### 4. Lancer le Serveur Web (Front-end)
+Construisez le frontend et servez-le :
 
 ```bash
 npm install --save-dev @types/leaflet
-
-# Télécharger les JARs dans lib/
-mkdir -p lib
-wget -P lib https://repo1.maven.org/maven2/org/json/json/20231013/json-20231013.jar
-wget -P lib https://repo1.maven.org/maven2/com/oracle/database/jdbc/ojdbc11/23.2.0.0/ojdbc11-23.2.0.0.jar
-```
-
-### 1. Compiler
-
-```bash
-javac -cp "lib/*" -d target/classes src/main/java/Service/*.java src/main/java/Client/*.java
-```
-
-### 2. Lancer les services RMI (terminal 1)
-
-```bash
-java -Djava.rmi.server.hostname=127.0.0.1 -cp "target/classes:lib/*" Service.LancerService <user_db> <mdp_db>
-```
-
-### 3. Lancer le proxy HTTP (terminal 2)
-
-```bash
-java -cp "target/classes:lib/*" Service.ProxyHttp 127.0.0.1 8080
-```
-
-### 4. Builder et servir le front (terminal 3)
-
-```bash
 npm run build
 npx -y serve .
 ```
+Puis, ouvrez votre navigateur web sur `http://localhost:3000` (le port affiché par `serve`). L'application web interrogera le Proxy HTTP tournant sur le port `8080`.
 
-Pour le serveur web, il faut : 
-- lancer le service : 
-```bash
-  mvn exec:java "-Dexec.mainClass=Service.LancerService" "-Dexec.args= Identifiant MotDePasse" "-Djava.rmi.server.hostname=127.0.0.1"
-  ```
+---
 
-- lancer le proxy HTTP : 
+## Lancer le Client en ligne de commande (CLI)
+
+Vous pouvez aussi utiliser le programme client CLI pour effectuer des réservations. Il faut lui passer l'IP de la machine où tourne le **Service Réservation**.
+
 ```bash
-mvn exec:java "-Dexec.mainClass=Service.ProxyHttp" "-Dexec.args=127.0.0.1 8080"
+mvn exec:java "-Dexec.mainClass=Client.Client" "-Dexec.args=192.168.1.10 1099"
 ```
 
-- ouvrir le navigateur web sur localhost:8080 ou sur le port 5000 avec l'extension Live
+---
+
+## Explication des paramètres RMI importants
+
+Afin de permettre la communication RMI sur des réseaux séparés ou contourner les problèmes de VPN (ex: Cisco de l'IUT), l'utilisation du paramètre `java.rmi.server.hostname` est primordiale :
+- `-Djava.rmi.server.hostname=<IP>` : Force l'objet RMI exporté à inscrire cette adresse IP dans l'annuaire RMI, permettant ainsi aux clients distants de savoir où se connecter physiquement.
