@@ -16,7 +16,11 @@ async function loadVille(ville: VILLES) {
 loadVille(VILLES.NANCY);
 
 document.addEventListener('click', (e) => {
-    const card = (e.target as HTMLElement).closest('.city-card');
+    const card = (e.target as HTMLElement).closest('.city-card') as HTMLElement;
     if (!card) return;
+
+    document.querySelectorAll('.city-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
     loadVille(card.id as VILLES);
 });
