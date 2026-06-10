@@ -3,7 +3,7 @@ export const STATION_INFO_URL = 'https://api.cyclocity.fr/contracts/nancy/gbfs/v
 export const STATION_STATUS_URL = 'https://api.cyclocity.fr/contracts/nancy/gbfs/v2/station_status.json';
 
 // IP de la machine de l'IUT
-export const PROXY_URL = "http://IP_MACHINE_PROXY:8080";
+export const PROXY_URL = "http://100.64.80.214:8080";
 
 //=============================================
 // Interfaces pour cast les retours JSON

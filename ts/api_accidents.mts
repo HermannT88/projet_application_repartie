@@ -1,10 +1,8 @@
-//import { PROXY_URL } from "./config.mjs";
+import { PROXY_URL } from "./config.mjs";
 const DIRECT_URL = "http://localhost:8080";
-const PROXY_IUT_URL = "http://IP_DE_LA_MACHINE_IUT:8080";
-
 
 export async function getAccidents(){
-    const baseUrls = [DIRECT_URL, PROXY_IUT_URL];
+    const baseUrls = [DIRECT_URL, PROXY_URL];
 
     for (const baseUrl of baseUrls) {
         try {
