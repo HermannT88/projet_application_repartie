@@ -175,3 +175,54 @@ city-cards {
     font-size: 0.75rem;
     opacity: 0.6;
 }
+
+#sidebar-toggle {
+    position: fixed;
+    right: 0;
+    top: 20%;
+    transform: translateY(-50%);
+    background: #2f3e5f;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10000;
+}
+
+#sidebar-toggle:hover {
+    background: #48516e;
+}
+
+#sidebar {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #2f3e5f;
+    color: white;
+    padding: 20px;
+    z-index: 5000;
+}
+
+#sidebar.open {
+    right: 0;
+}
+
+#sidebar.open + #sidebar-toggle{
+    right: 290px;
+}
+
+#sidebar h3 {
+    margin-top: 70px;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#sidebar li {
+    margin: 15px 0;
+}
