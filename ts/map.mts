@@ -204,6 +204,9 @@ async function submitReservation() {
         alert(result.message);
     }
     closeReservation();
+
+    const dropdown = document.getElementById("restoSelect") as HTMLSelectElement;
+    await afficherReservations(parseInt(dropdown.value));
 }
 
 
