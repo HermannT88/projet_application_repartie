@@ -132,20 +132,6 @@ public class ServiceReservation implements ServiceInterface {
             try (Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "")) {
                 connection.setAutoCommit(false);
 
-                Statement debug = connection.createStatement();
-                ResultSet rdebug = debug.executeQuery(
-                        "SELECT r.id_table, TO_CHAR(r.dates,'DD/MM/YYYY HH24:MI') as debut, "
-                        + "TO_CHAR(r.dates_fin,'DD/MM/YYYY HH24:MI') as fin "
-                        + "FROM reservation r"
-                );
-                while (rdebug.next()) {
-                    System.out.println("Res existante -> table:" + rdebug.getInt("id_table")
-                            + " debut:" + rdebug.getString("debut")
-                            + " fin:" + rdebug.getString("fin"));
-                }
-                rdebug.close();
-                debug.close();
-
                 // 1. Rechercher une table disponible avec un verrouillage temporaire pour éviter les conflits
                 String findTableSql
                         = "SELECT t.id_table "
@@ -169,11 +155,6 @@ public class ServiceReservation implements ServiceInterface {
                     ps.setInt(2, nbClients);
                     ps.setTimestamp(3, Timestamp.valueOf(date));
                     ps.setTimestamp(4, Timestamp.valueOf(date));
-
-                    System.out.println("=== Recherche table ===");
-                    System.out.println("idResto : " + idResto);
-                    System.out.println("nbClients : " + nbClients);
-                    System.out.println("date demandée : " + date);
 
                     try (ResultSet rs = ps.executeQuery()) {
                         if (rs.next()) {
