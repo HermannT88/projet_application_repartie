@@ -12,7 +12,6 @@ export enum VILLES {
   MULHOUSE = 'mulhouse',
   NANCY = 'nancy',
   NANTES = 'nantes',
-  ROUEN = 'rouen',
   TOULOUSE = 'toulouse',
 
   // International
@@ -21,7 +20,6 @@ export enum VILLES {
   DUBLIN = 'dublin',
   LJUBLJANA = 'ljubljana',
   LUXEMBOURG = 'luxembourg',
-  SANTANDER = 'santander',
   SEVILLE = 'seville',
   VALENCE = 'valence',
   TOYAMA = 'toyama'
@@ -35,7 +33,6 @@ export const VILLES_COORDONEES: Record<VILLES, [number, number]> = {
   [VILLES.MULHOUSE]:   [47.7508, 7.3359],
   [VILLES.NANCY]:      [48.6921, 6.1844],
   [VILLES.NANTES]:     [47.2184, -1.5536],
-  [VILLES.ROUEN]:      [49.4432, 1.0993],
   [VILLES.TOULOUSE]:   [43.6047, 1.4442],
 
   [VILLES.BRUXELLES]:  [50.8503, 4.3517],
@@ -43,7 +40,6 @@ export const VILLES_COORDONEES: Record<VILLES, [number, number]> = {
   [VILLES.DUBLIN]:     [53.3498, -6.2603],
   [VILLES.LJUBLJANA]:  [46.0569, 14.5058],
   [VILLES.LUXEMBOURG]: [49.6116, 6.1319],
-  [VILLES.SANTANDER]:  [43.4623, -3.8099],
   [VILLES.SEVILLE]:    [37.3891, -5.9845],
   [VILLES.VALENCE]:    [39.4699, -0.3763],
   [VILLES.TOYAMA]:     [36.6953, 137.2113],
