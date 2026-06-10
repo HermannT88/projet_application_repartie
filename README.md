@@ -34,9 +34,26 @@ mvn clean compile
 
 ---
 
-## Lancement (Configuration Multi-PC)
+## Lancement (Configuration sur le MÊME PC)
 
-Si vous souhaitez lancer les services sur des **machines différentes**, vous devez spécifier l'adresse IP de chaque machine avec `-Djava.rmi.server.hostname=<IP_MACHINE>`. 
+Si vous souhaitez tout lancer sur votre machine personnelle, utilisez l'adresse IP locale `127.0.0.1`. Ouvrez un terminal par commande :
+
+1. **Service Réservation :**
+   ```bash
+   mvn exec:java "-Dexec.mainClass=Service.LancerServiceReservation" "-Dexec.args=VotreIdentifiant VotreMotDePasse" "-Djava.rmi.server.hostname=127.0.0.1"
+   ```
+2. **Service Waze :**
+   ```bash
+   mvn exec:java "-Dexec.mainClass=Service.LancerServiceWaze" "-Djava.rmi.server.hostname=127.0.0.1"
+   ```
+3. **Proxy HTTP :** (On lui donne `127.0.0.1` pour Réservation et `127.0.0.1` pour Waze)
+   ```bash
+   mvn exec:java "-Dexec.mainClass=Service.ProxyHttp" "-Dexec.args=127.0.0.1 127.0.0.1 8080"
+   ```
+
+---
+
+## Lancement (Configuration Multi-PC)
 *(Si vous lancez tout sur la même machine, utilisez simplement `127.0.0.1` à la place de l'IP).*
 
 ### 1. Lancer le Service Réservation (Sur PC 1)
