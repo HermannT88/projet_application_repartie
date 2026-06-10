@@ -8,7 +8,6 @@ import { Station, StationStatus, WazeIncident, Restaurant, VILLES } from "./conf
 import { getStatus } from "./api_velib.mjs";
 import Handlebars from "handlebars";
 import { getReservations, getRestaurants, reserverTable } from "./api_restaurants.mjs";
-import { initSidebarActions } from ".";
 let template = document.getElementById("reservationModal");
 
 
@@ -266,8 +265,6 @@ export function centerMap(lat: number, lon: number) {
 }
 
 // Méthode pour ouvrir la sidebar
-
 document.addEventListener("DOMContentLoaded", () => {
-    initSidebarActions();
     initSidebar();
 });
