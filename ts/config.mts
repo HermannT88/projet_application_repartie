@@ -112,3 +112,9 @@ export interface Restaurant {
 export interface RestaurantResponse {
   restaurants: Restaurant[];
 }
+
+// Interface pour le retour du service Restaurant
+export interface RetourRestaurant{
+  status : boolean,
+  message : Restaurant[];
+}

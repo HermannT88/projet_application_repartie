@@ -132,18 +132,48 @@ public class ServiceReservation implements ServiceInterface {
             try (Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "")) {
                 connection.setAutoCommit(false);
 
-                // 1. Rechercher une table disponible avec un verrouillage temporaire pour éviter les conflits
-                String findTableSql = "SELECT t.id_table FROM table_restau t "
-                        + "WHERE t.id_restaurant = ? AND t.capacite >= ? "
-                        + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates <= ? AND (r.dates_fin IS NULL OR r.dates_fin >= ?) ) "
-                        + "FOR UPDATE SKIP LOCKED";
+                Statement debug = connection.createStatement();
+                ResultSet rdebug = debug.executeQuery(
+                        "SELECT r.id_table, TO_CHAR(r.dates,'DD/MM/YYYY HH24:MI') as debut, "
+                        + "TO_CHAR(r.dates_fin,'DD/MM/YYYY HH24:MI') as fin "
+                        + "FROM reservation r"
+                );
+                while (rdebug.next()) {
+                    System.out.println("Res existante -> table:" + rdebug.getInt("id_table")
+                            + " debut:" + rdebug.getString("debut")
+                            + " fin:" + rdebug.getString("fin"));
+                }
+                rdebug.close();
+                debug.close();
 
+                // 1. Rechercher une table disponible avec un verrouillage temporaire pour éviter les conflits
+                String findTableSql
+                        = "SELECT t.id_table "
+                        + "FROM table_restau t "
+                        + "WHERE t.id_restaurant = ? "
+                        + "  AND t.capacite >= ? "
+                        + "  AND NOT EXISTS ( "
+                        + "      SELECT 1 "
+                        + "      FROM reservation r "
+                        + "      WHERE r.id_table = t.id_table "
+                        + "        AND r.dates <= ? "
+                        + "        AND ( "
+                        + "            r.dates_fin IS NULL "
+                        + "            OR r.dates_fin >= ? "
+                        + "        ) "
+                        + "  ) "
+                        + "FOR UPDATE";
                 int idTable = -1;
                 try (PreparedStatement ps = connection.prepareStatement(findTableSql)) {
                     ps.setInt(1, idResto);
                     ps.setInt(2, nbClients);
                     ps.setTimestamp(3, Timestamp.valueOf(date));
                     ps.setTimestamp(4, Timestamp.valueOf(date));
+
+                    System.out.println("=== Recherche table ===");
+                    System.out.println("idResto : " + idResto);
+                    System.out.println("nbClients : " + nbClients);
+                    System.out.println("date demandée : " + date);
 
                     try (ResultSet rs = ps.executeQuery()) {
                         if (rs.next()) {
@@ -155,7 +185,7 @@ public class ServiceReservation implements ServiceInterface {
                 // 2. Si une table a été trouvée, procéder à l'insertion
                 if (idTable != -1) {
                     String insertSql = "INSERT INTO reservation (id_res, id_table, nom_client, prenom_client, nb_convives, telephone, dates, dates_fin, montant) "
-                            + "VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?, NULL, 0)";
+                            + "VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, 0)";
 
                     try (PreparedStatement ins = connection.prepareStatement(insertSql)) {
                         ins.setInt(1, idTable);
@@ -164,6 +194,7 @@ public class ServiceReservation implements ServiceInterface {
                         ins.setInt(4, nbClients);
                         ins.setString(5, telephonne);
                         ins.setTimestamp(6, Timestamp.valueOf(date));
+                        ins.setTimestamp(7, Timestamp.valueOf(date.plusHours(2)));
 
                         int updated = ins.executeUpdate();
                         connection.commit();
@@ -176,6 +207,7 @@ public class ServiceReservation implements ServiceInterface {
                             response.put("message", "Échec de l'insertion de la réservation en base de données.");
                         }
                     }
+
                 } else {
                     // Aucune table trouvée
                     connection.rollback();
@@ -214,7 +246,6 @@ public class ServiceReservation implements ServiceInterface {
             JSONObject restaurant = new JSONObject();
 
             // On utilise optString poru récupèrer les éléments voulu 
-
             restaurant.put("id", i + 1);
             restaurant.put("nom", properties.optString("name", "Sans nom"));
             restaurant.put("longitude", coordinates.getDouble(0));

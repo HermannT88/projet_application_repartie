@@ -7,6 +7,7 @@ declare const L: typeof import('leaflet');
 import { Station, StationStatus, WazeIncident, Restaurant } from "./config.mjs";
 import { getStatus } from "./api_velib.mjs";
 import Handlebars from "handlebars";
+import { reserverTable } from "./api_restaurants.mjs";
 let template = document.getElementById("reservationModal");
 
 
@@ -166,18 +167,30 @@ export function closeReservation() {
 
 // Envoyer le contenu du formulaire
 
-function submitReservation() {
-  const name = (document.getElementById("resName") as HTMLInputElement).value;
-  const people = (document.getElementById("resPeople") as HTMLInputElement).value;
-  const date = (document.getElementById("resDate") as HTMLInputElement).value;
+async function submitReservation() {
 
-  console.log("Réservation :", {
-    restaurantId: currentRestaurantId,
-    name,
-    people,
-    date
-  });
+  const nom    = (document.getElementById("resName")   as HTMLInputElement).value;
+  const prenom = (document.getElementById("resPrenom") as HTMLInputElement).value;
+  const clients = (document.getElementById("resPeople") as HTMLInputElement).value;
+  const date   = (document.getElementById("resDate")   as HTMLInputElement).value;
+  const tel    = (document.getElementById("resTel")    as HTMLInputElement).value;
 
-  alert("Réservation envoyée !");
+  if (!currentRestaurantId) return;
+
+    const result = await reserverTable(
+        currentRestaurantId,
+        nom,
+        prenom,
+        parseInt(clients),
+        tel,
+        date
+    );
+
+     if (result === null) {
+        alert("Serveur injoignable.");
+    } else{
+        alert(result.message);
+    }
+
   closeReservation();
 }

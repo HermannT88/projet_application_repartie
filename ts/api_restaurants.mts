@@ -1,7 +1,9 @@
+import { RestaurantResponse, RetourRestaurant } from "./config.mjs";
+
 const DIRECT_URL = "http://localhost:8080";
 const PROXY_IUT_URL = "http://IP_DE_LA_MACHINE_IUT:8080";
 
-export async function getRestaurants(){
+export async function getRestaurants(): Promise<RestaurantResponse>{
     const baseUrls = [DIRECT_URL, PROXY_IUT_URL];
 
     for (const baseUrl of baseUrls) {
@@ -10,7 +12,7 @@ export async function getRestaurants(){
             const response = await fetch(baseUrl + "/restaurants");
 
             if (response.ok) {
-                const data = await response.json();
+                const data : RetourRestaurant = await response.json();
                 
                 if (data.status) {
                     console.log("Données récupérées avec succès depuis " + baseUrl);
@@ -23,5 +25,35 @@ export async function getRestaurants(){
     }
 
     console.error("Erreur : Impossible de récupérer les restaurants sur aucune des URLs.");
-    return null;
+    throw new Error;
+    
+}
+
+export async function reserverTable(idResto: number,nom: string,prenom: string,nbClients: number,telephone: string,date: string): Promise<{ status: boolean; message: string }> {
+
+    const baseUrls = [DIRECT_URL, PROXY_IUT_URL];
+
+    for (const baseUrl of baseUrls) {
+        try {
+            console.log("Tentative de réservation via : " + baseUrl + "/reserver");
+
+            const response = await fetch(baseUrl + "/reserver", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ idResto, nom, prenom, nbClients, telephone, date })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log("Réponse reçue depuis " + baseUrl);
+                return { status: data.status, message: data.message };
+            }
+
+        } catch (error) {
+            console.warn(`Échec de la connexion à ${baseUrl}. Raison :`, error);
+        }
+    }
+
+    console.error("Erreur : Impossible d'effectuer la réservation sur aucune des URLs.");
+    throw new Error;
 }
