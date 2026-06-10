@@ -1,6 +1,7 @@
 import { getStationsInfo } from "./api_velib.mjs";
 import { VILLES, VILLES_COORDONEES } from "./config.mjs";
 import { addVelibStation, centerMap, clearMap } from "./map.mjs";
+import './component/CityCard'; 
 
 async function loadVille(ville: VILLES) {
     clearMap();
