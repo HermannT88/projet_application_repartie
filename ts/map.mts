@@ -107,3 +107,9 @@ export function clearMap() {
     }
     markers = [];
 }
+
+// Méthode pour centrer la mpa sur des coordonées
+export function centerMap(lat: number, lon: number) {
+    const m = getMap();
+    m.setView([lat, lon], 12);
+}
