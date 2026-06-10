@@ -133,11 +133,22 @@ public class ServiceReservation implements ServiceInterface {
                 connection.setAutoCommit(false);
 
                 // 1. Rechercher une table disponible avec un verrouillage temporaire pour éviter les conflits
-                String findTableSql = "SELECT t.id_table FROM table_restau t "
-                        + "WHERE t.id_restaurant = ? AND t.capacite >= ? "
-                        + "AND NOT EXISTS (SELECT 1 FROM reservation r WHERE r.id_table = t.id_table AND r.dates <= ? AND (r.dates_fin IS NULL OR r.dates_fin >= ?) ) "
-                        + "FOR UPDATE SKIP LOCKED";
-
+                String findTableSql
+                        = "SELECT t.id_table "
+                        + "FROM table_restau t "
+                        + "WHERE t.id_restaurant = ? "
+                        + "  AND t.capacite >= ? "
+                        + "  AND NOT EXISTS ( "
+                        + "      SELECT 1 "
+                        + "      FROM reservation r "
+                        + "      WHERE r.id_table = t.id_table "
+                        + "        AND r.dates <= ? "
+                        + "        AND ( "
+                        + "            r.dates_fin IS NULL "
+                        + "            OR r.dates_fin >= ? "
+                        + "        ) "
+                        + "  ) "
+                        + "FOR UPDATE";
                 int idTable = -1;
                 try (PreparedStatement ps = connection.prepareStatement(findTableSql)) {
                     ps.setInt(1, idResto);
@@ -155,7 +166,7 @@ public class ServiceReservation implements ServiceInterface {
                 // 2. Si une table a été trouvée, procéder à l'insertion
                 if (idTable != -1) {
                     String insertSql = "INSERT INTO reservation (id_res, id_table, nom_client, prenom_client, nb_convives, telephone, dates, dates_fin, montant) "
-                            + "VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?, NULL, 0)";
+                            + "VALUES (seq_restaurant.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, 0)";
 
                     try (PreparedStatement ins = connection.prepareStatement(insertSql)) {
                         ins.setInt(1, idTable);
@@ -164,6 +175,7 @@ public class ServiceReservation implements ServiceInterface {
                         ins.setInt(4, nbClients);
                         ins.setString(5, telephonne);
                         ins.setTimestamp(6, Timestamp.valueOf(date));
+                        ins.setTimestamp(7, Timestamp.valueOf(date.plusHours(2)));
 
                         int updated = ins.executeUpdate();
                         connection.commit();
@@ -176,6 +188,7 @@ public class ServiceReservation implements ServiceInterface {
                             response.put("message", "Échec de l'insertion de la réservation en base de données.");
                         }
                     }
+
                 } else {
                     // Aucune table trouvée
                     connection.rollback();
@@ -214,7 +227,6 @@ public class ServiceReservation implements ServiceInterface {
             JSONObject restaurant = new JSONObject();
 
             // On utilise optString poru récupèrer les éléments voulu 
-
             restaurant.put("id", i + 1);
             restaurant.put("nom", properties.optString("name", "Sans nom"));
             restaurant.put("longitude", coordinates.getDouble(0));
@@ -425,4 +437,67 @@ public class ServiceReservation implements ServiceInterface {
         ps.executeBatch();
         ps.close();
     }
+
+    public String recupererReservations(int idResto) throws RemoteException {
+        String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
+        JSONArray reservationsArray = new JSONArray();
+        JSONObject response = new JSONObject();
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
+
+
+            // Soit on cherhce toutes les reservations soit celle relative au restaurant
+
+            String sql;
+            if (idResto != -1) {
+                sql = "SELECT r.id_res, r.id_table, r.nom_client, r.nb_convives, "
+                        + "TO_CHAR(r.dates, 'DD/MM/YYYY HH24:MI') as debut, "
+                        + "TO_CHAR(r.dates_fin, 'DD/MM/YYYY HH24:MI') as fin "
+                        + "FROM reservation r "
+                        + "JOIN table_restau t ON r.id_table = t.id_table "
+                        + "WHERE t.id_restaurant = ?";
+            } else {
+                sql = "SELECT r.id_res, r.id_table, r.nom_client, r.nb_convives, "
+                        + "TO_CHAR(r.dates, 'DD/MM/YYYY HH24:MI') as debut, "
+                        + "TO_CHAR(r.dates_fin, 'DD/MM/YYYY HH24:MI') as fin "
+                        + "FROM reservation r";
+            }
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            // On set l'attribut ou non
+
+            if (idResto != -1) {
+                ps.setInt(1, idResto);
+            }
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                JSONObject res = new JSONObject();
+                res.put("id_res", rs.getInt("id_res"));
+                res.put("id_table", rs.getInt("id_table"));
+                res.put("nom_client", rs.getString("nom_client"));
+                res.put("nb_convives", rs.getInt("nb_convives"));
+                res.put("debut", rs.getString("debut"));
+                res.put("fin", rs.getString("fin") != null ? rs.getString("fin") : "En cours");
+                reservationsArray.put(res);
+            }
+
+            rs.close();
+            ps.close();
+            connection.close();
+
+            response.put("status", true);
+            response.put("message", reservationsArray);
+            return response.toString();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            response.put("status", false);
+            response.put("message", "Erreur : " + e.getMessage());
+            return response.toString();
+        }
+    }
+
 }
