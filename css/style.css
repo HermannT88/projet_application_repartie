@@ -51,3 +51,61 @@ body {
 main {
     margin: 20px;
 }
+
+/* =========================================
+   LAYOUT PAGE VÉLIB
+========================================= */
+
+.velib-layout {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+/* =========================================
+   COMPOSANT CITY-CARDS
+========================================= */
+
+city-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 200px;
+    flex-shrink: 0;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.city-card {
+    background: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+}
+
+.city-card:hover {
+    border-color: #2f3e5f;
+    box-shadow: 0 4px 12px rgba(47, 62, 95, 0.15);
+}
+
+.city-card.active {
+    background-color: #2f3e5f;
+    color: #ffffff;
+    border-color: #2f3e5f;
+}
+
+.city-card h3 {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.city-card p {
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
