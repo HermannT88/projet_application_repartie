@@ -17,11 +17,9 @@
     <nav-bar></nav-bar>
     <main>
         <h1 id="big_title">Architecture du projet</h1>
-        <div class="container_big">
-            <img src="../img/architecture.png" alt="Schéma architecture" width="450">
 
-            <div>
-                <h3>Contenu de la page :</h3>
+        <div>
+            <h3>Contenu de la page :</h3>
                 <ul>
                     <li>Schéma de l’architecture globale</li>
                     <li>Rôle et fonctionnement des composants</li>
@@ -30,45 +28,204 @@
                     <li>Problématique CORS et solution BFF</li>
                 </ul>
             </div>
-        </div>
 
          <section>
             <h3>1. Schéma de l'architecture globale</h3>
-
             <p>
-                L’architecture repose sur trois blocs principaux : le client web, le proxy HTTP et le serveur RMI.
+                L'architecture repose sur trois blocs principaux : le client web, le proxy HTTP et le serveur RMI.
                 Le client interagit avec la carte Leaflet et communique avec le proxy pour accéder aux données
                 nécessitant un traitement serveur.
             </p>
 
+            <div class="container_big">
+                <img src="../img/archi.png" alt="Schéma architecture" width="100%">
+            </div>
+
+
             <h3>2. Rôle et fonctionnement des composants</h3>
 
-            <h5>A. Le Client Web (Front-end)</h5>
-                <p>
-                Le client est développé en HTML/CSS et TypeScript et est packagé avec un outil de build (esbuild). Il affiche une carte interactive grâce à la bibliothèque Leaflet.<br><br>
-
-                Données ouvertes accessibles (Vélib) : Le navigateur fait un fetch direct vers l'API OpenData des vélos. Ces données ont des en-têtes CORS permissifs, le navigateur autorise donc la requête.<br><br>
-
-                Données "bloquées" et privées : Pour récupérer les incidents de circulation Waze et la liste des restaurants, le navigateur interroge notre propre Proxy HTTP via des requêtes fetch.
-                </p>
+            <h5>A. Le client Web (Front-end)</h5>
+            <p>
+                Le client est développé en HTML/CSS et TypeScript et est packagé avec l'outil de build esbuild. Son rôle principal est d'afficher une carte interactive grâce à la bibliothèque Leaflet et d'interroger les différentes sources de données : <br>
+                - Données ouvertes accessibles (Vélib) : Le navigateur fait un fetch direct vers l'API OpenData des vélos. Ces données ont des en-têtes CORS permissifs, le navigateur autorise donc la requête.<br>
+                - Données bloquées et privées : Pour récupérer les incidents de circulation Waze et la liste des restaurants, le navigateur interroge notre propre Proxy HTTP via des requêtes fetch.
+            </p>
             
+            <p>
+                Exemple : Requête du client vers le proxy 
+            </p>
+            <pre class="code-block">
+                <code>
+// Fonction asynchrone pour récupérer les accidents Waze
+export async function getAccidents() {
+
+    // Deux URLs possibles : accès direct et via proxy
+    const baseUrls = [DIRECT_URL, PROXY_URL];
+
+    // On essaie chaque URL l'une après l'autre
+    for (const baseUrl of baseUrls) {
+        try {
+            // Appel HTTP vers /incidents
+            const response = await fetch(baseUrl + "/incidents");
+
+            // Si la réponse est valide (status HTTP 200)
+            if (response.ok) {
+
+                // On récupère le JSON renvoyé par le serveur
+                const data = await response.json();
+
+                // Le serveur renvoie { status: true, message: "...json..." }
+                if (data.status) {
+
+                    // Le champ "message" contient une chaîne JSON et on la parse
+                    const waze = JSON.parse(data.message);
+
+                    // On renvoie uniquement la liste des incidents
+                    return { incidents: waze.incidents };
+                }
+            }
+        } catch (error) {
+            // Si l'appel échoue, on tente l'URL suivante
+            console.warn(`Échec avec ${baseUrl}, tentative avec l'URL suivante...`);
+        }
+    }
+    // Si aucune URL n'a fonctionné
+    console.error("Erreur : Impossible de récupérer les incidents (ni en direct, ni via proxy).");
+    return null;
+}
+                </code>
+            </pre>
+            
+            <h5>Carte des Vélib :</h5>
+            <p>
+                À l'ouverture de la page, la carte affiche par défaut les stations de vélos de Nancy.
+                Grâce au menu de navigation situé sur la droite de l'écran, il est possible de sélectionner les différentes villes utilisant le réseau JCDecaux. <br><br>
+                L'implémentation est facilitée par le fait que toutes ces villes sont gérées par la même entreprise : les API (nom des stations et statut des stations) possèdent donc la même structure et les mêmes interfaces. Il suffit simplement de modifier le nom de la ville dans l'URL pour récupérer les données correspondantes. <br><br>
+                Chaque clic sur une ville déclenche un <code>addEventListener</code>. Celui-ci exécute plusieurs actions : <br>
+                - suppression des marqueurs existants via <code>clearMap()</code> (map.mts) <br>
+                - recentrage de la carte sur la nouvelle ville avec <code>centerMap(lat, lon)</code> (map.mts) <br>
+                - appel de <code>loadVille(ville: VILLES)</code> (velomap.ts) pour télécharger les stations de cette ville <br><br>
+                Le composant CityCards applique une fonction <code>map()</code> sur l'ensemble des villes afin de générer dynamiquement le HTML correspondant, puis rassemble toutes ces cartes dans une liste unique.
+            </p>
+
+            <h5>Carte des restaurants :</h5>
+            <p>
+                À l'ouverture de la page, le script <code>restaurantmap.ts</code> effectue un appel asynchrone vers <code>getRestaurants()</code> pour récupérer l'ensemble des établissements. Une boucle itère ensuite sur ces données pour positionner les marqueurs sur la carte via la fonction <code>addRestaurant(restau)</code> (map.mts). 
+                En parallèle, l'exécution de <code>initSidebar()</code> remplit dynamiquement le menu déroulant (<code>#restoSelect</code>) avec le nom des restaurants et initialise l'affichage en chargeant l'historique complet des réservations via <code>afficherReservations(-1)</code>.
+                Le panneau latéral (sidebar) intègre un bouton (<code>#sidebar-toggle</code>) qui intercepte les clics pour ajouter ou retirer la classe CSS <code>open</code>, modifiant au passage l'icône de direction (❮ ou ❯). <br><br>
+                De plus, un écouteur d'événement <code>change</code> est greffé sur le menu déroulant des restaurants : chaque sélection déclenche une réévaluation des réservations en appelant <code>afficherReservations(idResto)</code> afin de filtrer dynamiquement la liste HTML (<code>#listeReservation</code>). <br><br>
+                L'interaction avec la carte permet d'ouvrir une boîte de dialogue de réservation. Le clic sur le bouton "Réserver" intégré au popup Leaflet appelle <code>openReservation()</code>, ce qui retire la classe <code>hidden</code> du composant <code>#reservationModal</code> et met à jour son titre. Lors de la validation, l'écouteur du bouton <code>#confirmRes</code> exécute <code>submitReservation()</code>, rassemble les valeurs des champs de saisie (nom, prénom, convives, éléphone, date) et invoque la fonction distante <code>reserverTable()</code> via une requête HTTP POST interceptée par notre Proxy.
+                <br><br>
+                Pour garantir la robustesse du front-end, les fonctions de l'API des restaurants (<code>getRestaurants</code>, <code>reserverTable</code>, <code>getReservations</code>) parcourent un tableau d'URLs contenant <code>DIRECT_URL</code> (localhost) et <code>PROXY_URL</code> (IP de l'IUT). Si la connexion directe échoue, le client bascule automatiquement sur l'URL suivante sans interrompre l'utilisateur.
+            </p>
+
+            <p class="note">
+                À noter que si deux personnes réservent en même temps sur le site, la seconde ne sera pas bloquée : elle recevra simplement une autre table disponible, ou aucune si toutes les tables ont déjà été attribuées.
+            </p>
+
+            <h5>Carte des incidents :</h5>
+            <p>
+                Dès le chargement de la page, le fichier <code>incidentmap.ts</code> lance automatiquement la récupération des anomalies de circulation en appelant la fonction <code>getAccidents()</code>. Les données Waze reçues sous forme de tableau sont parcourues élément par élément afin de générer et d'afficher les alertes sur la carte Leaflet à l'aide de la fonction <code>addIncident(incident)</code> définie dans <code>map.mts</code>.
+            </p>
+            <p>
+                La fonction <code>addIncident</code> extrait les coordonnées géographiques à partir de la chaîne de caractères <code>location.polyline</code> en la découpant (<code>split(" ")</code>) pour obtenir la latitude et la longitude nécessaires à l'instanciation du marqueur Leaflet. Elle assemble ensuite un contenu HTML personnalisé pour le popup, combinant le type d'incident, la rue affectée, les détails fournis par Waze ainsi qu'une date de fin.
+            </p>
+            <p>
+                Tout comme pour l'API des restaurants, la fonction <code>getAccidents()</code> implémente une tolérance aux pannes en essayant successivement de joindre le proxy en local puis sur l'IP de l'IUT. Côté back-end, la route <code>/incidents</code> du <code>ProxyHttp</code> redirige l'appel vers le service RMI <code>waze</code>. 
+                L'implémentation de <code>ServiceWaze</code> est résiliente : elle tente une requête HTTP directe vers l'API du Grand Nancy et, en cas d'échec ou de blocage, bascule sur une configuration réseau utilisant le proxy cache de l'IUT (<code>www-cache:3128</code>).
+            </p>
+
             <h5>B. Le Proxy HTTP (Passerelle)</h5>
+            <p>
+                Développé en Java à l'aide de la classe native <code>HttpServer</code>, ce composant central écoute sur le port configurable passé en paramètre (ex: 8080). Il fait office de point d'entrée unique pour le client TypeScript, en traduisant les requêtes HTTP en invocations de méthodes distantes RMI. Au démarrage, la classe <code>ProxyHttp</code> accepte trois arguments en ligne de commande pour mapper dynamiquement les adresses IP des serveurs de réservation et Waze, offrant un déploiement flexible (en local ou sur les machines de l'IUT). <br><br> 
+        
+                L'architecture du serveur repose sur l'instanciation de routes :
+                <br>
+                - Routes de consultation (GET /restaurants et /incidents) : ils interceptent les requêtes du navigateur, initialisent une liaison vers le registre RMI (port 1099) de la machine cible, effectuent un <code>lookup</code> pour récupérer l'interface distante appropriée(<code>reservation</code> ou <code>waze</code>) et invoquent la méthode <code>recupererDonnees()</code>. La chaîne JSON renvoyée par le service est immédiatement réémise dans le flux de sortie HTTP.<br>
+                - Routes transactionnelles (POST /reserver et /reservations) : Contrairement aux requêtes de lecture, ces routes extraient le flux (<code>getRequestBody()</code>) envoyée par le front-end et le convertissent en chaîne UTF-8. 
+                Un objet <code>org.json.JSONObject</code> parse ensuite pour extraire de manière typée les variables requises (comme les entiers <code>idResto</code> ou <code>nbClients</code>, les chaînes de texte, ou la date en <code>LocalDateTime</code>). 
+                Ces paramètres alimentent l'appel RMI distant (<code>reserverTable</code> ou <code>recupererReservations</code>).
+                <br><br> 
+                La gestion de la politique CORS (Cross-Origin Resource Sharing) est opérée au sein d'une méthode centralisée <code>sendJson()</code>. 
+                Pour chaque réponse émise, le proxy injecte explicitement dans l'en-tête HTTP (HTTP Headers) les autorisations d'accès nécessaires. 
+                Le proxy déclare ainsi accepter toutes les provenances via <code>Access-Control-Allow-Origin: *</code>, définit les verbes HTTP valides (<code>GET, POST, OPTIONS</code>) et autorise le transport de métadonnées spécifiques via <code>Access-Control-Allow-Headers: Content-Type</code>.
+                
+                <br><br>
+                Le proxy implémente aussi la gestion des requêtes de pré-vérification ou Preflight Requests (OPTIONS). 
+                Lorsqu'un navigateur s'apprête à envoyer une requête complexe (comme un POST contenant du JSON) vers un domaine tiers, il émet d'abord une requête automatique avec la méthode <code>OPTIONS</code> pour s'assurer que le serveur accepte la transaction. 
+                Les contextes <code>/reserver</code> et <code>/reservations</code> interceptent ce cas de figure et renvoient immédiatement une réponse vide (status code 200) munie des en-têtes CORS. Cela donne le feu vert au navigateur pour acheminer la véritable requête POST contenant les données du formulaire de réservation.
+            </p>
                 <p>
-                    Développé en Java avec la classe HttpServer, il écoute sur le port 8080. Il joue le rôle de traducteur et de point d'entrée unique pour le front-end.<br><br>
-
-                    Fonctionnement : Lorsqu'il reçoit une requête HTTP (ex: /restaurants), le proxy se connecte à l'annuaire RMI (sur le port 1099), récupère l'objet distant approprié, appelle sa méthode Java, et transforme la chaîne JSON récupérée en réponse HTTP.<br><br>
-
-                    Gestion du CORS : Il ajoute les en-têtes Access-Control-Allow-Origin: * pour que le navigateur accepte ses réponses sans bloquer la requête.
+                    Exemple : Redirection de la requête HTTP vers le service RMI
                 </p>
+
+                 <pre class="code-block">
+                    <code>
+// Route pour incidents
+server.createContext("/incidents", (HttpExchange exchange) -> {
+    String json;
+    try {
+        // Connexion à l'annuaire RMI pour récupérer le service waze
+        Registry reg = LocateRegistry.getRegistry(rmiHostWaze, 1099);
+        ServiceWazeInterface waze = (ServiceWazeInterface) reg.lookup("waze");
+
+        // Appel de la méthode distante
+        json = waze.recupererDonnees();
+    } catch (Exception e) {
+        json = "{\"status\":false,\"message\":\"Erreur RMI waze : " + e.getMessage() + "\"}";
+        System.err.println("Erreur /incidents : " + e.getMessage());
+    }
+    // Envoi de la réponse avec les en-têtes CORS
+    sendJson(exchange, json);
+});
+                    </code>
+                </pre>
+
 
             <h5>C. Le Serveur RMI (Back-end)</h5>
-                <p>
-                    Ce composant, lancé par la classe LancerService, initialise un annuaire RMI (Registry) sur le port 1099 et y inscrit nos différents services distribués :<br><br>
+            <p>
+                Ce composant constitue le socle métier et la couche d'accès aux données de l'application. 
+                Il est découpé en plusieurs micro-services distribués. Les classes de démarrage dédiées 
+                (<code>LancerServiceReservation</code> et <code>LancerServiceWaze</code>) initialisent ou 
+                récupèrent un annuaire RMI (Registry) localisé sur le port 1099, puis y inscrivent leurs 
+                objets distants respectifs.
+            </p>
 
-                    Le Service de Réservation (ServiceReservation) : Il intègre le driver JDBC Oracle (ojdbc11.jar). Il se connecte à la base de données infodb de Charlemagne pour exécuter des requêtes SQL (SELECT pour la liste, INSERT + gestion des verrous de concurrence FOR UPDATE SKIP LOCKED pour sécuriser les réservations de tables). Il formate ensuite les résultats en objets JSON.<br><br>
+            <h5>Le Service Waze (ServiceWaze) :</h5>
+            <p>
+                Ce service implémente l'interface <code>ServiceWazeInterface</code> et agit comme un client de l'API Open Data du Grand Nancy. Il exploite les classes natives de Java 11+ (<code>java.net.http.HttpClient</code>, <code>HttpRequest</code>, <code>HttpResponse</code>) pour former sa requête HTTP GET vers le flux JSON cible.
+            </p>
 
-                    Le Service Waze (ServiceWaze) : Il utilise la classe native Java HttpClient pour faire une requête HTTP côté serveur vers l'API du Grand Nancy.
-                </p>
+            <h5>Le Service de Réservation (ServiceReservation) :</h5>
+            <p>
+                Il s'appuie sur le driver JDBC Oracle pour dialoguer avec la base de données <code>infodb</code> 
+                hébergée sur le serveur Charlemagne. Il gère un cycle de vie complet de la donnée :
+            </p>
+            <ul>
+                <li>
+                    Initialisation (Constructeur) : Lors du lancement, le service charge dynamiquement un 
+                    fichier <code>export.geojson</code>, parse son contenu, supprime les anciennes tables de la base (Drop/Cascade constraints) et génère une base de données (Tables <code>restaurant</code>, 
+                    <code>table_restau</code>, <code>reservation</code>) via des requêtes <code>executeBatch()</code>.
+                </li>
+                <li>
+                    Consultation (<code>recupererDonnees</code> / <code>recupererReservations</code>) :
+                    Exécute des requêtes SQL <code>SELECT</code> et de jointure (<code>JOIN table_restau</code>) classiques, parcourt le curseur (<code>ResultSet</code>) et convertit les données relationnelles (nom, adresse, latitude/longitude, dates formatées avec <code>TO_CHAR</code>) en tableaux JSON (<code>JSONArray</code>) pour le Front-end.
+                </li>
+                <li>
+                    Transaction sécurisée (<code>reserverTable</code>) : C'est ici qu'intervient la gestion de la concurrence. Pour éviter que deux utilisateurs ne réservent la même table à la même seconde, la méthode désactive la validation automatique (<code>connection.setAutoCommit(false)</code>).
+                </li>
+            </ul>
+
+            <div class="container_big">
+                <img src="../img/seq.png" alt="Schéma architecture" width="700">
+            </div>
+
+            <p>
+                La requête de vérification des disponibilités intègre la clause SQL <code>FOR UPDATE</code> : 
+                ce verrou garantit que la table trouvée est bloquée pour les autres threads pendant toute 
+                la durée du traitement. Si une table possédant une capacité (<code>capacite >= nbClients</code>) 
+                et aucune réservation chevauchante (<code>NOT EXISTS</code>) est détectée, une insertion (<code>INSERT INTO reservation</code>) est déclenchée puis validée définitivement par un <code>connection.commit()</code>. Dans le cas contraire, un <code>connection.rollback()</code> annule l'opération en base, évitant tout état corrompu.
+            </p>
 
             <h5>D. Les Sources de Données externes</h5>
                 <p>
@@ -79,14 +236,42 @@
 
             <h3>3. Le problème des données bloquées (CORS)</h3>
                 <p>
-                Lors de nos tests côté client, la récupération des données d'incidents Waze directement depuis le navigateur échouait à cause d'une erreur de sécurité soulevée dans la console (F12).<br><br>
+                Lors de nos tests côté client, la récupération des données d'incidents Waze directement depuis le navigateur échouait à cause d'une erreur de sécurité soulevée dans la console (F12).<br>
 
                 Le problème : L'API du Grand Nancy ne renvoie pas l'en-tête Access-Control-Allow-Origin. Par mesure de sécurité, le navigateur web bloque donc la lecture de la réponse.<br>
-                La solution : Nous avons déporté cette requête côté serveur (dans notre ServiceWaze via le Proxy HTTP). Un programme Java n'est pas soumis à la politique Same-Origin et peut lire la réponse HTTP sans problème, avant de la renvoyer proprement au client.<br><br>
+                La solution : Nous avons déporté cette requête côté serveur (dans notre ServiceWaze via le Proxy HTTP). Un programme Java n'est pas soumis à la politique Same-Origin et peut lire la réponse HTTP sans problème, avant de la renvoyer proprement au client.
+
+                <div class="container_big">
+                    <img src="../img/probleme.png" alt="Schéma architecture" width="700">
+                </div>
+                <br>
+
 
                 Est-ce responsable de contourner ainsi la politique de sécurité du navigateur ?<br>
                 Oui, c'est même une architecture standard appelée BFF (Backend For Frontend). La politique CORS existe pour empêcher un site web malveillant de faire des requêtes en cachette depuis le navigateur de l'utilisateur. En faisant la requête depuis notre serveur Java, nous assumons l'identité de l'appelant. Nous ne contournons pas la sécurité d'un utilisateur, nous agissons simplement en tant que client "serveur" légitime de l'API publique.
                 </p>
+
+                <p>
+                    Exemple : Ajout des en-têtes CORS par le Proxy HTTP
+                </p>
+                <pre class="code-block">
+                    <code>
+// Envoie une réponse JSON avec les en-têtes CORS
+private static void sendJson(HttpExchange exchange, String json) {
+    try {
+        // Ajout des en-têtes pour autoriser le navigateur à lire la réponse
+        exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+        exchange.getResponseHeaders().set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        exchange.getResponseHeaders().set("Access-Control-Allow-Headers", "Content-Type");
+        exchange.getResponseHeaders().set("Content-Type", "application/json; charset=UTF-8");
+        ...
+    } catch (IOException e) {
+        ...
+    }
+}
+                    </code>
+                </pre>    
+
             </section>
     </main>
 
