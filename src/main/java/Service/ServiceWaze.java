@@ -30,50 +30,42 @@ public class ServiceWaze implements ServiceWazeInterface {
    */
   @Override
   public String recupererDonnees() throws RemoteException {
-    // 1. Configurer le client AVEC le proxy de l'IUT
-    
-    // HttpClient client = HttpClient.newHttpClient();
 
-    //ou si c'est une machine de l'IUT
-  
-       HttpClient client = HttpClient.newBuilder()
-          .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
-          .build();
-  
-    // 2. Préparer la requête vers l'URL des données
+    URI uri = URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json");
+    HttpRequest request = HttpRequest.newBuilder().uri(uri).GET().build();
 
-  
+    // Liste des clients à essayer dans l'ordre
+    HttpClient[] clients = {
+        HttpClient.newHttpClient(), 
+        HttpClient.newBuilder()
+            .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
+            .build()
+    };
 
-        HttpRequest request = HttpRequest.newBuilder()
-        .uri(URI.create("https://carto.g-ny.eu/data/cifs/cifs_waze_v2.json"))
-        .GET()
-        .build();
-    
+    // Envoyer la requête et gérer les erreurs
+    for (HttpClient client : clients) {
+        try {
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-    // 3. Envoyer la requête et gérer les erreurs
-    try {
-      HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-      JSONObject responseJSON = new JSONObject();
-
-      if (response.statusCode() == 200) {
-        responseJSON.put("status", true);
-        responseJSON.put("message", response.body());
-        return responseJSON.toString();
-      } else {
-        responseJSON.put("status", false);
-        responseJSON.put("message", response.statusCode());
-        return responseJSON.toString();
-      }
-    } catch (IOException | InterruptedException e) {
-      // 1. On avertit l'utilisateur avec un message clair
-      System.err.println("Erreur : Impossible de récupérer les données des restaurants.");
-
-      System.err.println("Détail technique : " + e.getMessage());
-
-      if (e instanceof InterruptedException) {
-        Thread.currentThread().interrupt(); // Restaure le statut d'interruption
-      }
+            JSONObject responseJSON = new JSONObject();
+            if (response.statusCode() == 200) {
+                responseJSON.put("status", true);
+                responseJSON.put("message", response.body());
+                return responseJSON.toString();
+            } else {
+                responseJSON.put("status", false);
+                responseJSON.put("message", "Statut HTTP : " + response.statusCode());
+                return responseJSON.toString();
+            }
+        } catch (IOException | InterruptedException e) {
+            System.err.println("Tentative échouée (" + e.getClass().getSimpleName() + ") : " + e.getMessage());
+            if (e instanceof InterruptedException) Thread.currentThread().interrupt();
+            // continue avec le prochain client
+        }
     }
-    return null;
-  }
+    JSONObject err = new JSONObject();
+    err.put("status", false);
+    err.put("message", "Impossible de contacter l'API Waze (ni en direct, ni via proxy IUT).");
+    return err.toString();
+}
 }
