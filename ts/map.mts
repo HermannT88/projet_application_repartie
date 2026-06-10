@@ -7,7 +7,7 @@ declare const L: typeof import('leaflet');
 import { Station, StationStatus, WazeIncident, Restaurant, VILLES } from "./config.mjs";
 import { getStatus } from "./api_velib.mjs";
 import Handlebars from "handlebars";
-import { reserverTable } from "./api_restaurants.mjs";
+import { getReservations, getRestaurants, reserverTable } from "./api_restaurants.mjs";
 let template = document.getElementById("reservationModal");
 
 
@@ -103,9 +103,9 @@ export function addRestaurant(restaurant: Restaurant) {
     ${restaurant.adresse_restaurant}<br><br>
   `;
 
-  const btn = document.createElement("button");
-  btn.textContent = "Réserver";
-  btn.style.cssText = `
+    const btn = document.createElement("button");
+    btn.textContent = "Réserver";
+    btn.style.cssText = `
     margin-top:6px;
     padding:5px 10px;
     background:#e74c3c;
@@ -115,9 +115,9 @@ export function addRestaurant(restaurant: Restaurant) {
     cursor:pointer;
   `;
 
-  btn.addEventListener("click", () => openReservation(restaurant.id_restaurant,restaurant.nom_restaurant));
-  popupContent.appendChild(btn);
-  marker.bindPopup(popupContent);
+    btn.addEventListener("click", () => openReservation(restaurant.id_restaurant, restaurant.nom_restaurant));
+    popupContent.appendChild(btn);
+    marker.bindPopup(popupContent);
 
 }
 
@@ -137,11 +137,11 @@ let currentRestaurantId: number | null = null;
 
 export function initReservationModal() {
 
-  const confirmBtn = document.getElementById("confirmRes")!;
-  const cancelBtn = document.getElementById("cancelRes")!;
+    const confirmBtn = document.getElementById("confirmRes")!;
+    const cancelBtn = document.getElementById("cancelRes")!;
 
-  confirmBtn.addEventListener("click", submitReservation);
-  cancelBtn.addEventListener("click", closeReservation);
+    confirmBtn.addEventListener("click", submitReservation);
+    cancelBtn.addEventListener("click", closeReservation);
 
 }
 
@@ -158,7 +158,7 @@ export function openReservation(id: number, nomResto: string) {
     // Equivalent de handlebars
 
     const title = modal?.querySelector("h2");
-    if (title){ 
+    if (title) {
         title.textContent = nomResto
     };
 
@@ -166,21 +166,21 @@ export function openReservation(id: number, nomResto: string) {
 }
 
 export function closeReservation() {
-  const modal = document.getElementById("reservationModal") as HTMLElement;
-  modal.classList.toggle("hidden");
+    const modal = document.getElementById("reservationModal") as HTMLElement;
+    modal.classList.toggle("hidden");
 }
 
 // Envoyer le contenu du formulaire
 
 async function submitReservation() {
 
-  const nom    = (document.getElementById("resName")   as HTMLInputElement).value;
-  const prenom = (document.getElementById("resPrenom") as HTMLInputElement).value;
-  const clients = (document.getElementById("resPeople") as HTMLInputElement).value;
-  const date   = (document.getElementById("resDate")   as HTMLInputElement).value;
-  const tel    = (document.getElementById("resTel")    as HTMLInputElement).value;
+    const nom = (document.getElementById("resName") as HTMLInputElement).value;
+    const prenom = (document.getElementById("resPrenom") as HTMLInputElement).value;
+    const clients = (document.getElementById("resPeople") as HTMLInputElement).value;
+    const date = (document.getElementById("resDate") as HTMLInputElement).value;
+    const tel = (document.getElementById("resTel") as HTMLInputElement).value;
 
-  if (!currentRestaurantId) return;
+    if (!currentRestaurantId) return;
 
     const result = await reserverTable(
         currentRestaurantId,
@@ -191,11 +191,58 @@ async function submitReservation() {
         date
     );
 
-     if (result === null) {
+    if (result === null) {
         alert("Serveur injoignable.");
-    } else{
+    } else {
         alert(result.message);
     }
+}
+
+
+async function afficherReservation(idResto?: number) {
+    if (idResto) {
+
+    }
+}
+
+export async function initSidebar() {
+
+    // On crée une dropdown pour choisir les restaurants
+    const dropdown = document.getElementById("restoSelect") as HTMLSelectElement;
+
+    // Remplir la dropdown avec les restaurants
+    const data = await getRestaurants();
+    data.restaurants.forEach(resto => {
+        const option = document.createElement("option");
+        // On va afficher les restaurants mais on voudra leur id
+        option.value = String(resto.id_restaurant);
+        option.textContent = resto.nom_restaurant;
+        dropdown.appendChild(option);
+    });
+
+    // Charger les réservations quand on change de restaurant
+    dropdown.addEventListener("change", async () => {
+        const idResto = parseInt(dropdown.value);
+        if (isNaN(idResto)){
+            return;
+        }
+
+        const result = await getReservations(idResto);
+        const liste = document.getElementById("listeReservation")!;
+        liste.innerHTML = "";
+
+        if (result.status && result.message.length > 0) {
+            result.message.forEach((res: any) => {
+                const li = document.createElement("li");
+                li.innerHTML = `<b>${res.nom_client} ${res.prenom_client}</b><br>
+                                Table ${res.id_table} — ${res.nb_convives} pers.<br>
+                                ${res.debut} → ${res.fin}`;
+                liste.appendChild(li);
+            });
+        } else {
+            liste.innerHTML = "<li>Aucune réservation.</li>";
+        }
+    });
 }
 
 // Méthode pour vider la carte

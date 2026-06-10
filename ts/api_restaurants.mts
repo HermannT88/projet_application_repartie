@@ -1,4 +1,4 @@
-import { RestaurantResponse, RetourRestaurant } from "./config.mjs";
+import { RestaurantResponse, RetourReservations, RetourRestaurant } from "./config.mjs";
 
 const DIRECT_URL = "http://localhost:8080";
 const PROXY_IUT_URL = "http://IP_DE_LA_MACHINE_IUT:8080";
@@ -56,4 +56,24 @@ export async function reserverTable(idResto: number,nom: string,prenom: string,n
 
     console.error("Erreur : Impossible d'effectuer la réservation sur aucune des URLs.");
     throw new Error;
+}
+
+export async function getReservations(idResto: number): Promise<RetourReservations> {
+    const baseUrls = [DIRECT_URL, PROXY_IUT_URL];
+    for (const baseUrl of baseUrls) {
+        try {
+            const response = await fetch(baseUrl + "/reservations", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ idResto })
+            });
+            if (response.ok) {
+                const data : RetourReservations = await response.json();
+                return data;
+            }
+        } catch (error) {
+            console.warn(`Échec de la connexion à ${baseUrl}. Raison :`, error);
+        }
+    }
+    throw new Error("Impossible de récupérer les réservations.");
 }

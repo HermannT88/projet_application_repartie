@@ -37,4 +37,5 @@ public interface ServiceInterface extends Remote {
      */
     public String reserverTable(int id, String nom, String prenom, int nbClients, String telephonne, LocalDateTime date) throws RemoteException;
 
+    public String recupererReservations(int idResto) throws RemoteException;
 }

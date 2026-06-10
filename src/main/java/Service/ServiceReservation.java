@@ -437,4 +437,67 @@ public class ServiceReservation implements ServiceInterface {
         ps.executeBatch();
         ps.close();
     }
+
+    public String recupererReservations(int idResto) throws RemoteException {
+        String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
+        JSONArray reservationsArray = new JSONArray();
+        JSONObject response = new JSONObject();
+
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
+
+
+            // Soit on cherhce toutes les reservations soit celle relative au restaurant
+
+            String sql;
+            if (idResto != -1) {
+                sql = "SELECT r.id_res, r.id_table, r.nom_client, r.nb_convives, "
+                        + "TO_CHAR(r.dates, 'DD/MM/YYYY HH24:MI') as debut, "
+                        + "TO_CHAR(r.dates_fin, 'DD/MM/YYYY HH24:MI') as fin "
+                        + "FROM reservation r "
+                        + "JOIN table_restau t ON r.id_table = t.id_table "
+                        + "WHERE t.id_restaurant = ?";
+            } else {
+                sql = "SELECT r.id_res, r.id_table, r.nom_client, r.nb_convives, "
+                        + "TO_CHAR(r.dates, 'DD/MM/YYYY HH24:MI') as debut, "
+                        + "TO_CHAR(r.dates_fin, 'DD/MM/YYYY HH24:MI') as fin "
+                        + "FROM reservation r";
+            }
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            // On set l'attribut ou non
+
+            if (idResto != -1) {
+                ps.setInt(1, idResto);
+            }
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                JSONObject res = new JSONObject();
+                res.put("id_res", rs.getInt("id_res"));
+                res.put("id_table", rs.getInt("id_table"));
+                res.put("nom_client", rs.getString("nom_client"));
+                res.put("nb_convives", rs.getInt("nb_convives"));
+                res.put("debut", rs.getString("debut"));
+                res.put("fin", rs.getString("fin") != null ? rs.getString("fin") : "En cours");
+                reservationsArray.put(res);
+            }
+
+            rs.close();
+            ps.close();
+            connection.close();
+
+            response.put("status", true);
+            response.put("message", reservationsArray);
+            return response.toString();
+
+        } catch (ClassNotFoundException | SQLException e) {
+            response.put("status", false);
+            response.put("message", "Erreur : " + e.getMessage());
+            return response.toString();
+        }
+    }
+
 }

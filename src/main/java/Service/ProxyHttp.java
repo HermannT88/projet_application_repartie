@@ -93,6 +93,36 @@ public class ProxyHttp {
                 sendJson(exchange, json);
             });
 
+            // Route pour récupérer les réservations
+            server.createContext("/reservations", (HttpExchange exchange) -> {
+
+                if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+                    sendJson(exchange, "{}");
+                    return;
+                }
+
+                String json;
+                try {
+                    Registry reg = LocateRegistry.getRegistry(rmiHost, 1099);
+                    ServiceInterface svc = (ServiceInterface) reg.lookup("reservation");
+
+                    // On va pouvoir récupérer l'id du restaurant ou non
+                    String body = new String(exchange.getRequestBody().readAllBytes(), "UTF-8");
+
+                    if (body.isEmpty()) {
+                        json = svc.recupererReservations(-1);
+                    } else {
+                        org.json.JSONObject params = new org.json.JSONObject(body);
+                        json = svc.recupererReservations(params.getInt("idResto"));
+                    }
+
+                } catch (Exception e) {
+                    json = "{\"status\":false,\"message\":\"Erreur RMI reservations : " + e.getMessage() + "\"}";
+                    System.err.println("Erreur /reservations : " + e.getMessage());
+                }
+                sendJson(exchange, json);
+            });
+
             // Démarre avec un thread pool par défaut
             server.setExecutor(null);
             server.start();

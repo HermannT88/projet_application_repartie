@@ -14,7 +14,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-<script type="module" src="../js/restaurantmap.js"></script>
+    <script type="module" src="../js/restaurantmap.js"></script>
 </head>
 
 <body>
@@ -26,25 +26,26 @@
     </main>
 
     <div id="reservationModal" class="reservation-modal hidden">
-  <div class="reservation-box">
-    <h2>{{nomResto}}</h2>
+        <div class="reservation-box">
+            <h2>{{nomResto}}</h2>
 
-    <input id="resName" placeholder="Nom" />
-    <input id="resPrenom" placeholder="Prenom" />
-    <input id="resPeople" type="number" placeholder="Personnes" />
-    <input id="resTel" type="tel" placeholder="Telephones" />
-    <input id="resDate" type="datetime-local" />
+            <input id="resName" placeholder="Nom" />
+            <input id="resPrenom" placeholder="Prenom" />
+            <input id="resPeople" type="number" placeholder="Personnes" />
+            <input id="resTel" type="tel" placeholder="Telephones" />
+            <input id="resDate" type="datetime-local" />
 
-    <button id="confirmRes">Confirmer</button>
-    <button id="cancelRes">Annuler</button>
-  </div>
-</div>
+            <button id="confirmRes">Confirmer</button>
+            <button id="cancelRes">Annuler</button>
+        </div>
+    </div>
     <div id="sidebar">
         <h3>Réservations</h3>
-        <ul>
-            <li>todo 1</li>
-            <li>todo 2</li>
-            <li>todo 3</li>
+        <select id="restoSelect">
+            <option value="">-- Choisir un restaurant --</option>
+        </select>
+        <ul id=listeReservation>
+
         </ul>
     </div>
 

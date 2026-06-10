@@ -161,3 +161,18 @@ export interface RetourRestaurant{
   status : boolean,
   message : Restaurant[];
 }
+
+// Interface pour les reservations
+export interface Reservation{
+  id_res : number,
+  id_table : number,
+  nom_client : string,
+  nb_convives : number,
+  debut : string,
+  fin : string,
+}
+
+export interface RetourReservations{
+  status : boolean,
+  message : Reservation[];
+}
