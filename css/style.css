@@ -23,7 +23,6 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    gap: 1.5rem;
     height: 70px;
     margin-bottom: 5px;
 }
@@ -45,9 +44,206 @@
 body {
     margin: 0;
     font-family: system-ui, -apple-system, sans-serif;
-    background-color: #f3f4f6;
+    background-color: #ffffff;
 }
 
 main {
     margin: 20px;
+    flex: 1;
 }
+
+.footer {
+    background: #48516e;
+    color: #f0f0f0;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+#big_title {
+    color: #2f3e5f;
+    margin-top: 10px;
+}
+
+.container_big {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+    background: #c2d0a7;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+.container_big img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.container_big h3 {
+    margin-top: 0;
+    color: #2f3e5f;
+}
+
+.container_big ul {
+    margin-top: 10px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.container_big li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+}
+
+.container_big li::before {
+    content: "➜"; 
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #2f3e5f;
+    font-weight: bold;
+}
+/* =========================================
+   LAYOUT PAGE VÉLIB
+========================================= */
+
+.velib-layout {
+    display: flex;
+    gap: 1rem;
+    height: calc(100vh - 90px); /* 90px = hauteur navbar */
+}
+
+#map {
+    flex: 1;
+    height: 100%;
+    width: 100%;
+}
+
+city-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 220px;
+    flex-shrink: 0;
+    overflow-y: auto;
+}
+
+.city-card {
+    background: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+}
+
+.city-card:hover {
+    border-color: #aaaaaa;
+}
+
+.city-card.active {
+    border-color: #000000;
+}
+
+.city-card b {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.city-card p {
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+#sidebar-toggle {
+    position: fixed;
+    right: 0;
+    top: 20%;
+    transform: translateY(-50%);
+    background: #2f3e5f;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 8px 0 0 8px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 10000;
+}
+
+#sidebar-toggle:hover {
+    background: #48516e;
+}
+
+#sidebar {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: #2f3e5f;
+    color: white;
+    padding: 20px;
+    z-index: 5000;
+}
+
+#sidebar.open {
+    right: 0;
+}
+
+#sidebar.open + #sidebar-toggle{
+    right: 290px;
+}
+
+#sidebar h3 {
+    margin-top: 70px;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+#sidebar li {
+    margin: 15px 0;
+}
+.city-card i {
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+main p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    background-color: #daf1dc;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+main h3 {
+    color: #2f3e5f;
+    margin-top: 2.5rem;
+    margin-bottom: 0.8rem;
+}
+
+main h5 {
+    color: #48516e;
+    font-size: 1.05rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+

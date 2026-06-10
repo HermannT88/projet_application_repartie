@@ -4,7 +4,7 @@
 
 declare const L: typeof import('leaflet');
 
-import { Station, StationStatus, WazeIncident, Restaurant } from "./config.mjs";
+import { Station, StationStatus, WazeIncident, Restaurant, VILLES } from "./config.mjs";
 import { getStatus } from "./api_velib.mjs";
 
 
@@ -30,13 +30,17 @@ function getMap(): L.Map {
 // Fonction d'ajout de point cercle etc.. sur la carte
 //=============================================
 
+// Liste des markers sur la carte
+let markers: L.Marker[] = [];
+
 // Ajout d'une station de vélib sur la carte avec sa description
-export async function addVelibStation(station: Station) {
+export async function addVelibStation(station: Station, ville: VILLES) {
 
     const m = getMap();
     var marker = L.marker([station.lat, station.lon]).addTo(m);
+    markers.push(marker);
 
-    var status = await getStatus(station);
+    var status = await getStatus(station, ville);
 
     if (status) {
         var text = "<b>" + station.name + "</b>"
@@ -63,6 +67,7 @@ export function addIncident(incident: WazeIncident) {
         const lon = parseFloat(coords[1]);
 
         var marker = L.marker([lat, lon]).addTo(m);
+        markers.push(marker);
 
         const type = incident.short_description || incident.type;
         const rue = incident.location.street || incident.location.location_description;
@@ -74,7 +79,7 @@ export function addIncident(incident: WazeIncident) {
     }
 }
 
-// Ajout un restaurant sur la cart avec sa description 
+// Ajout un restaurant sur la carte avec sa description 
 export function addRestaurant(restaurant: Restaurant) {
 
         const m = getMap();
@@ -85,10 +90,26 @@ export function addRestaurant(restaurant: Restaurant) {
 
         var marker = L.marker([lat, lon]).addTo(m);
 
+        markers.push(marker);
+
         const nom = restaurant.nom_restaurant;
         const adresse = restaurant.adresse_restaurant;
 
         var text = `<b>${nom}</b><br>${adresse}<br>`;
         
         marker.bindPopup(text);
+}
+
+// Méthode pour vider la carte
+export function clearMap() {
+    for (const marker of markers) {
+        marker.remove();
+    }
+    markers = [];
+}
+
+// Méthode pour centrer la mpa sur des coordonées
+export function centerMap(lat: number, lon: number) {
+    const m = getMap();
+    m.setView([lat, lon], 12);
 }
