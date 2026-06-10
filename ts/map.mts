@@ -167,7 +167,14 @@ export function openReservation(id: number, nomResto: string) {
 
 export function closeReservation() {
     const modal = document.getElementById("reservationModal") as HTMLElement;
-    modal.classList.toggle("hidden");
+    modal.classList.add("hidden");
+
+    // Vider les champs
+    (document.getElementById("resName") as HTMLInputElement).value = "";
+    (document.getElementById("resPrenom") as HTMLInputElement).value = "";
+    (document.getElementById("resPeople") as HTMLInputElement).value = "";
+    (document.getElementById("resTel") as HTMLInputElement).value = "";
+    (document.getElementById("resDate") as HTMLInputElement).value = "";
 }
 
 // Envoyer le contenu du formulaire
@@ -196,6 +203,7 @@ async function submitReservation() {
     } else {
         alert(result.message);
     }
+    closeReservation();
 }
 
 
