@@ -1,5 +1,5 @@
 #map {
-    height: 600px;
+    height: 570px;
     width: 100%;
 }
 
@@ -235,12 +235,6 @@ main {
     display: flex;
     gap: 1rem;
     height: calc(100vh - 90px); /* 90px = hauteur navbar */
-}
-
-#map {
-    flex: 1;
-    height: 100%;
-    width: 100%;
 }
 
 city-cards {

@@ -1,10 +1,8 @@
-import { RestaurantResponse, RetourReservations, RetourRestaurant } from "./config.mjs";
-
+import { PROXY_URL, RetourReservations, RetourRestaurant } from "./config.mjs";
 const DIRECT_URL = "http://localhost:8080";
-const PROXY_IUT_URL = "http://IP_DE_LA_MACHINE_IUT:8080";
 
-export async function getRestaurants(): Promise<RestaurantResponse>{
-    const baseUrls = [DIRECT_URL, PROXY_IUT_URL];
+export async function getRestaurants(){
+    const baseUrls = [DIRECT_URL, PROXY_URL];
 
     for (const baseUrl of baseUrls) {
         try {
@@ -31,7 +29,7 @@ export async function getRestaurants(): Promise<RestaurantResponse>{
 
 export async function reserverTable(idResto: number,nom: string,prenom: string,nbClients: number,telephone: string,date: string): Promise<{ status: boolean; message: string }> {
 
-    const baseUrls = [DIRECT_URL, PROXY_IUT_URL];
+    const baseUrls = [DIRECT_URL, PROXY_URL];
 
     for (const baseUrl of baseUrls) {
         try {
@@ -59,7 +57,7 @@ export async function reserverTable(idResto: number,nom: string,prenom: string,n
 }
 
 export async function getReservations(idResto: number): Promise<RetourReservations> {
-    const baseUrls = [DIRECT_URL, PROXY_IUT_URL];
+    const baseUrls = [DIRECT_URL, PROXY_URL];
     for (const baseUrl of baseUrls) {
         try {
             const response = await fetch(baseUrl + "/reservations", {

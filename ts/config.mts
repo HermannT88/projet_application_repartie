@@ -46,7 +46,7 @@ export const VILLES_COORDONEES: Record<VILLES, [number, number]> = {
 }
 
 // IP de la machine de l'IUT
-export const PROXY_URL = "http://IP_MACHINE_PROXY:8080";
+export const PROXY_URL = "http://100.64.80.214:8080";
 
 //=============================================
 // Interfaces pour cast les retours JSON
