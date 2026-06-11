@@ -37,12 +37,16 @@ public class ServiceWaze implements ServiceWazeInterface {
 
     // Liste des clients à essayer dans l'ordre
     HttpClient[] clients = {
-        HttpClient.newHttpClient(), 
-        HttpClient.newBuilder()
-            .connectTimeout(Duration.ofSeconds(10))
-            .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
-            .build()
-    };
+    HttpClient.newBuilder()
+        .connectTimeout(Duration.ofSeconds(10))
+        .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
+        .build(),
+
+    HttpClient.newBuilder()
+        .connectTimeout(Duration.ofSeconds(10))
+        .build()
+};
+
 
     // Envoyer la requête et gérer les erreurs
     for (HttpClient client : clients) {
