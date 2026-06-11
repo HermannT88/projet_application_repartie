@@ -39,7 +39,7 @@ public class ServiceWaze implements ServiceWazeInterface {
     HttpClient[] clients = {
         HttpClient.newHttpClient(), 
         HttpClient.newBuilder()
-            .connectTimeout(Duration.ofSeconds(3))
+            .connectTimeout(Duration.ofSeconds(10))
             .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
             .build()
     };
