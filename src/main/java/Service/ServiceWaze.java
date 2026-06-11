@@ -8,6 +8,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.rmi.RemoteException;
+import java.time.Duration;
 
 import org.json.JSONObject;
 
@@ -38,6 +39,7 @@ public class ServiceWaze implements ServiceWazeInterface {
     HttpClient[] clients = {
         HttpClient.newHttpClient(), 
         HttpClient.newBuilder()
+            .connectTimeout(Duration.ofSeconds(3))
             .proxy(ProxySelector.of(new InetSocketAddress("www-cache", 3128)))
             .build()
     };
