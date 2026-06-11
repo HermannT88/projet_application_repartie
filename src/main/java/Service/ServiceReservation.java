@@ -77,9 +77,11 @@ public class ServiceReservation implements ServiceInterface {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             System.out.println("Driver loaded");
+            DriverManager.setLoginTimeout(10);
             Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
             System.out.println("Database connected");
             Statement statement = connection.createStatement();
+            statement.setQueryTimeout(10);
 
             ResultSet restaurants = statement.executeQuery("select id_restaurant, nom_restaurant, adresse_restaurant, coord_GPS from restaurant");
             while (restaurants.next()) {
@@ -129,6 +131,7 @@ public class ServiceReservation implements ServiceInterface {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
+            DriverManager.setLoginTimeout(10);
             try (Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "")) {
                 connection.setAutoCommit(false);
 
@@ -256,6 +259,7 @@ public class ServiceReservation implements ServiceInterface {
         // Connexion à la bd
         Class.forName("oracle.jdbc.driver.OracleDriver");
         System.out.println("Driver loaded");
+        DriverManager.setLoginTimeout(10);
         Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
         System.out.println("Database connected");
 
@@ -369,6 +373,7 @@ public class ServiceReservation implements ServiceInterface {
         String sql = "INSERT INTO restaurant (id_restaurant, nom_restaurant, adresse_restaurant, coord_gps) VALUES (?, ?, ?, ?) ";
 
         PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setQueryTimeout(10);
 
         int id = 1;
 
@@ -412,6 +417,7 @@ public class ServiceReservation implements ServiceInterface {
 
         String sql = "INSERT INTO table_restau (id_table, id_restaurant, capacite) VALUES (?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setQueryTimeout(10);
 
         int idTable = 1;
         int[] capacitesPossibles = {2, 4, 6};
@@ -445,6 +451,7 @@ public class ServiceReservation implements ServiceInterface {
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
+            DriverManager.setLoginTimeout(10);
             Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
 
 
@@ -466,6 +473,7 @@ public class ServiceReservation implements ServiceInterface {
             }
 
             PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setQueryTimeout(10);
 
             // On set l'attribut ou non
 
