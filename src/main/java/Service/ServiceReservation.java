@@ -47,7 +47,7 @@ public class ServiceReservation implements ServiceInterface {
      * identifiants de connexion Oracle.
      *
      * @param args Les arguments passés à la ligne de commande (nom
-     * d'utilisateur et mot de passe DB).
+     *             d'utilisateur et mot de passe DB).
      */
     public ServiceReservation(String[] args) {
         this.args = args != null ? args.clone() : new String[0];
@@ -65,11 +65,12 @@ public class ServiceReservation implements ServiceInterface {
      * requête SELECT.
      *
      * @return Chaîne JSON contenant la liste des restaurants ou un message
-     * d'erreur si la connexion échoue.
+     *         d'erreur si la connexion échoue.
      * @throws RemoteException En cas de problème de communication RMI.
      */
     @Override
     public String recupererDonnees() throws RemoteException {
+        System.out.println("=> [ServiceReservation] Quelqu'un veut récupérer les données des restaurants");
         String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
         JSONArray restaurantsArray = new JSONArray();
         JSONObject response = new JSONObject();
@@ -78,12 +79,14 @@ public class ServiceReservation implements ServiceInterface {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             System.out.println("Driver loaded");
             DriverManager.setLoginTimeout(10);
-            Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
+            Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "",
+                    args.length >= 2 ? args[1] : "");
             System.out.println("Database connected");
             Statement statement = connection.createStatement();
             statement.setQueryTimeout(10);
 
-            ResultSet restaurants = statement.executeQuery("select id_restaurant, nom_restaurant, adresse_restaurant, coord_GPS from restaurant");
+            ResultSet restaurants = statement.executeQuery(
+                    "select id_restaurant, nom_restaurant, adresse_restaurant, coord_GPS from restaurant");
             while (restaurants.next()) {
 
                 JSONObject reponse = new JSONObject();
@@ -115,29 +118,33 @@ public class ServiceReservation implements ServiceInterface {
      * une recherche avec verrouillage concurrent (SELECT FOR UPDATE SKIP
      * LOCKED) puis insère une ligne dans la table RESERVATION.
      *
-     * @param idResto L'identifiant du restaurant ciblé.
-     * @param nom Le nom du client effectuant la réservation.
-     * @param prenom Le prénom du client effectuant la réservation.
-     * @param nbClients Le nombre de convives pour la réservation.
+     * @param idResto    L'identifiant du restaurant ciblé.
+     * @param nom        Le nom du client effectuant la réservation.
+     * @param prenom     Le prénom du client effectuant la réservation.
+     * @param nbClients  Le nombre de convives pour la réservation.
      * @param telephonne Le numéro de téléphone de contact du client.
-     * @param date La date prévue pour la réservation.
+     * @param date       La date prévue pour la réservation.
      * @return Chaîne JSON indiquant si la réservation a réussi ou échoué.
      * @throws RemoteException En cas de problème de communication RMI.
      */
     @Override
-    public String reserverTable(int idResto, String nom, String prenom, int nbClients, String telephonne, LocalDateTime date) throws RemoteException {
+    public String reserverTable(int idResto, String nom, String prenom, int nbClients, String telephonne,
+            LocalDateTime date) throws RemoteException {
+        System.out.println("=> [ServiceReservation] Appel RMI : reserverTable(idResto=" + idResto + ", client=" + nom
+                + " " + prenom + ")");
         String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
         JSONObject response = new JSONObject();
 
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             DriverManager.setLoginTimeout(10);
-            try (Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "")) {
+            try (Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "",
+                    args.length >= 2 ? args[1] : "")) {
                 connection.setAutoCommit(false);
 
-                // 1. Rechercher une table disponible avec un verrouillage temporaire pour éviter les conflits
-                String findTableSql
-                        = "SELECT t.id_table "
+                // 1. Rechercher une table disponible avec un verrouillage temporaire pour
+                // éviter les conflits
+                String findTableSql = "SELECT t.id_table "
                         + "FROM table_restau t "
                         + "WHERE t.id_restaurant = ? "
                         + "  AND t.capacite >= ? "
@@ -229,14 +236,15 @@ public class ServiceReservation implements ServiceInterface {
 
             JSONObject restaurant = new JSONObject();
 
-            // On utilise optString poru récupèrer les éléments voulu 
+            // On utilise optString poru récupèrer les éléments voulu
             restaurant.put("id", i + 1);
             restaurant.put("nom", properties.optString("name", "Sans nom"));
             restaurant.put("longitude", coordinates.getDouble(0));
             restaurant.put("latitude", coordinates.getDouble(1));
 
             // Parfois c'est adr et parfois c'est contact
-            restaurant.put("numero", properties.optString("addr:housenumber", properties.optString("contact:housenumber", "")));
+            restaurant.put("numero",
+                    properties.optString("addr:housenumber", properties.optString("contact:housenumber", "")));
             restaurant.put("rue", properties.optString("addr:street", properties.optString("contact:street", "")));
 
             // Ajout des propriétés optionnelles si présentes
@@ -260,7 +268,8 @@ public class ServiceReservation implements ServiceInterface {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         System.out.println("Driver loaded");
         DriverManager.setLoginTimeout(10);
-        Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
+        Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "",
+                args.length >= 2 ? args[1] : "");
         System.out.println("Database connected");
 
         try {
@@ -312,56 +321,56 @@ public class ServiceReservation implements ServiceInterface {
         Statement st = connection.createStatement();
 
         st.executeUpdate("""
-        CREATE TABLE restaurant (
-            id_restaurant NUMBER(4),
-            nom_restaurant VARCHAR2(50),
-            adresse_restaurant VARCHAR2(80),
-            coord_gps VARCHAR2(50),
-            PRIMARY KEY(id_restaurant)
-        )
-    """);
+                    CREATE TABLE restaurant (
+                        id_restaurant NUMBER(4),
+                        nom_restaurant VARCHAR2(50),
+                        adresse_restaurant VARCHAR2(80),
+                        coord_gps VARCHAR2(50),
+                        PRIMARY KEY(id_restaurant)
+                    )
+                """);
 
         st.executeUpdate("""
-        CREATE TABLE table_restau (
-            id_table NUMBER(4),
-            id_restaurant NUMBER(4),
-            capacite NUMBER(2),
-            PRIMARY KEY(id_table),
-            CONSTRAINT fk_table_restau
-            FOREIGN KEY (id_restaurant)
-            REFERENCES restaurant(id_restaurant)
-        )
-    """);
+                    CREATE TABLE table_restau (
+                        id_table NUMBER(4),
+                        id_restaurant NUMBER(4),
+                        capacite NUMBER(2),
+                        PRIMARY KEY(id_table),
+                        CONSTRAINT fk_table_restau
+                        FOREIGN KEY (id_restaurant)
+                        REFERENCES restaurant(id_restaurant)
+                    )
+                """);
 
         st.executeUpdate("""
-        CREATE TABLE reservation (
-            id_res NUMBER(4),
-            id_table NUMBER(4),
-            nom_client VARCHAR2(40),
-            prenom_client VARCHAR2(40),
-            nb_convives NUMBER(2),
-            telephone VARCHAR2(15),
-            dates DATE,
-            dates_fin DATE,
-            montant NUMBER(3),
-            PRIMARY KEY(id_res),
-            CONSTRAINT fk_res_table FOREIGN KEY (id_table)
-            REFERENCES table_restau(id_table)
-        )
-    """);
+                    CREATE TABLE reservation (
+                        id_res NUMBER(4),
+                        id_table NUMBER(4),
+                        nom_client VARCHAR2(40),
+                        prenom_client VARCHAR2(40),
+                        nb_convives NUMBER(2),
+                        telephone VARCHAR2(15),
+                        dates DATE,
+                        dates_fin DATE,
+                        montant NUMBER(3),
+                        PRIMARY KEY(id_res),
+                        CONSTRAINT fk_res_table FOREIGN KEY (id_table)
+                        REFERENCES table_restau(id_table)
+                    )
+                """);
 
         st.executeUpdate("""
-        CREATE TABLE plat (
-            id_plat NUMBER(4),
-            id_res NUMBER(4),
-            libelle_plat VARCHAR2(40),
-            prix_unitaire NUMBER(2),
-            quantite_stockee NUMBER(4),
-            PRIMARY KEY(id_plat),
-            CONSTRAINT fk_res_plat FOREIGN KEY (id_res)
-            REFERENCES reservation(id_res)
-        )
-    """);
+                    CREATE TABLE plat (
+                        id_plat NUMBER(4),
+                        id_res NUMBER(4),
+                        libelle_plat VARCHAR2(40),
+                        prix_unitaire NUMBER(2),
+                        quantite_stockee NUMBER(4),
+                        PRIMARY KEY(id_plat),
+                        CONSTRAINT fk_res_plat FOREIGN KEY (id_res)
+                        REFERENCES reservation(id_res)
+                    )
+                """);
 
         st.executeUpdate(" CREATE SEQUENCE seq_restaurant START WITH 200 INCREMENT BY 1");
 
@@ -420,7 +429,7 @@ public class ServiceReservation implements ServiceInterface {
         ps.setQueryTimeout(10);
 
         int idTable = 1;
-        int[] capacitesPossibles = {2, 4, 6};
+        int[] capacitesPossibles = { 2, 4, 6 };
 
         for (int i = 0; i < restaurants.length(); i++) {
 
@@ -445,6 +454,7 @@ public class ServiceReservation implements ServiceInterface {
     }
 
     public String recupererReservations(int idResto) throws RemoteException {
+        System.out.println("=> [ServiceReservation] Appel RMI : recupererReservations(idResto=" + idResto + ")");
         String url = "jdbc:oracle:thin:@charlemagne.iutnc.univ-lorraine.fr:1521:infodb";
         JSONArray reservationsArray = new JSONArray();
         JSONObject response = new JSONObject();
@@ -452,8 +462,8 @@ public class ServiceReservation implements ServiceInterface {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             DriverManager.setLoginTimeout(10);
-            Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "", args.length >= 2 ? args[1] : "");
-
+            Connection connection = DriverManager.getConnection(url, args.length >= 2 ? args[0] : "",
+                    args.length >= 2 ? args[1] : "");
 
             // Soit on cherhce toutes les reservations soit celle relative au restaurant
 

@@ -28,17 +28,18 @@ public class ProxyHttp {
             System.err.println("Exemple : java Service.ProxyHttp 192.168.1.42 192.168.1.43 8080");
             System.exit(1);
         }
- 
-        String rmiHostRes  = args[0];
+
+        String rmiHostRes = args[0];
         String rmiHostWaze = args[1];
         int httpPort = Integer.parseInt(args[2]);
- 
+
         try {
             // Démarrage du serveur HTTP
             HttpServer server = HttpServer.create(new InetSocketAddress(httpPort), 0);
 
             // Route pour restaurants
             server.createContext("/restaurants", (HttpExchange exchange) -> {
+                System.out.println("Requête reçue : " + exchange.getRequestMethod() + " " + exchange.getRequestURI());
                 String json;
                 try {
                     Registry reg = LocateRegistry.getRegistry(rmiHostRes, 1099);
@@ -53,6 +54,7 @@ public class ProxyHttp {
 
             // Route pour incidents
             server.createContext("/incidents", (HttpExchange exchange) -> {
+                System.out.println("Requête reçue : " + exchange.getRequestMethod() + " " + exchange.getRequestURI());
                 String json;
                 try {
                     Registry reg = LocateRegistry.getRegistry(rmiHostWaze, 1099);
@@ -74,6 +76,7 @@ public class ProxyHttp {
                     return;
                 }
 
+                System.out.println("Requête reçue : " + exchange.getRequestMethod() + " " + exchange.getRequestURI());
                 String json;
                 String body = new String(exchange.getRequestBody().readAllBytes(), "UTF-8");
                 try {
@@ -86,8 +89,7 @@ public class ProxyHttp {
                             params.getString("prenom"),
                             params.getInt("nbClients"),
                             params.getString("telephone"),
-                            java.time.LocalDateTime.parse(params.getString("date"))
-                    );
+                            java.time.LocalDateTime.parse(params.getString("date")));
                 } catch (Exception e) {
                     json = "{\"status\":false,\"message\":\"Erreur : " + e.getMessage() + "\"}";
                 }
@@ -102,6 +104,7 @@ public class ProxyHttp {
                     return;
                 }
 
+                System.out.println("Requête reçue : " + exchange.getRequestMethod() + " " + exchange.getRequestURI());
                 String json;
                 try {
                     Registry reg = LocateRegistry.getRegistry(rmiHostRes, 1099);
@@ -131,12 +134,13 @@ public class ProxyHttp {
             System.out.println("Proxy HTTP démarré sur le port " + httpPort);
             System.out.println("  -> Restaurants  (RMI « reservation » sur " + rmiHostRes + ":1099)");
             System.out.println("  -> Incidents    (RMI « waze »        sur " + rmiHostWaze + ":1099)");
- 
+
             // Bloque le thread principal
             Thread.currentThread().join();
 
         } catch (IOException e) {
-            System.err.println("Impossible de démarrer le serveur HTTP sur le port " + httpPort + " : " + e.getMessage());
+            System.err
+                    .println("Impossible de démarrer le serveur HTTP sur le port " + httpPort + " : " + e.getMessage());
             e.printStackTrace();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
